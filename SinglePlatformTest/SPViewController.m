@@ -7,6 +7,8 @@
 //
 
 #import "SPViewController.h"
+#import <CommonCrypto/CommonHMAC.h>
+#import "NSData+Base64.h"
 
 @interface SPViewController ()
 
@@ -30,9 +32,23 @@
 }
 
 /* This method will sign the URL with the SigningKey and Client ID */
--(NSURL*)signURL:(NSString *)uriPath params:(NSArray *)parameters client:(NSString *)clientID secret:(NSString*)secret
+/*-(NSURL*)signURL:(NSString *)uriPath params:(NSArray *)parameters client:(NSString *)clientID secret:(NSString*)secret
 {
+   // int paddingFactor = (4 - [secret length] %4) % 4;
+    ///secret = [[NSString alloc] stringByAppendingString:@"="];
+}*/
+
+-(NSString *)encodeWithHmacsha1:(NSString *)secret
+{
+    const char *cKey = [secret cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cData = [secret cStringUsingEncoding: NSASCIIStringEncoding];
     
+    unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
+    
+    return [HMAC base64EncodedString];
 }
 
 
