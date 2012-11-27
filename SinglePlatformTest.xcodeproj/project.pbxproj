@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B84A3F616649736001A5DBF /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A3F516649736001A5DBF /* NSData+Base64.m */; };
+		5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */; };
+		5B84A42216651D4A001A5DBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A42116651D4A001A5DBF /* main.m */; };
 		8BEBB8BF1664259400782803 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8BE1664259400782803 /* UIKit.framework */; };
 		8BEBB8C11664259400782803 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C01664259400782803 /* Foundation.framework */; };
 		8BEBB8C31664259400782803 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
@@ -21,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMStringEncoding.h; path = ../GTMStringEncoding.h; sourceTree = "<group>"; };
+		5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMStringEncoding.m; path = ../GTMStringEncoding.m; sourceTree = "<group>"; };
+		5B84A42116651D4A001A5DBF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
+		5B84A42316651D5C001A5DBF /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = ../GTMDefines.h; sourceTree = "<group>"; };
 		8BEBB8BA1664259400782803 /* SinglePlatformTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinglePlatformTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEBB8BE1664259400782803 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BEBB8C01664259400782803 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,6 +62,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B84A3F21664971B001A5DBF /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				5B84A42316651D5C001A5DBF /* GTMDefines.h */,
+				5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */,
+				5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */,
+				5B84A3F416649731001A5DBF /* NSData+Base64.h */,
+				5B84A3F516649736001A5DBF /* NSData+Base64.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
 		8BEBB8AF1664259400782803 = {
 			isa = PBXGroup;
 			children = (
@@ -83,11 +104,13 @@
 		8BEBB8C41664259400782803 /* SinglePlatformTest */ = {
 			isa = PBXGroup;
 			children = (
+				5B84A42116651D4A001A5DBF /* main.m */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				8BEBB8D61664259400782803 /* SPViewController.h */,
 				8BEBB8D71664259400782803 /* SPViewController.m */,
 				8BEBB8D91664259400782803 /* SPViewController.xib */,
+				5B84A3F21664971B001A5DBF /* Base64 */,
 				8BEBB8C51664259400782803 /* Supporting Files */,
 			);
 			path = SinglePlatformTest;
@@ -177,6 +200,9 @@
 				8BEBB8CB1664259400782803 /* main.m in Sources */,
 				8BEBB8CF1664259400782803 /* SPAppDelegate.m in Sources */,
 				8BEBB8D81664259400782803 /* SPViewController.m in Sources */,
+				5B84A3F616649736001A5DBF /* NSData+Base64.m in Sources */,
+				5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */,
+				5B84A42216651D4A001A5DBF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +319,7 @@
 				8BEBB8E01664259400782803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
