@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPViewController : UIViewController
+@interface SPViewController : UIViewController <NSURLConnectionDelegate>
+{
+    NSURLConnection *connection;
+    NSMutableData *jsonData;
+    NSMutableData *restaurantData;
+}
+
+-(void)fetchForumsData;
+-(void)fetchRestaurantData;
 
 @end
