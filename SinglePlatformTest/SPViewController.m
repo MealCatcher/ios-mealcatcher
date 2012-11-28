@@ -20,7 +20,9 @@
 
 - (void)viewDidLoad
 {
-    [self fetchForumsData];
+    //[self fetchForumsData];
+    
+    [self fetchRestauransByZip: 94602];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -53,12 +55,47 @@
 }
 
 
--(void)fetchRestaurantData
+/* Method used to find restaurants by zip code
+ *
+ */
+-(void)fetchRestauransByZip:(NSInteger)zipCode
 {
-    //Create a new data container for the restaurant data that comes back
+    jsonData = [[NSMutableData alloc] init];
+    
+    NSLog(@"Zip Code: %d", zipCode);
+    
     restaurantData = [[NSMutableData alloc] init];
+    
+    NSURL *url1 = [NSURL URLWithString:@"http://api.singleplatform.co/restaurants/search?q=94602&page=0&count=10"];
+    NSURL *url2 = [NSURL URLWithString:@"http://api.singleplatform.co/restaurants/search?q=sidebar&page=0&count=10"];
+    NSURL *url = [NSURL URLWithString:@"http://api.singleplatform.co/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy"];
+    NSString* noSingUrl = @"http://api.singleplatform.co/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
+    
+    NSLog(@"URL Path: %@", [url path]);
+    NSLog(@"URL Path: %@", [url relativeString]);
+    NSLog(@"URL Path: %@", [url fragment]);
+    
+    NSString *host = @"http://api.singleplatform.co";
+    NSString *uri1 = @"/restaurants/search?q=94602&page=0&count=10";
+    NSString *uri = @"/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
+    
+    NSString *secret_key = @"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw";
+    NSString *clientID = @"coad3k62n95pi9sbybjydroxy";
+    
+    //restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy&sig=WP287B9XLhy42Q9X9JdXsJe41j0
+    NSString *signature = [self signURL:uri privateKey:secret_key];
+    NSLog(@"Signature: %@", signature);
+    
+    NSString *signedUrl = [noSingUrl stringByAppendingString:@"&sig=WP287B9XLhy42Q9X9JdXsJe41j0"];
+    NSURL *finalURL = [NSURL URLWithString:signedUrl];
+    
+    NSLog(@"Final URL: %@", finalURL);
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:finalURL];
+    
+    connection  = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    
 }
-
 
 -(void)fetchForumsData
 {
@@ -90,8 +127,8 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    //NSLog(@"jsonCheck = %@", jsonCheck);
+    //NSLog(@"Raw Data: %@", jsonData);
+    NSLog(@"jsonCheck = %@", jsonCheck);
 }
 
 -(void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
@@ -143,12 +180,21 @@
     // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
     NSString *signature = [encoding encode:binarySignature];
     
-    //TODO Still need to remove the = sign at the end of the generated signature
+    NSLog(@"Signature from method: %@", signature);
+    
+    //TODO This method needs refactoring to take into account the regular expression in the ruby code provided by SinglePlatform
+
+    //Remove the equal sign at the end of the signature
+    NSString *trimmedSignature = [ signature stringByReplacingOccurrencesOfString:@"=" withString:@""];
     
     //Put the resulting signed string into a URL
-    return  [NSString stringWithFormat:@"%@&sig=%@", urlpath, signature];
+    return trimmedSignature;
+    //return  [NSString stringWithFormat:@"%@&sig=%@", urlpath, trimmedSignature];
     
 }
+
+
+
 
 
 

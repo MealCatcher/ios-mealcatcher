@@ -16,7 +16,7 @@ void sayHello();
 
 
 
-int main(int argc, const char * argv[])
+int inasdmain(int argc, const char * argv[])
 {
     sayHello();
        
