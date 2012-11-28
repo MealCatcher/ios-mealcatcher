@@ -18,25 +18,6 @@ void sayHello();
 
 int main(int argc, const char * argv[])
 {
-
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
-    
-        
-        NSString* url = @"http://api.singleplatform.co/restaurants/haru-7?client=coad3k62n95pi9sbybjydroxy";
-
-        
-        NSString *secret = @"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw";
-        NSLog(@"Secret: %@", secret);
-        
-        secret = [secret stringByAppendingString:@"="];
-        NSLog(@"Secret + = : %@", secret);
-    
-        NSData *binary_key = [NSData dataFromBase64String: secret];
-        NSLog(@"Binary Key: %@", binary_key);
-        NSString *urlTest = @"/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
-        //NSString *urlTest = @"/restaurants/haru-7?client=coad3k62n95pi9sbybjydroxy";
     sayHello();
        
     return 0;
@@ -45,41 +26,57 @@ int main(int argc, const char * argv[])
 void sayHello()
 {
     
-    NSString *urlpath = @"/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
-    NSLog(@"Testing another function");
-    //NSString *key = @"vNIXE0xscrmjlyV-12Nj_BvUPaw=";
+    //Get the private/secret key from Single Platform
     NSString *key = @"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw";
     
-    NSURL *u = [NSURL URLWithString:urlpath];
-    NSString *url = [NSString stringWithFormat:@"%@%@", [u path], [u query]];
-    NSLog(@"URL %@", url);
-    
-    
-    // Stores the url in a NSData.
-    //NSData *urlData = [url dataUsingEncoding: NSASCIIStringEncoding];
-    NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
-    
-    // URL-safe Base64 coder/decoder.
+    // Create instance of Google's URL-safe Base64 coder/decoder.
     GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
     
     // Decodes the URL-safe Base64 key to binary.
     NSData *binaryKey = [encoding decode:key];
     
+    //Put the URL path and query in an actual NSURL object
+    //NSURL *u = [NSURL URLWithString:urlpath];
     
-    // Signs the URL.
+    //Put the URL and path in a single string????????
+    //NSString *url = [NSString stringWithFormat:@"%@%@", [u path], [u query]];
+    //NSLog(@"URL %@", url);
+    
+    //Put the URL path and query in a string
+    NSString *urlpath = @"/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
+    
+    // Stores the url in a NSData.
+    //Put the URL in an NSData object using ASCII String Encoding. Stores it in binary.
+    //NSData *urlData = [url dataUsingEncoding: NSASCIIStringEncoding];
+    NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
+    
+
+    
+    // Sign the URL with Objective-C HMAC SHA1 algorithm and put it in character array
+    // the size of a SHA1 digest
     unsigned char result[CC_SHA1_DIGEST_LENGTH];
     CCHmac(kCCHmacAlgSHA1,
-           [binaryKey bytes], [binaryKey length],
-           [urlData bytes], [urlData length],
+           [binaryKey bytes],
+           [binaryKey length],
+           [urlData bytes],
+           [urlData length],
            &result);
+    
+    
+    //Store the generated signature in an NSData object (as opposed to character array)
     NSData *binarySignature = [NSData dataWithBytes:&result length:CC_SHA1_DIGEST_LENGTH];
-    NSLog(@"Binary Signature: %@", binarySignature);
+    //NSLog(@"Binary Signature: %@", binarySignature);
     
-    // Encodes the signature to URL-safe Base64.
+    // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
     NSString *signature = [encoding encode:binarySignature];
-    NSLog(@"Signature: %@", signature);
+    //NSLog(@"Signature: %@", signature);
     
+    //Put the resulting signed string into a URL
     NSString *test =  [NSString stringWithFormat:@"%@&sig=%@", urlpath, signature];
     
     NSLog(@"Test: %@", test);
 }
+
+
+
+

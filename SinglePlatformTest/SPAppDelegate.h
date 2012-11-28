@@ -11,6 +11,9 @@
 @class SPViewController;
 
 @interface SPAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

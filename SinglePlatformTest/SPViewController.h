@@ -17,5 +17,6 @@
 
 -(void)fetchForumsData;
 -(void)fetchRestaurantData;
+-(NSString *)signURL:(NSString*)url privateKey:(NSString*)key;
 
 @end

@@ -9,6 +9,7 @@
 #import "SPViewController.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+Base64.h"
+#import "GTMStringEncoding.h"
 
 @interface SPViewController ()
 
@@ -109,6 +110,46 @@
     
     [av show];
 }
+
+-(NSString *)signURL:(NSString *)url privateKey:(NSString *)key
+{
+    // Create instance of Google's URL-safe Base64 coder/decoder.
+    GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
+    
+    // Decodes the URL-safe Base64 key to binary.
+    NSData *binaryKey = [encoding decode:key];
+    
+    //Put the URL path and query in a string
+    NSString *urlpath = url;
+    
+    // Stores the url in a NSData.
+    //Put the URL in an NSData object using ASCII String Encoding. Stores it in binary.
+    //NSData *urlData = [url dataUsingEncoding: NSASCIIStringEncoding];
+    NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
+    
+    // Sign the URL with Objective-C HMAC SHA1 algorithm and put it in character array
+    // the size of a SHA1 digest
+    unsigned char result[CC_SHA1_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA1,
+           [binaryKey bytes],
+           [binaryKey length],
+           [urlData bytes],
+           [urlData length],
+           &result);
+    
+    //Store the generated signature in an NSData object (as opposed to character array)
+    NSData *binarySignature = [NSData dataWithBytes:&result length:CC_SHA1_DIGEST_LENGTH];
+    
+    // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
+    NSString *signature = [encoding encode:binarySignature];
+    
+    //TODO Still need to remove the = sign at the end of the generated signature
+    
+    //Put the resulting signed string into a URL
+    return  [NSString stringWithFormat:@"%@&sig=%@", urlpath, signature];
+    
+}
+
 
 
 @end
