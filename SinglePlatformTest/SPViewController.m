@@ -71,10 +71,6 @@
     NSURL *url = [NSURL URLWithString:@"http://api.singleplatform.co/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy"];
     NSString* noSingUrl = @"http://api.singleplatform.co/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
     
-    NSLog(@"URL Path: %@", [url path]);
-    NSLog(@"URL Path: %@", [url relativeString]);
-    NSLog(@"URL Path: %@", [url fragment]);
-    
     NSString *host = @"http://api.singleplatform.co";
     NSString *uri1 = @"/restaurants/search?q=94602&page=0&count=10";
     NSString *uri = @"/restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy";
@@ -83,7 +79,7 @@
     NSString *clientID = @"coad3k62n95pi9sbybjydroxy";
     
     //restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy&sig=WP287B9XLhy42Q9X9JdXsJe41j0
-    NSString *signature = [self signURL:uri privateKey:secret_key];
+    NSString *signature = [self signURL:uri signingKey:[NSMutableString stringWithString:secret_key]];
     NSLog(@"Signature: %@", signature);
     
     NSString *signedUrl = [noSingUrl stringByAppendingString:@"&sig=WP287B9XLhy42Q9X9JdXsJe41j0"];
@@ -178,8 +174,20 @@
     [av show];
 }
 
--(NSString *)signURL:(NSString *)url privateKey:(NSString *)key
+
+/* This method signs the a URL using HMAC-SHA1 and returns the signature */
+-(NSString *)signURL:(NSString *)url signingKey:(NSMutableString*)key
 {
+    NSLog(@"Inside this method");
+    NSLog(@"Key: %@", key);
+    
+    [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
+    NSLog(@"Inside this method 1.1");
+    [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
+    
+    
+    NSLog(@"Got here 1.0");
+    
     // Create instance of Google's URL-safe Base64 coder/decoder.
     GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
     
@@ -204,16 +212,16 @@
            [urlData length],
            &result);
     
-    //Store the generated signature in an NSData object (as opposed to character array)
     NSData *binarySignature = [NSData dataWithBytes:&result length:CC_SHA1_DIGEST_LENGTH];
     
     // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
-    NSString *signature = [encoding encode:binarySignature];
+    NSMutableString *signature = [[NSMutableString alloc] initWithString:[encoding encode:binarySignature]];
     
     NSLog(@"Signature from method: %@", signature);
-    
-    //TODO This method needs refactoring to take into account the regular expression in the ruby code provided by SinglePlatform
 
+    [signature replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
+    [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
+    
     //Remove the equal sign at the end of the signature
     NSString *trimmedSignature = [ signature stringByReplacingOccurrencesOfString:@"=" withString:@""];
     

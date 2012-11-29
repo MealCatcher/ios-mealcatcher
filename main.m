@@ -13,13 +13,9 @@
 
 void sayHello();
 
-
-
-
 int inasdmain(int argc, const char * argv[])
 {
     sayHello();
-       
     return 0;
 }
 
