@@ -123,12 +123,42 @@
     [jsonData appendData:data];
 }
 
+
 -(void)connectionDidFinishLoading:(NSURLConnection *)conn
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     //NSLog(@"Raw Data: %@", jsonData);
     NSLog(@"jsonCheck = %@", jsonCheck);
+    
+    /* Now try to deserialize the JSON object into a dictionary */
+    NSError *error = nil;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
+
+    if(jsonObject != nil && error == nil)
+    {
+        NSLog(@"Successfully desearilzer!!");
+        
+        if([jsonObject isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
+            NSLog(@"Deserialized JSON dictionary = %@", deserializedDictionary);
+        }
+        else if([jsonObject isKindOfClass:[NSArray class]])
+        {
+            NSArray *deserializedArray = (NSArray *)jsonObject;
+            NSLog(@"Deserealized JSON Array %@", deserializedArray);
+        }
+        else
+        {
+            /* Some other object was returned. We don't know how to deal with this situation. */
+        }
+    }
+    else if(error != nil)
+    {
+        NSLog(@"An error happened while deserializing the JSON data");
+        //Should probably display an error message to the user
+    }
 }
 
 -(void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
