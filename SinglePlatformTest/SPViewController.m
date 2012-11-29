@@ -22,7 +22,8 @@
 {
     //[self fetchForumsData];
     
-    [self fetchRestauransByZip: 94602];
+    //[self fetchRestauransByZip: 94602];
+    [self searchRestaurantsByZip: 94602];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -34,25 +35,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-/* This method will sign the URL with the SigningKey and Client ID */
-/*-(NSURL*)signURL:(NSString *)uriPath params:(NSArray *)parameters client:(NSString *)clientID secret:(NSString*)secret
+/* Method used to get search for restaurants by zip code
+ *
+ */
+-(void)searchRestaurantsByZip:(NSInteger)zipCode;
 {
-   // int paddingFactor = (4 - [secret length] %4) % 4;
-    ///secret = [[NSString alloc] stringByAppendingString:@"="];
-}*/
-
--(NSString *)encodeWithHmacsha1:(NSString *)secret
-{
-    const char *cKey = [secret cStringUsingEncoding:NSASCIIStringEncoding];
-    const char *cData = [secret cStringUsingEncoding: NSASCIIStringEncoding];
+    //NSLog(@"Got here 1.0");
+    NSMutableString *SECRET = [[NSMutableString alloc] initWithString:@"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw"];
+    NSString *BASE_SINGLEPLATFORM_HOST = @"http://api.singleplatform.co";
+    NSMutableString *RESTAURANT_SEARCH_URI = [[NSMutableString alloc] initWithString:@"/restaurants/search?q=%@"];
+    NSMutableString *clientID = [[NSMutableString alloc]initWithString:@"coad3k62n95pi9sbybjydroxy"];
+    //NSLog(@"Got here 1.1");
+    NSMutableString *uri = [NSMutableString stringWithFormat:@"/restaurants/search?q=%d&client=%@", zipCode, clientID];
+    //NSLog(@"URI: %@", uri);
     
-    unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
+    NSString* signature = [self signURL:uri signingKey:SECRET];
+    //NSLog(@"Signature: %@", signature);
+    [uri appendFormat:@"&sig=%@", signature];
+    //NSLog(@"URI: %@", uri);
     
-    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
-    NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
+    jsonData = [[NSMutableData alloc] init];
+    NSURL *myUrl = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@%@", BASE_SINGLEPLATFORM_HOST, uri]];
+    NSLog(@"Final URL: %@", myUrl);
+    NSURLRequest *request = [NSURLRequest requestWithURL:myUrl];
     
-    return [HMAC base64EncodedString];
+    connection  = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
+
 
 
 /* Method used to find restaurants by zip code
@@ -79,7 +88,7 @@
     NSString *clientID = @"coad3k62n95pi9sbybjydroxy";
     
     //restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy&sig=WP287B9XLhy42Q9X9JdXsJe41j0
-    NSString *signature = [self signURL:uri signingKey:[NSMutableString stringWithString:secret_key]];
+    NSString *signature = [self signURL:uri signingKey:[NSMutableString stringWithString:[[NSMutableString alloc] initWithString:secret_key]]];
     NSLog(@"Signature: %@", signature);
     
     NSString *signedUrl = [noSingUrl stringByAppendingString:@"&sig=WP287B9XLhy42Q9X9JdXsJe41j0"];
@@ -124,7 +133,6 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //NSLog(@"Raw Data: %@", jsonData);
     NSLog(@"jsonCheck = %@", jsonCheck);
     
     /* Now try to deserialize the JSON object into a dictionary */
@@ -176,11 +184,14 @@
 
 
 /* This method signs the a URL using HMAC-SHA1 and returns the signature */
--(NSString *)signURL:(NSString *)url signingKey:(NSMutableString*)key
+-(NSString *)signURL:(NSMutableString *)url signingKey:(NSMutableString*)key
 {
     NSLog(@"Inside this method");
     NSLog(@"Key: %@", key);
+    NSLog(@"URI Again: %@", url);
     
+    //NSMutableString *tempKey = [[NSMutableString alloc] initWithString:key];
+    //NSLog(@"Temp Key: %@", tempKey);
     [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     NSLog(@"Inside this method 1.1");
     [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
@@ -223,17 +234,8 @@
     [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     
     //Remove the equal sign at the end of the signature
-    NSString *trimmedSignature = [ signature stringByReplacingOccurrencesOfString:@"=" withString:@""];
+    [signature replaceOccurrencesOfString:@"=" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     
-    //Put the resulting signed string into a URL
-    return trimmedSignature;
-    //return  [NSString stringWithFormat:@"%@&sig=%@", urlpath, trimmedSignature];
-    
+    return signature;
 }
-
-
-
-
-
-
 @end

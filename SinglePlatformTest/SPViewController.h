@@ -20,13 +20,13 @@
 -(void)fetchRestaurantData;
 
 /* SinglePlatform API Methods */
--(NSDictionary *)searchRestaurantsByZip:(NSInteger)zipCode;
+-(void )searchRestaurantsByZip:(NSInteger)zipCode;
 -(NSDictionary *)searchRestaurantsByPhone:(NSString *)phone;
 -(NSDictionary *)serachRestaurantsByKeyword:(NSString *)keyword;
 -(NSDictionary *)getRestaurantDetails:(NSString *)location;
 -(NSDictionary *)getRestaurantMenu:(NSString *)location;
 
 /* Utility Methods */
--(NSString *)signURL:(NSString*)url signingKey:(NSString*)key;
+-(NSString *)signURL:(NSMutableString*)url signingKey:(NSMutableString*)key;
 
 @end
