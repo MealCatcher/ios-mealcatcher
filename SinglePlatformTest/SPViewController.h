@@ -16,6 +16,7 @@
     NSMutableData *jsonData;
     NSMutableData *restaurantData;
     IBOutlet MKMapView *worldView;
+    CLLocationManager *locationManager;
 }
 
 /* Test Methods */

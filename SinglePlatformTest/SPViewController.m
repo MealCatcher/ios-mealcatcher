@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+Base64.h"
 #import "GTMStringEncoding.h"
+#import "SPAnnotations.h"
 
 @interface SPViewController ()
 
@@ -17,13 +18,25 @@
 
 @implementation SPViewController
 
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self)
+    {
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager setDelegate:self];
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad
 {
     //[self fetchForumsData];
     
     //[self fetchRestauransByZip: 94602];
-    [self searchRestaurantsByZip: 94602];
+    //[self searchRestaurantsByZip: 94602];
     
     [worldView setShowsUserLocation:YES];
     
@@ -135,7 +148,7 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"jsonCheck = %@", jsonCheck);
+   // NSLog(@"jsonCheck = %@", jsonCheck);
     
     /* Now try to deserialize the JSON object into a dictionary */
     NSError *error = nil;
@@ -148,6 +161,43 @@
         if([jsonObject isKindOfClass:[NSDictionary class]])
         {
             NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
+            NSString *count = [deserializedDictionary objectForKey:@"count"];
+            NSLog(@"Count: %d", [count integerValue]);
+            
+            if([count integerValue] > 0)
+            {
+                //CLLocationCoordinate2D placeLocation = CLLocationCoordinate2DMake(37.802787, -122.211471);
+                //SPAnnotations *annotation = [[SPAnnotations alloc] initWithCoordinates:placeLocation title:@"Jorge's Place" subtitle:@"Karen's Place"];
+                //[worldView addAnnotation:annotation];
+                
+                //id results = [deserializedDictionary objectForKey:@"results"];
+                //NSLog(@"Type for results: %@", [results class]);
+                NSArray *results = [deserializedDictionary objectForKey:@"results"];
+                NSLog(@"Results Array Count: %d", [results count]);
+                
+                for(int i=0; i < [results count]; i++)
+                {
+                    NSString *latitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"latitude"];
+                    NSString *longitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"longitude"];
+                    NSLog(@"Latitude: %@", latitude);
+                    NSLog(@"Longitude: %@", longitude);
+                    NSString *name = [[[results objectAtIndex:i] objectForKey:@"general"] objectForKey:@"name"];
+                    NSString *businessType =[[results objectAtIndex:i] objectForKey:@"businessType"];
+                    CLLocationCoordinate2D testLocation = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+                    
+                    SPAnnotations *anotherAnnotation = [[SPAnnotations alloc] initWithCoordinates:testLocation title:name subtitle:businessType];
+                    [worldView addAnnotation:anotherAnnotation];
+                    
+                    //NSLog(@"Array Content: %@", results);
+                    //NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
+                    //NSArray *theKeys = [[results objectAtIndex:0] allKeys];
+                    //NSLog(@"%@", theKeys);
+                    
+                    //NSLog(@"Location Type: %@", [[[results objectAtIndex:0] objectForKey:@"location"] class]);
+
+                }
+            }
+            
             NSLog(@"Deserialized JSON dictionary = %@", deserializedDictionary);
         }
         else if([jsonObject isKindOfClass:[NSArray class]])
@@ -240,4 +290,40 @@
     
     return signature;
 }
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    NSLog(@"The user's location updated!");
+    
+    CLLocationCoordinate2D loc = [userLocation coordinate];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 1500, 1500);
+    [worldView setRegion:region animated:YES];
+    
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:[userLocation location] completionHandler:^(NSArray* placemarks, NSError* error){
+        if ([placemarks count] > 0)
+        {
+            NSLog(@"Number of Placemarks: %d", [placemarks count]);
+            CLPlacemark *placeMark = [placemarks objectAtIndex:0];
+            NSLog(@"Postal Code: %@", [placeMark postalCode]);
+            
+            NSInteger test = [[placeMark postalCode] integerValue];
+            
+            [self searchRestaurantsByZip:test];
+            
+            
+            //annotation.placemark = [placemarks objectAtIndex:0];
+            
+            // Add a More Info button to the annotation's view.
+            //MKPinAnnotationView*  view = (MKPinAnnotationView*)[map viewForAnnotation:annotation];
+            //if (view && (view.rightCalloutAccessoryView == nil))
+            //{
+              //  view.canShowCallout = YES;
+                //view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+         //   }
+        }
+    }];
+    
+}
+
 @end
