@@ -25,6 +25,8 @@
     //[self fetchRestauransByZip: 94602];
     [self searchRestaurantsByZip: 94602];
     
+    [worldView setShowsUserLocation:YES];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
