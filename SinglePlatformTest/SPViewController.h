@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface SPViewController : UIViewController <NSURLConnectionDelegate>
+@interface SPViewController : UIViewController <NSURLConnectionDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
 {
     NSURLConnection *connection;
     NSMutableData *jsonData;
     NSMutableData *restaurantData;
+    IBOutlet MKMapView *worldView;
+    CLLocationManager *locationManager;
 }
 
 /* Test Methods */
