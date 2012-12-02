@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface SPAnnotations : NSObject <MKAnnotation>
 {
-    CLLocationCoordinate2D coordinate;
 }
 
 @property (nonatomic, readonly)CLLocationCoordinate2D coordinate;
-@property (nonatomic, readonly)NSString* title;
-@property (nonatomic, readonly)NSString* subtitle;
+@property (nonatomic, copy, readonly)NSString* title;
+@property (nonatomic, copy, readonly)NSString* subtitle;
 
 -(id)initWithCoordinates: (CLLocationCoordinate2D)paramCoordinates
                    title: (NSString *)paramTitle

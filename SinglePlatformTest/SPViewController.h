@@ -17,6 +17,7 @@
     NSMutableData *restaurantData;
     IBOutlet MKMapView *worldView;
     CLLocationManager *locationManager;
+    BOOL updateLocationCenter;
 }
 
 /* Test Methods */
@@ -32,5 +33,6 @@
 
 /* Utility Methods */
 -(NSString *)signURL:(NSMutableString*)url signingKey:(NSMutableString*)key;
+
 
 @end

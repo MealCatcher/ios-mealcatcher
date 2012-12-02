@@ -10,11 +10,17 @@
 
 @implementation SPAnnotations
 
-CLLocationCoordinate2D coordinate;
-
 @synthesize coordinate, title, subtitle;
 
--(id)initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates title:(NSString *)paramTitle subtitle:(NSString *)paramSubTitle
+
+-(id)init
+{
+    return [self initWithCoordinates:CLLocationCoordinate2DMake(43.07, -89.32) title:@"Hometown" subtitle:@"Random Place"];
+}
+
+-(id)initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates
+                   title:(NSString *)paramTitle
+                subtitle:(NSString *)paramSubTitle
 {
     self = [super init];
     
@@ -25,7 +31,7 @@ CLLocationCoordinate2D coordinate;
         subtitle = paramSubTitle;
     }
     
-    return(self);
+    return self;
 }
 
 @end

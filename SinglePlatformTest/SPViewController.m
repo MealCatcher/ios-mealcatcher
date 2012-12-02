@@ -20,13 +20,20 @@
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"initWithNibName ran!");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
         locationManager = [[CLLocationManager alloc] init];
+        NSLog(@"Location Manager Delegate set!");
         [locationManager setDelegate:self];
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        //[locationManager startUpdatingLocation];
     }
+    
+    //initialize update center
+    updateLocationCenter = YES;
+    
     return self;
 }
 
@@ -37,11 +44,19 @@
     
     //[self fetchRestauransByZip: 94602];
     //[self searchRestaurantsByZip: 94602];
+    NSLog(@"viewDidLoad ran!");
     
-    [worldView setShowsUserLocation:YES];
     
     [super viewDidLoad];
+    [worldView setShowsUserLocation:YES];
+    [worldView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
+    
+    
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,12 +163,12 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-   // NSLog(@"jsonCheck = %@", jsonCheck);
+    // NSLog(@"jsonCheck = %@", jsonCheck);
     
     /* Now try to deserialize the JSON object into a dictionary */
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
-
+    
     if(jsonObject != nil && error == nil)
     {
         NSLog(@"Successfully desearilzer!!");
@@ -179,14 +194,18 @@
                 {
                     NSString *latitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"latitude"];
                     NSString *longitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"longitude"];
-                    NSLog(@"Latitude: %@", latitude);
-                    NSLog(@"Longitude: %@", longitude);
+                    //NSLog(@"Latitude: %@", latitude);
+                    //NSLog(@"Longitude: %@", longitude);
                     NSString *name = [[[results objectAtIndex:i] objectForKey:@"general"] objectForKey:@"name"];
                     NSString *businessType =[[results objectAtIndex:i] objectForKey:@"businessType"];
                     CLLocationCoordinate2D testLocation = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
                     
+                    //Code that adds the annotations to the MAP view
                     SPAnnotations *anotherAnnotation = [[SPAnnotations alloc] initWithCoordinates:testLocation title:name subtitle:businessType];
+                    
+                    NSLog(@"Business Name: %@", name);
                     [worldView addAnnotation:anotherAnnotation];
+                    
                     
                     //NSLog(@"Array Content: %@", results);
                     //NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
@@ -194,11 +213,11 @@
                     //NSLog(@"%@", theKeys);
                     
                     //NSLog(@"Location Type: %@", [[[results objectAtIndex:0] objectForKey:@"location"] class]);
-
+                    
                 }
             }
             
-            NSLog(@"Deserialized JSON dictionary = %@", deserializedDictionary);
+            //NSLog(@"Deserialized JSON dictionary = %@", deserializedDictionary);
         }
         else if([jsonObject isKindOfClass:[NSArray class]])
         {
@@ -281,7 +300,7 @@
     NSMutableString *signature = [[NSMutableString alloc] initWithString:[encoding encode:binarySignature]];
     
     NSLog(@"Signature from method: %@", signature);
-
+    
     [signature replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     
@@ -295,35 +314,82 @@
 {
     NSLog(@"The user's location updated!");
     
-    CLLocationCoordinate2D loc = [userLocation coordinate];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 1500, 1500);
-    [worldView setRegion:region animated:YES];
-    
-    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
-    [geoCoder reverseGeocodeLocation:[userLocation location] completionHandler:^(NSArray* placemarks, NSError* error){
-        if ([placemarks count] > 0)
+    //NSTimeInterval t = [[[userLocation location] timestamp] timeIntervalSinceNow];
+    //NSLog(@"Time Interval: %f", t);
+    //if(t < -180)
+    //{
+      //  NSLog(@"This is cached data, you don't want it, keep looking");
+        
+        //return;
+    //}
+    //else
+    //{
+        NSLog(@"Update Location Center: %d", updateLocationCenter);
+        if(updateLocationCenter == YES)
         {
-            NSLog(@"Number of Placemarks: %d", [placemarks count]);
-            CLPlacemark *placeMark = [placemarks objectAtIndex:0];
-            NSLog(@"Postal Code: %@", [placeMark postalCode]);
+            CLLocationCoordinate2D loc = [userLocation coordinate];
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 1500, 1500);
+            [worldView setRegion:region animated:YES];
             
-            NSInteger test = [[placeMark postalCode] integerValue];
+            CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+            [geoCoder reverseGeocodeLocation:[userLocation location]
+                           completionHandler:^(NSArray* placemarks, NSError* error){
+                               if ([placemarks count] > 0)
+                               {
+                                   NSLog(@"Number of Placemarks: %d", [placemarks count]);
+                                   CLPlacemark *placeMark = [placemarks objectAtIndex:0];
+                                   NSLog(@"Postal Code: %@", [placeMark postalCode]);
+                                   
+                                   NSInteger test = [[placeMark postalCode] integerValue];
+                                   
+                                   [self searchRestaurantsByZip:test];
+                                   
+                                   
+                                   //annotation.placemark = [placemarks objectAtIndex:0];
+                                   
+                                   // Add a More Info button to the annotation's view.
+                                   //MKPinAnnotationView*  view = (MKPinAnnotationView*)[map viewForAnnotation:annotation];
+                                   //if (view && (view.rightCalloutAccessoryView == nil))
+                                   //{
+                                   //  view.canShowCallout = YES;
+                                   //view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+                                   //   }
+                               }
+                           }];
+            //[worldView setShowsUserLocation:NO];
             
-            [self searchRestaurantsByZip:test];
-            
-            
-            //annotation.placemark = [placemarks objectAtIndex:0];
-            
-            // Add a More Info button to the annotation's view.
-            //MKPinAnnotationView*  view = (MKPinAnnotationView*)[map viewForAnnotation:annotation];
-            //if (view && (view.rightCalloutAccessoryView == nil))
-            //{
-              //  view.canShowCallout = YES;
-                //view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-         //   }
+            updateLocationCenter = NO;
         }
-    }];
+   // }
     
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"New Location: %@", newLocation);
+    [locationManager stopUpdatingLocation];
+    NSLog(@"CALLED STOP UPDATING LOCATION");
+}
+
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Could not find location: %@", error);
+}
+
+- (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
+{
+    NSLog(@"MAP STOPPED TRACKING USER'S LOCATION");
+}
+
+- (void)mapViewWillStartLocatingUser:(MKMapView *)mapView
+{
+    NSLog(@"MAP WILL START TRACKING USER'S LOCATION");
+}
+
+- (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated
+{
+    NSLog(@"CHANGE IN TRACKING MODE!");
 }
 
 @end
