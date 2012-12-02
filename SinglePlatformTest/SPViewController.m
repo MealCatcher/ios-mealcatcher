@@ -424,6 +424,9 @@
     
     annotationView.pinColor = senderAnnotation.pinColor;
     annotationView.animatesDrop = YES;
+    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.rightCalloutAccessoryView = disclosureButton;
+    
     result = annotationView;
     
     return result;
