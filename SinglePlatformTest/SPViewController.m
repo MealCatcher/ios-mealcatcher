@@ -203,6 +203,8 @@
                     //Code that adds the annotations to the MAP view
                     SPAnnotations *anotherAnnotation = [[SPAnnotations alloc] initWithCoordinates:testLocation title:name subtitle:businessType];
                     
+                    anotherAnnotation.pinColor = MKPinAnnotationColorRed;
+                    
                     NSLog(@"Business Name: %@", name);
                     [worldView addAnnotation:anotherAnnotation];
                     
@@ -318,49 +320,49 @@
     //NSLog(@"Time Interval: %f", t);
     //if(t < -180)
     //{
-      //  NSLog(@"This is cached data, you don't want it, keep looking");
-        
-        //return;
+    //  NSLog(@"This is cached data, you don't want it, keep looking");
+    
+    //return;
     //}
     //else
     //{
-        NSLog(@"Update Location Center: %d", updateLocationCenter);
-        if(updateLocationCenter == YES)
-        {
-            CLLocationCoordinate2D loc = [userLocation coordinate];
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 1500, 1500);
-            [worldView setRegion:region animated:YES];
-            
-            CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
-            [geoCoder reverseGeocodeLocation:[userLocation location]
-                           completionHandler:^(NSArray* placemarks, NSError* error){
-                               if ([placemarks count] > 0)
-                               {
-                                   NSLog(@"Number of Placemarks: %d", [placemarks count]);
-                                   CLPlacemark *placeMark = [placemarks objectAtIndex:0];
-                                   NSLog(@"Postal Code: %@", [placeMark postalCode]);
-                                   
-                                   NSInteger test = [[placeMark postalCode] integerValue];
-                                   
-                                   [self searchRestaurantsByZip:test];
-                                   
-                                   
-                                   //annotation.placemark = [placemarks objectAtIndex:0];
-                                   
-                                   // Add a More Info button to the annotation's view.
-                                   //MKPinAnnotationView*  view = (MKPinAnnotationView*)[map viewForAnnotation:annotation];
-                                   //if (view && (view.rightCalloutAccessoryView == nil))
-                                   //{
-                                   //  view.canShowCallout = YES;
-                                   //view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-                                   //   }
-                               }
-                           }];
-            //[worldView setShowsUserLocation:NO];
-            
-            updateLocationCenter = NO;
-        }
-   // }
+    NSLog(@"Update Location Center: %d", updateLocationCenter);
+    if(updateLocationCenter == YES)
+    {
+        CLLocationCoordinate2D loc = [userLocation coordinate];
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 1500, 1500);
+        [worldView setRegion:region animated:YES];
+        
+        CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+        [geoCoder reverseGeocodeLocation:[userLocation location]
+                       completionHandler:^(NSArray* placemarks, NSError* error){
+                           if ([placemarks count] > 0)
+                           {
+                               NSLog(@"Number of Placemarks: %d", [placemarks count]);
+                               CLPlacemark *placeMark = [placemarks objectAtIndex:0];
+                               NSLog(@"Postal Code: %@", [placeMark postalCode]);
+                               
+                               NSInteger test = [[placeMark postalCode] integerValue];
+                               
+                               [self searchRestaurantsByZip:test];
+                               
+                               
+                               //annotation.placemark = [placemarks objectAtIndex:0];
+                               
+                               // Add a More Info button to the annotation's view.
+                               //MKPinAnnotationView*  view = (MKPinAnnotationView*)[map viewForAnnotation:annotation];
+                               //if (view && (view.rightCalloutAccessoryView == nil))
+                               //{
+                               //  view.canShowCallout = YES;
+                               //view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+                               //   }
+                           }
+                       }];
+        //[worldView setShowsUserLocation:NO];
+        
+        updateLocationCenter = NO;
+    }
+    // }
     
 }
 
@@ -390,6 +392,41 @@
 - (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated
 {
     NSLog(@"CHANGE IN TRACKING MODE!");
+}
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKAnnotationView *result = nil;
+    
+    if([annotation isKindOfClass:[SPAnnotations class]] == NO)
+    {
+        return result;
+    }
+    if([mapView isEqual: worldView] == NO)
+    {
+        /* We want to process this event only for the MapView that
+         we created previously */
+        return result;
+    }
+
+    SPAnnotations *senderAnnotation = (SPAnnotations *)annotation;
+    NSString *pinReusableIndentifier = [SPAnnotations reusableIdentifierforPinColor:senderAnnotation.pinColor];
+    
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pinReusableIndentifier];
+    
+    
+    if(annotationView == nil)
+    {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:senderAnnotation reuseIdentifier:pinReusableIndentifier];
+        
+        [annotationView setCanShowCallout:YES];
+    }
+    
+    annotationView.pinColor = senderAnnotation.pinColor;
+    annotationView.animatesDrop = YES;
+    result = annotationView;
+    
+    return result;
 }
 
 @end

@@ -10,13 +10,37 @@
 
 @implementation SPAnnotations
 
-@synthesize coordinate, title, subtitle;
+@synthesize coordinate;
+@synthesize title;
+@synthesize subtitle;
+@synthesize pinColor;
 
 
--(id)init
++(NSString *)reusableIdentifierforPinColor:(MKPinAnnotationColor)paramColor
+{
+    NSString *result = nil;
+    
+    switch (paramColor) {
+        case MKPinAnnotationColorRed:{
+            result = REUSABLE_PIN_RED;
+            break;
+        }
+        case MKPinAnnotationColorGreen:{
+            result = REUSABLE_PIN_GREEN;
+            break;
+        }
+        case MKPinAnnotationColorPurple:{
+            result = REUSABLE_PIN_PURPLE;
+            break;
+        }
+    }
+    return result;
+}
+
+/*-(id)init
 {
     return [self initWithCoordinates:CLLocationCoordinate2DMake(43.07, -89.32) title:@"Hometown" subtitle:@"Random Place"];
-}
+}*/
 
 -(id)initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates
                    title:(NSString *)paramTitle
@@ -29,6 +53,7 @@
         coordinate = paramCoordinates;
         title = paramTitle;
         subtitle = paramSubTitle;
+        pinColor = MKPinAnnotationColorGreen;
     }
     
     return self;
