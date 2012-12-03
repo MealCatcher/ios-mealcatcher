@@ -415,7 +415,7 @@
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pinReusableIndentifier];
     
     
-    if(annotationView == nil)
+	    if(annotationView == nil)
     {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:senderAnnotation reuseIdentifier:pinReusableIndentifier];
         
@@ -430,6 +430,14 @@
     result = annotationView;
     
     return result;
+}
+
+/* Method that responds to taps on the map pin callout accessory control */
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"Disclosure button tapped!");
+    
+    //THIS IS A GOOD PLACE TO INSERT THE other view
 }
 
 @end
