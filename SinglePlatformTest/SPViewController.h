@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "TestViewController.h"
+#import "NIBViewController.h"
+
+@class TestViewController;
+@class NIBViewController;
 
 @interface SPViewController : UIViewController <NSURLConnectionDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
 {
@@ -18,7 +23,11 @@
     IBOutlet MKMapView *worldView;
     CLLocationManager *locationManager;
     BOOL updateLocationCenter;
+
 }
+
+@property (nonatomic, strong) TestViewController *testViewController;
+@property (nonatomic, strong) NIBViewController *nibViewController;
 
 /* Test Methods */
 -(void)fetchForumsData;

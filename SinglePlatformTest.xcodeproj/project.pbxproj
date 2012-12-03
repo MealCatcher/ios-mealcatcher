@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B49242F166C4A71005ADD60 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49242E166C4A71005ADD60 /* TestViewController.m */; };
+		5B492434166C8F33005ADD60 /* NIBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B492432166C8F33005ADD60 /* NIBViewController.m */; };
+		5B492435166C8F33005ADD60 /* NIBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B492433166C8F33005ADD60 /* NIBViewController.xib */; };
 		5B84A3F616649736001A5DBF /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A3F516649736001A5DBF /* NSData+Base64.m */; };
 		5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */; };
 		5B84A42216651D4A001A5DBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A42116651D4A001A5DBF /* main.m */; };
@@ -27,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B49242D166C4A71005ADD60 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = ../TestViewController.h; sourceTree = "<group>"; };
+		5B49242E166C4A71005ADD60 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = ../TestViewController.m; sourceTree = "<group>"; };
+		5B492431166C8F33005ADD60 /* NIBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIBViewController.h; path = ../NIBViewController.h; sourceTree = "<group>"; };
+		5B492432166C8F33005ADD60 /* NIBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIBViewController.m; path = ../NIBViewController.m; sourceTree = "<group>"; };
+		5B492433166C8F33005ADD60 /* NIBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NIBViewController.xib; path = ../NIBViewController.xib; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMStringEncoding.h; path = ../GTMStringEncoding.h; sourceTree = "<group>"; };
@@ -115,6 +123,11 @@
 		8BEBB8C41664259400782803 /* SinglePlatformTest */ = {
 			isa = PBXGroup;
 			children = (
+				5B492431166C8F33005ADD60 /* NIBViewController.h */,
+				5B492432166C8F33005ADD60 /* NIBViewController.m */,
+				5B492433166C8F33005ADD60 /* NIBViewController.xib */,
+				5B49242D166C4A71005ADD60 /* TestViewController.h */,
+				5B49242E166C4A71005ADD60 /* TestViewController.m */,
 				5B84A42116651D4A001A5DBF /* main.m */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
@@ -200,6 +213,7 @@
 				8BEBB8D31664259400782803 /* Default@2x.png in Resources */,
 				8BEBB8D51664259400782803 /* Default-568h@2x.png in Resources */,
 				8BEBB8DB1664259400782803 /* SPViewController.xib in Resources */,
+				5B492435166C8F33005ADD60 /* NIBViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +231,8 @@
 				5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */,
 				5B84A42216651D4A001A5DBF /* main.m in Sources */,
 				5BEEF8461668909100DD0C75 /* SPAnnotations.m in Sources */,
+				5B49242F166C4A71005ADD60 /* TestViewController.m in Sources */,
+				5B492434166C8F33005ADD60 /* NIBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
