@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface NIBViewController : UIViewController
 {
-    
+    NSURLConnection *connection;
+    NSMutableData *jsonData;
+    NSMutableData *restaurantData;
 }
 
 @property (nonatomic) NSString *restaurantID;
+
 -(IBAction)popTheController:(id)sender;
+/* Utility Methods */
+-(NSString *)signURL:(NSMutableString*)url signingKey:(NSMutableString*)key;
 
 @end

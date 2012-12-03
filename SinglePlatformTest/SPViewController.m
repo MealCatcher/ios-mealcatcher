@@ -168,7 +168,7 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    // NSLog(@"jsonCheck = %@", jsonCheck);
+    //NSLog(@"jsonCheck = %@", jsonCheck);
     
     /* Now try to deserialize the JSON object into a dictionary */
     NSError *error = nil;
@@ -176,7 +176,8 @@
     
     if(jsonObject != nil && error == nil)
     {
-        NSLog(@"Successfully desearilzer!!");
+        NSLog(@"Successfully desearilzed!!");
+        NSLog(@"Data: %@", jsonObject);
         
         if([jsonObject isKindOfClass:[NSDictionary class]])
         {
@@ -448,7 +449,7 @@
     //THIS IS A GOOD PLACE TO INSERT THE other view
     //[self presentModalViewController:testViewController animated:YES];
     //[self presentModalViewController:nibViewController animated:YES];
-    self.nibViewController.restaurantID = @"restaurant123";
+    self.nibViewController.restaurantID = @"mcdonalds-1032";
     [self.navigationController pushViewController:self.nibViewController animated:YES];
     
 }
