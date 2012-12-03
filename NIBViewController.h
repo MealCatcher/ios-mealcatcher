@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface NIBViewController : UIViewController
+{
+    
+}
+
+@property (nonatomic) NSString *restaurantID;
+-(IBAction)popTheController:(id)sender;
 
 @end

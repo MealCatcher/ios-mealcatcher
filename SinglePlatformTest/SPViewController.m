@@ -55,7 +55,7 @@
     [super viewDidLoad];
     [worldView setShowsUserLocation:YES];
     [worldView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
-    
+    self.title = @"MealCatcher";
     
     
     
@@ -447,7 +447,9 @@
     
     //THIS IS A GOOD PLACE TO INSERT THE other view
     //[self presentModalViewController:testViewController animated:YES];
-    [self presentModalViewController:nibViewController animated:YES];
+    //[self presentModalViewController:nibViewController animated:YES];
+    self.nibViewController.restaurantID = @"restaurant123";
+    [self.navigationController pushViewController:self.nibViewController animated:YES];
     
 }
 

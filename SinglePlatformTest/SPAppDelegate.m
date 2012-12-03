@@ -12,12 +12,22 @@
 
 @implementation SPAppDelegate
 
+@synthesize navigationController;
+@synthesize window;
+@synthesize viewController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[SPViewController alloc] initWithNibName:@"SPViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+   
+     self.viewController = [[SPViewController alloc] initWithNibName:@"SPViewController" bundle:nil];
+    
+    //Allocating navigation view controller
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [self.window addSubview:self.navigationController.view];
+    
+    //self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
