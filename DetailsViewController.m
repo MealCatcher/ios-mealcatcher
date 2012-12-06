@@ -163,14 +163,49 @@
             if([general isKindOfClass:[NSDictionary class]])
             {
                 NSLog(@"Got the general json data and it's  dictionary");
+                
                 NSDictionary *generalRestaurantData = (NSDictionary *)general;
+                
+                /* Get the fields for the restaurant */
                 NSString *restaurantName = [generalRestaurantData objectForKey:@"name"];
                 NSString *website = [generalRestaurantData objectForKey:@"website"];
-                NSLog(@"Restaurant Name: %@", restaurantName);
+                NSString *descriptionText = [generalRestaurantData objectForKey:@"desc"];
+                
+                
                 restaurantNameLabel.text = restaurantName;
+                websiteURL.text  = website;
+                description.text = descriptionText;
                 
+            }
+            
+            id location = [deserializedDictionary objectForKey:@"location"];
+            if ([location isKindOfClass:[NSDictionary class]]) {
+                NSLog(@"Getting the location data");
                 
-                NSLog(@"Website: %@", website);
+                NSDictionary *locationData = (NSDictionary *)location;
+                NSString *address1Text = [locationData objectForKey:@"address1"];
+                NSString *address2Text = [locationData objectForKey:@"address2"];
+                NSString *cityText = [locationData objectForKey:@"city"];
+                NSString *stateText = [locationData objectForKey:@"state"];
+                NSString *zipText = [locationData objectForKey:@"zipCode"];
+                
+                address1.text = address1Text;
+                address2.text = address2Text;
+                city.text = cityText;
+                state.text = stateText;
+                zip.text = zipText;
+            }
+            
+            id phones = [deserializedDictionary objectForKey:@"phones"];
+            if([phones isKindOfClass:[NSDictionary class]])
+            {
+                NSDictionary *phoneData = (NSDictionary*)phones;
+                
+                NSString *mainText = [phoneData objectForKey:@"main"];
+                NSString *faxText = [phoneData objectForKey:@"fax"];
+                NSLog(@"Main: %@", mainText);
+                NSLog(@"Fax: %@", faxText);
+                phone.text = mainText;
             }
                 
                 /*for(int i=0; i < [results count]; i++)

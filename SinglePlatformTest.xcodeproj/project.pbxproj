@@ -10,6 +10,7 @@
 		5B49242F166C4A71005ADD60 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49242E166C4A71005ADD60 /* TestViewController.m */; };
 		5B492434166C8F33005ADD60 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B492432166C8F33005ADD60 /* DetailsViewController.m */; };
 		5B492435166C8F33005ADD60 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B492433166C8F33005ADD60 /* DetailsViewController.xib */; };
+		5B49244416711E00005ADD60 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B49244316711E00005ADD60 /* user.png */; };
 		5B84A3F616649736001A5DBF /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A3F516649736001A5DBF /* NSData+Base64.m */; };
 		5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */; };
 		5B84A42216651D4A001A5DBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A42116651D4A001A5DBF /* main.m */; };
@@ -35,6 +36,7 @@
 		5B492431166C8F33005ADD60 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = ../DetailsViewController.h; sourceTree = "<group>"; };
 		5B492432166C8F33005ADD60 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
 		5B492433166C8F33005ADD60 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailsViewController.xib; path = ../DetailsViewController.xib; sourceTree = "<group>"; };
+		5B49244316711E00005ADD60 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMStringEncoding.h; path = ../GTMStringEncoding.h; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B49244316711E00005ADD60 /* user.png */,
 				8BEBB8C61664259400782803 /* SinglePlatformTest-Info.plist */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
@@ -214,6 +217,7 @@
 				8BEBB8D51664259400782803 /* Default-568h@2x.png in Resources */,
 				8BEBB8DB1664259400782803 /* SPViewController.xib in Resources */,
 				5B492435166C8F33005ADD60 /* DetailsViewController.xib in Resources */,
+				5B49244416711E00005ADD60 /* user.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
