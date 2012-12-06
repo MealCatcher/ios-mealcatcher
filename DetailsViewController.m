@@ -51,18 +51,9 @@
 /* This method signs the a URL using HMAC-SHA1 and returns the signature */
 -(NSString *)signURL:(NSMutableString *)url signingKey:(NSMutableString*)key
 {
-    NSLog(@"Inside this method");
-    NSLog(@"Key: %@", key);
-    NSLog(@"URI Again: %@", url);
-    
-    //NSMutableString *tempKey = [[NSMutableString alloc] initWithString:key];
-    //NSLog(@"Temp Key: %@", tempKey);
     [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     NSLog(@"Inside this method 1.1");
     [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
-    
-    
-    NSLog(@"Got here 1.0");
     
     // Create instance of Google's URL-safe Base64 coder/decoder.
     GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
@@ -75,7 +66,6 @@
     
     // Stores the url in a NSData.
     //Put the URL in an NSData object using ASCII String Encoding. Stores it in binary.
-    //NSData *urlData = [url dataUsingEncoding: NSASCIIStringEncoding];
     NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
     
     // Sign the URL with Objective-C HMAC SHA1 algorithm and put it in character array
@@ -92,8 +82,6 @@
     
     // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
     NSMutableString *signature = [[NSMutableString alloc] initWithString:[encoding encode:binarySignature]];
-    
-    NSLog(@"Signature from method: %@", signature);
     
     [signature replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
@@ -133,7 +121,6 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"jsonCheck = %@", jsonCheck);
     
     /* Now try to deserialize the JSON object into a dictionary */
     NSError *error = nil;
@@ -141,9 +128,6 @@
     
     if(jsonObject != nil && error == nil)
     {
-        NSLog(@"Successfully desearilzer!!");
-        NSLog(@"Actual Object: %@", jsonObject);
-        
         if([jsonObject isKindOfClass:[NSDictionary class]])
         {
             NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
