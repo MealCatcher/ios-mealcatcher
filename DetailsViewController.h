@@ -14,6 +14,7 @@
     NSURLConnection *connection;
     NSMutableData *jsonData;
     NSMutableData *restaurantData;
+    IBOutlet UILabel *restaurantNameLabel;
 }
 
 @property (nonatomic) NSString *restaurantID;

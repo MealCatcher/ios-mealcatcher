@@ -142,15 +142,14 @@
     if(jsonObject != nil && error == nil)
     {
         NSLog(@"Successfully desearilzer!!");
+        NSLog(@"Actual Object: %@", jsonObject);
         
         if([jsonObject isKindOfClass:[NSDictionary class]])
         {
             NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
-            NSString *count = [deserializedDictionary objectForKey:@"count"];
-            NSLog(@"Count: %d", [count integerValue]);
+            NSString *businessType = [deserializedDictionary objectForKey:@"businessType"];
+            NSLog(@"Business Type: %@", businessType);
             
-            if([count integerValue] > 0)
-            {
                 //CLLocationCoordinate2D placeLocation = CLLocationCoordinate2DMake(37.802787, -122.211471);
                 //SPAnnotations *annotation = [[SPAnnotations alloc] initWithCoordinates:placeLocation title:@"Jorge's Place" subtitle:@"Karen's Place"];
                 //[worldView addAnnotation:annotation];
@@ -159,8 +158,22 @@
                 //NSLog(@"Type for results: %@", [results class]);
                 NSArray *results = [deserializedDictionary objectForKey:@"results"];
                 NSLog(@"Results Array Count: %d", [results count]);
+            
+            id general = [deserializedDictionary objectForKey:@"general"];
+            if([general isKindOfClass:[NSDictionary class]])
+            {
+                NSLog(@"Got the general json data and it's  dictionary");
+                NSDictionary *generalRestaurantData = (NSDictionary *)general;
+                NSString *restaurantName = [generalRestaurantData objectForKey:@"name"];
+                NSString *website = [generalRestaurantData objectForKey:@"website"];
+                NSLog(@"Restaurant Name: %@", restaurantName);
+                restaurantNameLabel.text = restaurantName;
                 
-                for(int i=0; i < [results count]; i++)
+                
+                NSLog(@"Website: %@", website);
+            }
+                
+                /*for(int i=0; i < [results count]; i++)
                 {
                     NSString *latitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"latitude"];
                     NSString *longitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"longitude"];
@@ -186,8 +199,7 @@
                     
                     //NSLog(@"Location Type: %@", [[[results objectAtIndex:0] objectForKey:@"location"] class]);
                     
-                }
-            }
+            }*/
             
             //NSLog(@"Deserialized JSON dictionary = %@", deserializedDictionary);
         }

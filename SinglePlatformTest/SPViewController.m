@@ -449,7 +449,10 @@
     //THIS IS A GOOD PLACE TO INSERT THE other view
     //[self presentModalViewController:testViewController animated:YES];
     //[self presentModalViewController:nibViewController animated:YES];
-    self.nibViewController.restaurantID = @"mcdonalds-1032";
+    /*  bellanico */
+    /* blackberry-bistro */
+    /*  mcdonalds-1032 */
+    self.nibViewController.restaurantID = @"blackberry-bistro";
     [self.navigationController pushViewController:self.nibViewController animated:YES];
     
 }
