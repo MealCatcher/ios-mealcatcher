@@ -12,7 +12,7 @@
 #import "GTMStringEncoding.h"
 #import "SPAnnotations.h"
 #import "TestViewController.h"
-#import "NIBViewController.h"
+#import "DetailsViewController.h"
 
 @interface SPViewController ()
 
@@ -444,7 +444,7 @@
     NSLog(@"Disclosure button tapped!");
     
     //self.testViewController = [[TestViewController alloc]initWithNibName:nil bundle:NULL];
-    self.nibViewController = [[NIBViewController alloc] initWithNibName:@"NIBViewController" bundle:Nil];
+    self.nibViewController = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:Nil];
     
     //THIS IS A GOOD PLACE TO INSERT THE other view
     //[self presentModalViewController:testViewController animated:YES];

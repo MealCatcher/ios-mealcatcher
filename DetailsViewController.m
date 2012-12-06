@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 Test. All rights reserved.
 //
 
-#import "NIBViewController.h"
+#import "DetailsViewController.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+Base64.h"
 #import "GTMStringEncoding.h"
 
-@interface NIBViewController ()
+@interface DetailsViewController ()
 
 @end
 
-@implementation NIBViewController
+@implementation DetailsViewController
 
 @synthesize restaurantID;
 

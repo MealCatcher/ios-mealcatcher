@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface NIBViewController : UIViewController
+@interface DetailsViewController : UIViewController
 {
     NSURLConnection *connection;
     NSMutableData *jsonData;

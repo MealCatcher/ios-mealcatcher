@@ -10,11 +10,11 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TestViewController.h"
-#import "NIBViewController.h"
+#import "DetailsViewController.h"
 
 
 @class TestViewController;
-@class NIBViewController;
+@class DetailsViewController;
 
 @interface SPViewController : UIViewController <NSURLConnectionDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
 {
@@ -28,7 +28,7 @@
 }
 
 @property (nonatomic, strong) TestViewController *testViewController;
-@property (nonatomic, strong) NIBViewController *nibViewController;
+@property (nonatomic, strong) DetailsViewController *nibViewController;
 
 /* Test Methods */
 -(void)fetchForumsData;
