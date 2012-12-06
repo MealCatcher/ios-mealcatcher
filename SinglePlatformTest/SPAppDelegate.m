@@ -29,6 +29,10 @@
     
     //self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    //Initialize Test Flight with Meal Catcher Team Token
+    [TestFlight takeOff:@"c096138643dd233a896e69c2b19b3a55_MTYzNzQxMjAxMi0xMi0wNiAxNzoxNToyMy4wOTMwMjc"];
+    
     return YES;
 }
 
