@@ -11,26 +11,19 @@
 		5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CE1664259400782803 /* SPAppDelegate.m */; };
 		5B49246116715C13005ADD60 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D71664259400782803 /* SPViewController.m */; };
 		5B49246216715C13005ADD60 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A3F516649736001A5DBF /* NSData+Base64.m */; };
-		5B49246316715C13005ADD60 /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */; };
-		5B49246416715C13005ADD60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A42116651D4A001A5DBF /* main.m */; };
 		5B49246516715C13005ADD60 /* SPAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF8451668909100DD0C75 /* SPAnnotations.m */; };
-		5B49246616715C13005ADD60 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49242E166C4A71005ADD60 /* TestViewController.m */; };
-		5B49246716715C13005ADD60 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B492432166C8F33005ADD60 /* DetailsViewController.m */; };
 		5B49246916715C13005ADD60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0D34FB1667F1EC00D48C26 /* MapKit.framework */; };
 		5B49246A16715C13005ADD60 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0D34F81667F1E600D48C26 /* CoreLocation.framework */; };
 		5B49246B16715C13005ADD60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8BE1664259400782803 /* UIKit.framework */; };
 		5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C01664259400782803 /* Foundation.framework */; };
 		5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
 		5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
-		5B49246F16715C13005ADD60 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49244E16714ED0005ADD60 /* libTestFlight.a */; };
 		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
 		5B49247216715C13005ADD60 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D01664259400782803 /* Default.png */; };
 		5B49247316715C13005ADD60 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D21664259400782803 /* Default@2x.png */; };
 		5B49247416715C13005ADD60 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D41664259400782803 /* Default-568h@2x.png */; };
 		5B49247516715C13005ADD60 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D91664259400782803 /* SPViewController.xib */; };
-		5B49247616715C13005ADD60 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B492433166C8F33005ADD60 /* DetailsViewController.xib */; };
 		5B49247716715C13005ADD60 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B49244316711E00005ADD60 /* user.png */; };
-		5B49247F16715EA8005ADD60 /* MealCatcher copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B49247E16715EA8005ADD60 /* MealCatcher copy-Info.plist */; };
 		5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA6405816726419007528BD /* DetailsViewController.xib */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA6405F16726427007528BD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405E16726427007528BD /* TestViewController.m */; };
@@ -39,23 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B49242D166C4A71005ADD60 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = ../TestViewController.h; sourceTree = "<group>"; };
-		5B49242E166C4A71005ADD60 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = ../TestViewController.m; sourceTree = "<group>"; };
-		5B492431166C8F33005ADD60 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = ../DetailsViewController.h; sourceTree = "<group>"; };
-		5B492432166C8F33005ADD60 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
-		5B492433166C8F33005ADD60 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailsViewController.xib; path = ../DetailsViewController.xib; sourceTree = "<group>"; };
 		5B49244316711E00005ADD60 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		5B49244D16714ECF005ADD60 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		5B49244E16714ED0005ADD60 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B49247E16715EA8005ADD60 /* MealCatcher copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MealCatcher copy-Info.plist"; path = "../MealCatcher copy-Info.plist"; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMStringEncoding.h; path = ../GTMStringEncoding.h; sourceTree = "<group>"; };
-		5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMStringEncoding.m; path = ../GTMStringEncoding.m; sourceTree = "<group>"; };
-		5B84A42116651D4A001A5DBF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
-		5B84A42316651D5C001A5DBF /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = ../GTMDefines.h; sourceTree = "<group>"; };
 		5BA6405816726419007528BD /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		5BA6405916726419007528BD /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5BA6405A16726419007528BD /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -98,7 +79,6 @@
 				5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */,
 				5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */,
 				5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */,
-				5B49246F16715C13005ADD60 /* libTestFlight.a in Frameworks */,
 				5BA640631672644D007528BD /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,11 +89,9 @@
 		5B49245116714EDB005ADD60 /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
-				5B49245216714F34005ADD60 /* libz.dylib */,
-				5B49244D16714ECF005ADD60 /* TestFlight.h */,
-				5B49244E16714ED0005ADD60 /* libTestFlight.a */,
 				5BA640611672644D007528BD /* TestFlight.h */,
 				5BA640621672644D007528BD /* libTestFlight.a */,
+				5B49245216714F34005ADD60 /* libz.dylib */,
 			);
 			name = TestFlight;
 			sourceTree = "<group>";
@@ -124,9 +102,6 @@
 				5BA640641672646F007528BD /* GTMStringEncoding.m */,
 				5BA640651672646F007528BD /* GTMStringEncoding.h */,
 				5BA640661672646F007528BD /* GTMDefines.h */,
-				5B84A42316651D5C001A5DBF /* GTMDefines.h */,
-				5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */,
-				5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */,
 				5B84A3F416649731001A5DBF /* NSData+Base64.h */,
 				5B84A3F516649736001A5DBF /* NSData+Base64.m */,
 			);
@@ -166,26 +141,20 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
+				5BA6405A16726419007528BD /* DetailsViewController.h */,
+				5BEEF8441668909100DD0C75 /* SPAnnotations.h */,
+				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
+				8BEBB8D61664259400782803 /* SPViewController.h */,
 				5BA6406016726437007528BD /* TestViewController.h */,
+				5BA6405916726419007528BD /* DetailsViewController.m */,
+				5BEEF8451668909100DD0C75 /* SPAnnotations.m */,
+				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
+				8BEBB8D71664259400782803 /* SPViewController.m */,
 				5BA6405E16726427007528BD /* TestViewController.m */,
 				5BA6405816726419007528BD /* DetailsViewController.xib */,
-				5BA6405916726419007528BD /* DetailsViewController.m */,
-				5BA6405A16726419007528BD /* DetailsViewController.h */,
-				5B492431166C8F33005ADD60 /* DetailsViewController.h */,
-				5B492432166C8F33005ADD60 /* DetailsViewController.m */,
-				5B492433166C8F33005ADD60 /* DetailsViewController.xib */,
-				5B49242D166C4A71005ADD60 /* TestViewController.h */,
-				5B49242E166C4A71005ADD60 /* TestViewController.m */,
-				5B84A42116651D4A001A5DBF /* main.m */,
-				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
-				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
-				8BEBB8D61664259400782803 /* SPViewController.h */,
-				8BEBB8D71664259400782803 /* SPViewController.m */,
 				8BEBB8D91664259400782803 /* SPViewController.xib */,
 				5B84A3F21664971B001A5DBF /* Base64 */,
 				8BEBB8C51664259400782803 /* Supporting Files */,
-				5BEEF8441668909100DD0C75 /* SPAnnotations.h */,
-				5BEEF8451668909100DD0C75 /* SPAnnotations.m */,
 			);
 			path = MealCatcher;
 			sourceTree = "<group>";
@@ -193,7 +162,6 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B49247E16715EA8005ADD60 /* MealCatcher copy-Info.plist */,
 				5B49244316711E00005ADD60 /* user.png */,
 				8BEBB8C61664259400782803 /* MealCatcher-Info.plist */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
@@ -263,9 +231,7 @@
 				5B49247316715C13005ADD60 /* Default@2x.png in Resources */,
 				5B49247416715C13005ADD60 /* Default-568h@2x.png in Resources */,
 				5B49247516715C13005ADD60 /* SPViewController.xib in Resources */,
-				5B49247616715C13005ADD60 /* DetailsViewController.xib in Resources */,
 				5B49247716715C13005ADD60 /* user.png in Resources */,
-				5B49247F16715EA8005ADD60 /* MealCatcher copy-Info.plist in Resources */,
 				5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,11 +247,7 @@
 				5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */,
 				5B49246116715C13005ADD60 /* SPViewController.m in Sources */,
 				5B49246216715C13005ADD60 /* NSData+Base64.m in Sources */,
-				5B49246316715C13005ADD60 /* GTMStringEncoding.m in Sources */,
-				5B49246416715C13005ADD60 /* main.m in Sources */,
 				5B49246516715C13005ADD60 /* SPAnnotations.m in Sources */,
-				5B49246616715C13005ADD60 /* TestViewController.m in Sources */,
-				5B49246716715C13005ADD60 /* DetailsViewController.m in Sources */,
 				5BA6405C16726419007528BD /* DetailsViewController.m in Sources */,
 				5BA6405F16726427007528BD /* TestViewController.m in Sources */,
 				5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */,
@@ -319,7 +281,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
-				INFOPLIST_FILE = "MealCatcher-Info.plist";
+				INFOPLIST_FILE = "MealCatcher/MealCatcher-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
