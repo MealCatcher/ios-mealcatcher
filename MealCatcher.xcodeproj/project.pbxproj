@@ -7,29 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B49242F166C4A71005ADD60 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49242E166C4A71005ADD60 /* TestViewController.m */; };
-		5B492434166C8F33005ADD60 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B492432166C8F33005ADD60 /* DetailsViewController.m */; };
-		5B492435166C8F33005ADD60 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B492433166C8F33005ADD60 /* DetailsViewController.xib */; };
-		5B49244416711E00005ADD60 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B49244316711E00005ADD60 /* user.png */; };
-		5B49244F16714ED0005ADD60 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49244E16714ED0005ADD60 /* libTestFlight.a */; };
-		5B49245316714F34005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
-		5B84A3F616649736001A5DBF /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A3F516649736001A5DBF /* NSData+Base64.m */; };
-		5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */; };
-		5B84A42216651D4A001A5DBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A42116651D4A001A5DBF /* main.m */; };
-		5BEEF8461668909100DD0C75 /* SPAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF8451668909100DD0C75 /* SPAnnotations.m */; };
-		8B0D34F91667F1E600D48C26 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0D34F81667F1E600D48C26 /* CoreLocation.framework */; };
-		8B0D34FC1667F1EC00D48C26 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0D34FB1667F1EC00D48C26 /* MapKit.framework */; };
-		8BEBB8BF1664259400782803 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8BE1664259400782803 /* UIKit.framework */; };
-		8BEBB8C11664259400782803 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C01664259400782803 /* Foundation.framework */; };
-		8BEBB8C31664259400782803 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
-		8BEBB8C91664259400782803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
-		8BEBB8CB1664259400782803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CA1664259400782803 /* main.m */; };
-		8BEBB8CF1664259400782803 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CE1664259400782803 /* SPAppDelegate.m */; };
-		8BEBB8D11664259400782803 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D01664259400782803 /* Default.png */; };
-		8BEBB8D31664259400782803 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D21664259400782803 /* Default@2x.png */; };
-		8BEBB8D51664259400782803 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D41664259400782803 /* Default-568h@2x.png */; };
-		8BEBB8D81664259400782803 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D71664259400782803 /* SPViewController.m */; };
-		8BEBB8DB1664259400782803 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D91664259400782803 /* SPViewController.xib */; };
+		5B49245F16715C13005ADD60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CA1664259400782803 /* main.m */; };
+		5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CE1664259400782803 /* SPAppDelegate.m */; };
+		5B49246116715C13005ADD60 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D71664259400782803 /* SPViewController.m */; };
+		5B49246216715C13005ADD60 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A3F516649736001A5DBF /* NSData+Base64.m */; };
+		5B49246316715C13005ADD60 /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */; };
+		5B49246416715C13005ADD60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A42116651D4A001A5DBF /* main.m */; };
+		5B49246516715C13005ADD60 /* SPAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF8451668909100DD0C75 /* SPAnnotations.m */; };
+		5B49246616715C13005ADD60 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49242E166C4A71005ADD60 /* TestViewController.m */; };
+		5B49246716715C13005ADD60 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B492432166C8F33005ADD60 /* DetailsViewController.m */; };
+		5B49246916715C13005ADD60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0D34FB1667F1EC00D48C26 /* MapKit.framework */; };
+		5B49246A16715C13005ADD60 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0D34F81667F1E600D48C26 /* CoreLocation.framework */; };
+		5B49246B16715C13005ADD60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8BE1664259400782803 /* UIKit.framework */; };
+		5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C01664259400782803 /* Foundation.framework */; };
+		5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
+		5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
+		5B49246F16715C13005ADD60 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49244E16714ED0005ADD60 /* libTestFlight.a */; };
+		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
+		5B49247216715C13005ADD60 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D01664259400782803 /* Default.png */; };
+		5B49247316715C13005ADD60 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D21664259400782803 /* Default@2x.png */; };
+		5B49247416715C13005ADD60 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D41664259400782803 /* Default-568h@2x.png */; };
+		5B49247516715C13005ADD60 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D91664259400782803 /* SPViewController.xib */; };
+		5B49247616715C13005ADD60 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B492433166C8F33005ADD60 /* DetailsViewController.xib */; };
+		5B49247716715C13005ADD60 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B49244316711E00005ADD60 /* user.png */; };
+		5B49247F16715EA8005ADD60 /* MealCatcher copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B49247E16715EA8005ADD60 /* MealCatcher copy-Info.plist */; };
+		5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA6405816726419007528BD /* DetailsViewController.xib */; };
+		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
+		5BA6405F16726427007528BD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405E16726427007528BD /* TestViewController.m */; };
+		5BA640631672644D007528BD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA640621672644D007528BD /* libTestFlight.a */; };
+		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,24 +48,35 @@
 		5B49244D16714ECF005ADD60 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5B49244E16714ED0005ADD60 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B49247E16715EA8005ADD60 /* MealCatcher copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MealCatcher copy-Info.plist"; path = "../MealCatcher copy-Info.plist"; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMStringEncoding.h; path = ../GTMStringEncoding.h; sourceTree = "<group>"; };
 		5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMStringEncoding.m; path = ../GTMStringEncoding.m; sourceTree = "<group>"; };
 		5B84A42116651D4A001A5DBF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
 		5B84A42316651D5C001A5DBF /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = ../GTMDefines.h; sourceTree = "<group>"; };
+		5BA6405816726419007528BD /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		5BA6405916726419007528BD /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		5BA6405A16726419007528BD /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		5BA6405E16726427007528BD /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		5BA6406016726437007528BD /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		5BA640611672644D007528BD /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = MealCatcher/TestFlight.h; sourceTree = "<group>"; };
+		5BA640621672644D007528BD /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = MealCatcher/libTestFlight.a; sourceTree = "<group>"; };
+		5BA640641672646F007528BD /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
+		5BA640651672646F007528BD /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
+		5BA640661672646F007528BD /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		5BEEF8441668909100DD0C75 /* SPAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAnnotations.h; sourceTree = "<group>"; };
 		5BEEF8451668909100DD0C75 /* SPAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAnnotations.m; sourceTree = "<group>"; };
 		8B0D34F81667F1E600D48C26 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8B0D34FB1667F1EC00D48C26 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		8BEBB8BA1664259400782803 /* SinglePlatformTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinglePlatformTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEBB8BE1664259400782803 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BEBB8C01664259400782803 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8BEBB8C21664259400782803 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8BEBB8C61664259400782803 /* SinglePlatformTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SinglePlatformTest-Info.plist"; sourceTree = "<group>"; };
+		8BEBB8C61664259400782803 /* MealCatcher-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MealCatcher-Info.plist"; sourceTree = "<group>"; };
 		8BEBB8C81664259400782803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BEBB8CA1664259400782803 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8BEBB8CC1664259400782803 /* SinglePlatformTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SinglePlatformTest-Prefix.pch"; sourceTree = "<group>"; };
+		8BEBB8CC1664259400782803 /* MealCatcher-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MealCatcher-Prefix.pch"; sourceTree = "<group>"; };
 		8BEBB8CD1664259400782803 /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
 		8BEBB8CE1664259400782803 /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		8BEBB8D01664259400782803 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -71,17 +88,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8BEBB8B71664259400782803 /* Frameworks */ = {
+		5B49246816715C13005ADD60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B0D34FC1667F1EC00D48C26 /* MapKit.framework in Frameworks */,
-				8B0D34F91667F1E600D48C26 /* CoreLocation.framework in Frameworks */,
-				8BEBB8BF1664259400782803 /* UIKit.framework in Frameworks */,
-				8BEBB8C11664259400782803 /* Foundation.framework in Frameworks */,
-				8BEBB8C31664259400782803 /* CoreGraphics.framework in Frameworks */,
-				5B49245316714F34005ADD60 /* libz.dylib in Frameworks */,
-				5B49244F16714ED0005ADD60 /* libTestFlight.a in Frameworks */,
+				5B49246916715C13005ADD60 /* MapKit.framework in Frameworks */,
+				5B49246A16715C13005ADD60 /* CoreLocation.framework in Frameworks */,
+				5B49246B16715C13005ADD60 /* UIKit.framework in Frameworks */,
+				5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */,
+				5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */,
+				5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */,
+				5B49246F16715C13005ADD60 /* libTestFlight.a in Frameworks */,
+				5BA640631672644D007528BD /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +112,8 @@
 				5B49245216714F34005ADD60 /* libz.dylib */,
 				5B49244D16714ECF005ADD60 /* TestFlight.h */,
 				5B49244E16714ED0005ADD60 /* libTestFlight.a */,
+				5BA640611672644D007528BD /* TestFlight.h */,
+				5BA640621672644D007528BD /* libTestFlight.a */,
 			);
 			name = TestFlight;
 			sourceTree = "<group>";
@@ -101,6 +121,9 @@
 		5B84A3F21664971B001A5DBF /* Base64 */ = {
 			isa = PBXGroup;
 			children = (
+				5BA640641672646F007528BD /* GTMStringEncoding.m */,
+				5BA640651672646F007528BD /* GTMStringEncoding.h */,
+				5BA640661672646F007528BD /* GTMDefines.h */,
 				5B84A42316651D5C001A5DBF /* GTMDefines.h */,
 				5B84A41B16651D14001A5DBF /* GTMStringEncoding.h */,
 				5B84A41C16651D14001A5DBF /* GTMStringEncoding.m */,
@@ -113,7 +136,7 @@
 		8BEBB8AF1664259400782803 = {
 			isa = PBXGroup;
 			children = (
-				8BEBB8C41664259400782803 /* SinglePlatformTest */,
+				8BEBB8C41664259400782803 /* MealCatcher */,
 				5B49245116714EDB005ADD60 /* TestFlight */,
 				8BEBB8BD1664259400782803 /* Frameworks */,
 				8BEBB8BB1664259400782803 /* Products */,
@@ -123,7 +146,7 @@
 		8BEBB8BB1664259400782803 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BEBB8BA1664259400782803 /* SinglePlatformTest.app */,
+				5B49247B16715C13005ADD60 /* MealCatcher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,9 +163,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8BEBB8C41664259400782803 /* SinglePlatformTest */ = {
+		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
+				5BA6406016726437007528BD /* TestViewController.h */,
+				5BA6405E16726427007528BD /* TestViewController.m */,
+				5BA6405816726419007528BD /* DetailsViewController.xib */,
+				5BA6405916726419007528BD /* DetailsViewController.m */,
+				5BA6405A16726419007528BD /* DetailsViewController.h */,
 				5B492431166C8F33005ADD60 /* DetailsViewController.h */,
 				5B492432166C8F33005ADD60 /* DetailsViewController.m */,
 				5B492433166C8F33005ADD60 /* DetailsViewController.xib */,
@@ -159,17 +187,18 @@
 				5BEEF8441668909100DD0C75 /* SPAnnotations.h */,
 				5BEEF8451668909100DD0C75 /* SPAnnotations.m */,
 			);
-			path = SinglePlatformTest;
+			path = MealCatcher;
 			sourceTree = "<group>";
 		};
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B49247E16715EA8005ADD60 /* MealCatcher copy-Info.plist */,
 				5B49244316711E00005ADD60 /* user.png */,
-				8BEBB8C61664259400782803 /* SinglePlatformTest-Info.plist */,
+				8BEBB8C61664259400782803 /* MealCatcher-Info.plist */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
-				8BEBB8CC1664259400782803 /* SinglePlatformTest-Prefix.pch */,
+				8BEBB8CC1664259400782803 /* MealCatcher-Prefix.pch */,
 				8BEBB8D01664259400782803 /* Default.png */,
 				8BEBB8D21664259400782803 /* Default@2x.png */,
 				8BEBB8D41664259400782803 /* Default-568h@2x.png */,
@@ -180,21 +209,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BEBB8B91664259400782803 /* SinglePlatformTest */ = {
+		5B49245D16715C13005ADD60 /* MealCatcher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BEBB8DE1664259400782803 /* Build configuration list for PBXNativeTarget "SinglePlatformTest" */;
+			buildConfigurationList = 5B49247816715C13005ADD60 /* Build configuration list for PBXNativeTarget "MealCatcher" */;
 			buildPhases = (
-				8BEBB8B61664259400782803 /* Sources */,
-				8BEBB8B71664259400782803 /* Frameworks */,
-				8BEBB8B81664259400782803 /* Resources */,
+				5B49245E16715C13005ADD60 /* Sources */,
+				5B49246816715C13005ADD60 /* Frameworks */,
+				5B49247016715C13005ADD60 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SinglePlatformTest;
-			productName = SinglePlatformTest;
-			productReference = 8BEBB8BA1664259400782803 /* SinglePlatformTest.app */;
+			name = MealCatcher;
+			productName = MealCatcher;
+			productReference = 5B49247B16715C13005ADD60 /* MealCatcher.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +236,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Test;
 			};
-			buildConfigurationList = 8BEBB8B41664259400782803 /* Build configuration list for PBXProject "SinglePlatformTest" */;
+			buildConfigurationList = 8BEBB8B41664259400782803 /* Build configuration list for PBXProject "MealCatcher" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -219,42 +248,47 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BEBB8B91664259400782803 /* SinglePlatformTest */,
+				5B49245D16715C13005ADD60 /* MealCatcher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8BEBB8B81664259400782803 /* Resources */ = {
+		5B49247016715C13005ADD60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BEBB8C91664259400782803 /* InfoPlist.strings in Resources */,
-				8BEBB8D11664259400782803 /* Default.png in Resources */,
-				8BEBB8D31664259400782803 /* Default@2x.png in Resources */,
-				8BEBB8D51664259400782803 /* Default-568h@2x.png in Resources */,
-				8BEBB8DB1664259400782803 /* SPViewController.xib in Resources */,
-				5B492435166C8F33005ADD60 /* DetailsViewController.xib in Resources */,
-				5B49244416711E00005ADD60 /* user.png in Resources */,
+				5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */,
+				5B49247216715C13005ADD60 /* Default.png in Resources */,
+				5B49247316715C13005ADD60 /* Default@2x.png in Resources */,
+				5B49247416715C13005ADD60 /* Default-568h@2x.png in Resources */,
+				5B49247516715C13005ADD60 /* SPViewController.xib in Resources */,
+				5B49247616715C13005ADD60 /* DetailsViewController.xib in Resources */,
+				5B49247716715C13005ADD60 /* user.png in Resources */,
+				5B49247F16715EA8005ADD60 /* MealCatcher copy-Info.plist in Resources */,
+				5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8BEBB8B61664259400782803 /* Sources */ = {
+		5B49245E16715C13005ADD60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BEBB8CB1664259400782803 /* main.m in Sources */,
-				8BEBB8CF1664259400782803 /* SPAppDelegate.m in Sources */,
-				8BEBB8D81664259400782803 /* SPViewController.m in Sources */,
-				5B84A3F616649736001A5DBF /* NSData+Base64.m in Sources */,
-				5B84A41D16651D14001A5DBF /* GTMStringEncoding.m in Sources */,
-				5B84A42216651D4A001A5DBF /* main.m in Sources */,
-				5BEEF8461668909100DD0C75 /* SPAnnotations.m in Sources */,
-				5B49242F166C4A71005ADD60 /* TestViewController.m in Sources */,
-				5B492434166C8F33005ADD60 /* DetailsViewController.m in Sources */,
+				5B49245F16715C13005ADD60 /* main.m in Sources */,
+				5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */,
+				5B49246116715C13005ADD60 /* SPViewController.m in Sources */,
+				5B49246216715C13005ADD60 /* NSData+Base64.m in Sources */,
+				5B49246316715C13005ADD60 /* GTMStringEncoding.m in Sources */,
+				5B49246416715C13005ADD60 /* main.m in Sources */,
+				5B49246516715C13005ADD60 /* SPAnnotations.m in Sources */,
+				5B49246616715C13005ADD60 /* TestViewController.m in Sources */,
+				5B49246716715C13005ADD60 /* DetailsViewController.m in Sources */,
+				5BA6405C16726419007528BD /* DetailsViewController.m in Sources */,
+				5BA6405F16726427007528BD /* TestViewController.m in Sources */,
+				5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +314,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5B49247916715C13005ADD60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
+				INFOPLIST_FILE = "MealCatcher-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/MealCatcher\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5B49247A16715C13005ADD60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
+				INFOPLIST_FILE = "MealCatcher-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/MealCatcher\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		8BEBB8DC1664259400782803 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -330,53 +400,23 @@
 			};
 			name = Release;
 		};
-		8BEBB8DF1664259400782803 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SinglePlatformTest/SinglePlatformTest-Prefix.pch";
-				INFOPLIST_FILE = "SinglePlatformTest/SinglePlatformTest-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		8BEBB8E01664259400782803 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SinglePlatformTest/SinglePlatformTest-Prefix.pch";
-				INFOPLIST_FILE = "SinglePlatformTest/SinglePlatformTest-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8BEBB8B41664259400782803 /* Build configuration list for PBXProject "SinglePlatformTest" */ = {
+		5B49247816715C13005ADD60 /* Build configuration list for PBXNativeTarget "MealCatcher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8BEBB8DC1664259400782803 /* Debug */,
-				8BEBB8DD1664259400782803 /* Release */,
+				5B49247916715C13005ADD60 /* Debug */,
+				5B49247A16715C13005ADD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BEBB8DE1664259400782803 /* Build configuration list for PBXNativeTarget "SinglePlatformTest" */ = {
+		8BEBB8B41664259400782803 /* Build configuration list for PBXProject "MealCatcher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8BEBB8DF1664259400782803 /* Debug */,
-				8BEBB8E01664259400782803 /* Release */,
+				8BEBB8DC1664259400782803 /* Debug */,
+				8BEBB8DD1664259400782803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -4,14 +4,19 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SinglePlatformTest.xcscheme</key>
+		<key>Meal Catcher.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5B49245D16715C13005ADD60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8BEBB8B91664259400782803</key>
 		<dict>
 			<key>primary</key>
