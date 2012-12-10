@@ -11,7 +11,6 @@
 #import "NSData+Base64.h"
 #import "GTMStringEncoding.h"
 #import "SPAnnotations.h"
-#import "TestViewController.h"
 #import "DetailsViewController.h"
 
 @interface SPViewController ()
@@ -20,20 +19,21 @@
 
 @implementation SPViewController
 
-@synthesize testViewController;
 @synthesize nibViewController;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    NSLog(@"initWithNibName ran!");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
         locationManager = [[CLLocationManager alloc] init];
-        NSLog(@"Location Manager Delegate set!");
+        
+        #ifdef DEBUB
+            NSLog(@"Location Manager Delegate set!");
+        #endif
+        
         [locationManager setDelegate:self];
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        //[locationManager startUpdatingLocation];
     }
     
     //initialize update center
@@ -49,8 +49,6 @@
     
     //[self fetchRestauransByZip: 94602];
     //[self searchRestaurantsByZip: 94602];
-    NSLog(@"viewDidLoad ran!");
-    
     
     [super viewDidLoad];
     [worldView setShowsUserLocation:YES];
@@ -75,25 +73,24 @@
  */
 -(void)searchRestaurantsByZip:(NSInteger)zipCode;
 {
-    //NSLog(@"Got here 1.0");
     NSMutableString *SECRET = [[NSMutableString alloc] initWithString:@"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw"];
     NSString *BASE_SINGLEPLATFORM_HOST = @"http://api.singleplatform.co";
     NSMutableString *RESTAURANT_SEARCH_URI = [[NSMutableString alloc] initWithString:@"/restaurants/search?q=%@"];
     NSMutableString *clientID = [[NSMutableString alloc]initWithString:@"coad3k62n95pi9sbybjydroxy"];
-    //NSLog(@"Got here 1.1");
     NSMutableString *uri = [NSMutableString stringWithFormat:@"/restaurants/search?q=%d&client=%@", zipCode, clientID];
-    //NSLog(@"URI: %@", uri);
     
     NSString* signature = [self signURL:uri signingKey:SECRET];
-    //NSLog(@"Signature: %@", signature);
     [uri appendFormat:@"&sig=%@", signature];
-    //NSLog(@"URI: %@", uri);
     
     jsonData = [[NSMutableData alloc] init];
     NSURL *myUrl = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@%@", BASE_SINGLEPLATFORM_HOST, uri]];
-    NSLog(@"Final URL: %@", myUrl);
-    NSURLRequest *request = [NSURLRequest requestWithURL:myUrl];
     
+    #ifdef DEBUG
+        NSLog(@"Final URL: %@", myUrl);
+    #endif
+    
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:myUrl];
     connection  = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
@@ -105,8 +102,10 @@
 -(void)fetchRestauransByZip:(NSInteger)zipCode
 {
     jsonData = [[NSMutableData alloc] init];
-    
-    NSLog(@"Zip Code: %d", zipCode);
+   
+    #ifdef DEBUG
+      NSLog(@"Zip Code: %d", zipCode);  
+    #endif
     
     restaurantData = [[NSMutableData alloc] init];
     
@@ -124,15 +123,15 @@
     
     //restaurants/search?q=sidebar&client=coad3k62n95pi9sbybjydroxy&sig=WP287B9XLhy42Q9X9JdXsJe41j0
     NSString *signature = [self signURL:uri signingKey:[NSMutableString stringWithString:[[NSMutableString alloc] initWithString:secret_key]]];
-    NSLog(@"Signature: %@", signature);
     
     NSString *signedUrl = [noSingUrl stringByAppendingString:@"&sig=WP287B9XLhy42Q9X9JdXsJe41j0"];
     NSURL *finalURL = [NSURL URLWithString:signedUrl];
     
-    NSLog(@"Final URL: %@", finalURL);
+    #ifdef DEBUG
+        NSLog(@"Final URL: %@", finalURL);
+    #endif
     
     NSURLRequest *request = [NSURLRequest requestWithURL:finalURL];
-    
     connection  = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
     
 }
@@ -145,9 +144,11 @@
     NSURL *url = [NSURL URLWithString:@"http://forums.bignerdranch.com/smartfeed.php?"
                   @"limit=1_DAY&sort_by=standard&feed_type=RSS2.0&feed_style=COMPACT"];
     
-    NSLog(@"Path: %@", [url path]);
-    NSLog(@"Parameter String: %@", [url parameterString]);
-    NSLog(@"Query: %@", [url query]);
+    #ifdef DEBUG
+        NSLog(@"Path: %@", [url path]);
+        NSLog(@"Parameter String: %@", [url parameterString]);
+        NSLog(@"Query: %@", [url query]);
+    #endif
     
     //Put that URL into a NSURLRequest
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -168,7 +169,11 @@
 {
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //NSLog(@"jsonCheck = %@", jsonCheck);
+    
+    #ifdef DEBUG
+        NSLog(@"jsonCheck = %@", jsonCheck);
+    #endif
+    
     
     /* Now try to deserialize the JSON object into a dictionary */
     NSError *error = nil;
@@ -176,14 +181,20 @@
     
     if(jsonObject != nil && error == nil)
     {
-        NSLog(@"Successfully desearilzed!!");
-        NSLog(@"Data: %@", jsonObject);
+        #ifdef DEBUG
+            NSLog(@"Data: %@", jsonObject);
+        #endif
+        
         
         if([jsonObject isKindOfClass:[NSDictionary class]])
         {
             NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
             NSString *count = [deserializedDictionary objectForKey:@"count"];
-            NSLog(@"Count: %d", [count integerValue]);
+            
+            #ifdef DEBUG
+                NSLog(@"Count: %d", [count integerValue]);
+            #endif
+            
             
             if([count integerValue] > 0)
             {
@@ -194,14 +205,18 @@
                 //id results = [deserializedDictionary objectForKey:@"results"];
                 //NSLog(@"Type for results: %@", [results class]);
                 NSArray *results = [deserializedDictionary objectForKey:@"results"];
-                NSLog(@"Results Array Count: %d", [results count]);
+                
+                #ifdef DEBUG
+                    NSLog(@"Results Array Count: %d", [results count]);
+                #endif
+                
+                
+                
                 
                 for(int i=0; i < [results count]; i++)
                 {
                     NSString *latitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"latitude"];
                     NSString *longitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"longitude"];
-                    //NSLog(@"Latitude: %@", latitude);
-                    //NSLog(@"Longitude: %@", longitude);
                     NSString *name = [[[results objectAtIndex:i] objectForKey:@"general"] objectForKey:@"name"];
                     NSString *businessType =[[results objectAtIndex:i] objectForKey:@"businessType"];
                     CLLocationCoordinate2D testLocation = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
@@ -211,12 +226,14 @@
                     
                     anotherAnnotation.pinColor = MKPinAnnotationColorRed;
                     
-                    NSLog(@"Business Name: %@", name);
                     [worldView addAnnotation:anotherAnnotation];
                     
+                    #ifdef DEBUG
+                        NSLog(@"Business Name: %@", name);
+                        NSLog(@"Array Content: %@", results);
+                        NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
+                    #endif
                     
-                    //NSLog(@"Array Content: %@", results);
-                    //NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
                     //NSArray *theKeys = [[results objectAtIndex:0] allKeys];
                     //NSLog(@"%@", theKeys);
                     
@@ -230,7 +247,11 @@
         else if([jsonObject isKindOfClass:[NSArray class]])
         {
             NSArray *deserializedArray = (NSArray *)jsonObject;
-            NSLog(@"Deserealized JSON Array %@", deserializedArray);
+            
+            #ifdef DEBUG
+                NSLog(@"Deserealized JSON Array %@", deserializedArray);
+            #endif
+            
         }
         else
         {
@@ -241,6 +262,7 @@
     {
         NSLog(@"An error happened while deserializing the JSON data");
         //Should probably display an error message to the user
+        //Should probably send an error to TestFlight
     }
 }
 
@@ -265,18 +287,9 @@
 /* This method signs the a URL using HMAC-SHA1 and returns the signature */
 -(NSString *)signURL:(NSMutableString *)url signingKey:(NSMutableString*)key
 {
-    NSLog(@"Inside this method");
-    NSLog(@"Key: %@", key);
-    NSLog(@"URI Again: %@", url);
-    
-    //NSMutableString *tempKey = [[NSMutableString alloc] initWithString:key];
-    //NSLog(@"Temp Key: %@", tempKey);
     [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
-    NSLog(@"Inside this method 1.1");
+    
     [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
-    
-    
-    NSLog(@"Got here 1.0");
     
     // Create instance of Google's URL-safe Base64 coder/decoder.
     GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
@@ -289,7 +302,6 @@
     
     // Stores the url in a NSData.
     //Put the URL in an NSData object using ASCII String Encoding. Stores it in binary.
-    //NSData *urlData = [url dataUsingEncoding: NSASCIIStringEncoding];
     NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
     
     // Sign the URL with Objective-C HMAC SHA1 algorithm and put it in character array
@@ -307,8 +319,6 @@
     // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
     NSMutableString *signature = [[NSMutableString alloc] initWithString:[encoding encode:binarySignature]];
     
-    NSLog(@"Signature from method: %@", signature);
-    
     [signature replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
     
@@ -320,19 +330,14 @@
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    NSLog(@"The user's location updated!");
     
-    //NSTimeInterval t = [[[userLocation location] timestamp] timeIntervalSinceNow];
-    //NSLog(@"Time Interval: %f", t);
-    //if(t < -180)
-    //{
-    //  NSLog(@"This is cached data, you don't want it, keep looking");
     
-    //return;
-    //}
-    //else
-    //{
-    NSLog(@"Update Location Center: %d", updateLocationCenter);
+    #ifdef DEBUG
+        NSLog(@"The user's location updated!");
+        NSLog(@"Update Location Center: %d", updateLocationCenter);
+    #endif
+    
+    
     if(updateLocationCenter == YES)
     {
         CLLocationCoordinate2D loc = [userLocation coordinate];
@@ -344,10 +349,13 @@
                        completionHandler:^(NSArray* placemarks, NSError* error){
                            if ([placemarks count] > 0)
                            {
-                               NSLog(@"Number of Placemarks: %d", [placemarks count]);
                                CLPlacemark *placeMark = [placemarks objectAtIndex:0];
-                               NSLog(@"Postal Code: %@", [placeMark postalCode]);
                                
+                                #ifdef DEBUG
+                                    NSLog(@"Number of Placemarks: %d", [placemarks count]);
+                                    NSLog(@"Postal Code: %@", [placeMark postalCode]);
+                                #endif
+                            
                                NSInteger test = [[placeMark postalCode] integerValue];
                                
                                [self searchRestaurantsByZip:test];
@@ -374,30 +382,13 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"New Location: %@", newLocation);
     [locationManager stopUpdatingLocation];
-    NSLog(@"CALLED STOP UPDATING LOCATION");
 }
 
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"Could not find location: %@", error);
-}
-
-- (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
-{
-    NSLog(@"MAP STOPPED TRACKING USER'S LOCATION");
-}
-
-- (void)mapViewWillStartLocatingUser:(MKMapView *)mapView
-{
-    NSLog(@"MAP WILL START TRACKING USER'S LOCATION");
-}
-
-- (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated
-{
-    NSLog(@"CHANGE IN TRACKING MODE!");
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -441,7 +432,6 @@
 /* Method that responds to taps on the map pin callout accessory control */
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    NSLog(@"Disclosure button tapped!");
     
     //self.testViewController = [[TestViewController alloc]initWithNibName:nil bundle:NULL];
     self.nibViewController = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:Nil];

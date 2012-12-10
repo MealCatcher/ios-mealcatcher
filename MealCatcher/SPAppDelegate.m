@@ -25,22 +25,18 @@
     
     //Allocating navigation view controller
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    [self.window addSubview:self.navigationController.view];
     
+    //[self.window addSubview:self.navigationController.view];
     //self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.navigationController;
+    
     [self.window makeKeyAndVisible];
     
     //Initialize Test Flight with Meal Catcher Team Token
     [TestFlight takeOff:@"c096138643dd233a896e69c2b19b3a55_MTYzNzQxMjAxMi0xMi0wNiAxNzoxNToyMy4wOTMwMjc"];
     
     #ifdef DEBUG
-    
-        // Something to log your sensitive data here
         NSLog(@"The DEBUG settings are working!");
-    
-    #else
-        NSLog(@"The BUILD is: RELEASE");
-    
     #endif
     
     

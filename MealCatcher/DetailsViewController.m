@@ -32,9 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
+    
     self.title = @"Details";
-    NSLog(@"Restaurant ID: %@", restaurantID);
+    
+    #ifdef DEBUG
+        NSLog(@"Restaurant ID: %@", restaurantID);
+    #endif
+    
+    
     [self getRestaurantDetails:restaurantID];
 }
 
@@ -53,7 +60,6 @@
 -(NSString *)signURL:(NSMutableString *)url signingKey:(NSMutableString*)key
 {
     [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
-    NSLog(@"Inside this method 1.1");
     [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     
     // Create instance of Google's URL-safe Base64 coder/decoder.
@@ -133,21 +139,34 @@
         {
             NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
             NSString *businessType = [deserializedDictionary objectForKey:@"businessType"];
-            NSLog(@"Business Type: %@", businessType);
             
-                //CLLocationCoordinate2D placeLocation = CLLocationCoordinate2DMake(37.802787, -122.211471);
-                //SPAnnotations *annotation = [[SPAnnotations alloc] initWithCoordinates:placeLocation title:@"Jorge's Place" subtitle:@"Karen's Place"];
-                //[worldView addAnnotation:annotation];
-                
-                //id results = [deserializedDictionary objectForKey:@"results"];
-                //NSLog(@"Type for results: %@", [results class]);
-                NSArray *results = [deserializedDictionary objectForKey:@"results"];
+            
+            #ifdef DEBUG
+                NSLog(@"Business Type: %@", businessType);
+            #endif
+            
+            
+            //CLLocationCoordinate2D placeLocation = CLLocationCoordinate2DMake(37.802787, -122.211471);
+            //SPAnnotations *annotation = [[SPAnnotations alloc] initWithCoordinates:placeLocation title:@"Jorge's Place" subtitle:@"Karen's Place"];
+            //[worldView addAnnotation:annotation];
+            
+            //id results = [deserializedDictionary objectForKey:@"results"];
+            
+            NSArray *results = [deserializedDictionary objectForKey:@"results"];
+            
+            #ifdef DEBUG
                 NSLog(@"Results Array Count: %d", [results count]);
+            #endif
+            
             
             id general = [deserializedDictionary objectForKey:@"general"];
             if([general isKindOfClass:[NSDictionary class]])
             {
-                NSLog(@"Got the general json data and it's  dictionary");
+                
+                #ifdef DEBUG
+                    NSLog(@"Got the general json data and it's  dictionary");
+                #endif
+                
                 
                 NSDictionary *generalRestaurantData = (NSDictionary *)general;
                 
@@ -165,7 +184,10 @@
             
             id location = [deserializedDictionary objectForKey:@"location"];
             if ([location isKindOfClass:[NSDictionary class]]) {
-                NSLog(@"Getting the location data");
+                
+                #ifdef DEBUG
+                    NSLog(@"Getting the location data");
+                #endif
                 
                 NSDictionary *locationData = (NSDictionary *)location;
                 NSString *address1Text = [locationData objectForKey:@"address1"];
@@ -188,45 +210,52 @@
                 
                 NSString *mainText = [phoneData objectForKey:@"main"];
                 NSString *faxText = [phoneData objectForKey:@"fax"];
-                NSLog(@"Main: %@", mainText);
-                NSLog(@"Fax: %@", faxText);
+                
+                #ifdef DEBUG
+                    NSLog(@"Main: %@", mainText);
+                    NSLog(@"Fax: %@", faxText);
+                #endif
+                
                 phone.text = mainText;
             }
-                
-                /*for(int i=0; i < [results count]; i++)
-                {
-                    NSString *latitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"latitude"];
-                    NSString *longitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"longitude"];
-                    //NSLog(@"Latitude: %@", latitude);
-                    //NSLog(@"Longitude: %@", longitude);
-                    NSString *name = [[[results objectAtIndex:i] objectForKey:@"general"] objectForKey:@"name"];
-                    NSString *businessType =[[results objectAtIndex:i] objectForKey:@"businessType"];
-                    CLLocationCoordinate2D testLocation = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
-                    
-                    //Code that adds the annotations to the MAP view
-                    //SPAnnotations *anotherAnnotation = [[SPAnnotations alloc] initWithCoordinates:testLocation title:name subtitle:businessType];
-                    
-                    //anotherAnnotation.pinColor = MKPinAnnotationColorRed;
-                    
-                    NSLog(@"Business Name: %@", name);
-                    //[worldView addAnnotation:anotherAnnotation];
-                    
-                    
-                    //NSLog(@"Array Content: %@", results);
-                    //NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
-                    //NSArray *theKeys = [[results objectAtIndex:0] allKeys];
-                    //NSLog(@"%@", theKeys);
-                    
-                    //NSLog(@"Location Type: %@", [[[results objectAtIndex:0] objectForKey:@"location"] class]);
-                    
-            }*/
+            
+            /*for(int i=0; i < [results count]; i++)
+             {
+             NSString *latitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"latitude"];
+             NSString *longitude = [[[results objectAtIndex:i] objectForKey:@"location"] objectForKey:@"longitude"];
+             //NSLog(@"Latitude: %@", latitude);
+             //NSLog(@"Longitude: %@", longitude);
+             NSString *name = [[[results objectAtIndex:i] objectForKey:@"general"] objectForKey:@"name"];
+             NSString *businessType =[[results objectAtIndex:i] objectForKey:@"businessType"];
+             CLLocationCoordinate2D testLocation = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+             
+             //Code that adds the annotations to the MAP view
+             //SPAnnotations *anotherAnnotation = [[SPAnnotations alloc] initWithCoordinates:testLocation title:name subtitle:businessType];
+             
+             //anotherAnnotation.pinColor = MKPinAnnotationColorRed;
+             
+             NSLog(@"Business Name: %@", name);
+             //[worldView addAnnotation:anotherAnnotation];
+             
+             
+             //NSLog(@"Array Content: %@", results);
+             //NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
+             //NSArray *theKeys = [[results objectAtIndex:0] allKeys];
+             //NSLog(@"%@", theKeys);
+             
+             //NSLog(@"Location Type: %@", [[[results objectAtIndex:0] objectForKey:@"location"] class]);
+             
+             }*/
             
             //NSLog(@"Deserialized JSON dictionary = %@", deserializedDictionary);
         }
         else if([jsonObject isKindOfClass:[NSArray class]])
         {
             NSArray *deserializedArray = (NSArray *)jsonObject;
-            NSLog(@"Deserealized JSON Array %@", deserializedArray);
+            #ifdef DEBUG
+                NSLog(@"Deserealized JSON Array %@", deserializedArray);
+            #endif
+            
         }
         else
         {
@@ -235,31 +264,33 @@
     }
     else if(error != nil)
     {
-        NSLog(@"An error happened while deserializing the JSON data");
+        #ifdef DEBUG
+            NSLog(@"An error happened while deserializing the JSON data");
+        #endif
+        
         //Should probably display an error message to the user
     }
 }
 
 -(void)getRestaurantDetails:(NSString *)locationID
 {
-     NSMutableString *SECRET = [[NSMutableString alloc] initWithString:@"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw"];
-     NSString *BASE_SINGLEPLATFORM_HOST = @"http://api.singleplatform.co";
+    NSMutableString *SECRET = [[NSMutableString alloc] initWithString:@"Sw3j7scIBviRMWBtLQ5jYsE1JnmgxA41hbrxQeQwfcw"];
+    NSString *BASE_SINGLEPLATFORM_HOST = @"http://api.singleplatform.co";
     NSMutableString *LOCATION_DETAILS_URI = [[NSMutableString alloc] initWithFormat:@"/restaurants/%@", locationID];
     NSMutableString *clientID = [[NSMutableString alloc]initWithString:@"coad3k62n95pi9sbybjydroxy"];
-     NSMutableString *uri = [NSMutableString stringWithFormat:@"/restaurants/%@?client=%@", locationID, clientID];
+    NSMutableString *uri = [NSMutableString stringWithFormat:@"/restaurants/%@?client=%@", locationID, clientID];
     
     NSString* signature = [self signURL:uri signingKey:SECRET];
-    //NSLog(@"Signature: %@", signature);
     [uri appendFormat:@"&sig=%@", signature];
-    //NSLog(@"URI: %@", uri)
     
     jsonData = [[NSMutableData alloc] init];
     NSURL *myUrl = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@%@", BASE_SINGLEPLATFORM_HOST, uri]];
-    NSLog(@"Final URL: %@", myUrl);
+    
+    #ifdef DEBUG
+        NSLog(@"Final URL: %@", myUrl);
+    #endif
     NSURLRequest *request = [NSURLRequest requestWithURL:myUrl];
-    
     connection  = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
-    
 }
 
 
