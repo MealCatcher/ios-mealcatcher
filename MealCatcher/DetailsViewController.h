@@ -23,7 +23,6 @@
     IBOutlet UILabel *zip;
     IBOutlet UILabel *phone;
     IBOutlet UILabel *description;
-    
 }
 
 @property (nonatomic) NSString *restaurantID;

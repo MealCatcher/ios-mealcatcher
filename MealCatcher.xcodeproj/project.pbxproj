@@ -142,11 +142,11 @@
 			isa = PBXGroup;
 			children = (
 				5BA6405A16726419007528BD /* DetailsViewController.h */,
+				5BA6405916726419007528BD /* DetailsViewController.m */,
 				5BEEF8441668909100DD0C75 /* SPAnnotations.h */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8D61664259400782803 /* SPViewController.h */,
 				5BA6406016726437007528BD /* TestViewController.h */,
-				5BA6405916726419007528BD /* DetailsViewController.m */,
 				5BEEF8451668909100DD0C75 /* SPAnnotations.m */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				8BEBB8D71664259400782803 /* SPViewController.m */,
@@ -299,7 +299,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
-				INFOPLIST_FILE = "MealCatcher-Info.plist";
+				INFOPLIST_FILE = "MealCatcher/MealCatcher-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

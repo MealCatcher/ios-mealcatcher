@@ -39,8 +39,7 @@
         NSLog(@"The DEBUG settings are working!");
     
     #else
-    
-        // 
+        NSLog(@"The BUILD is: RELEASE");
     
     #endif
     
