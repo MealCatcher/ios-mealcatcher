@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "TestViewController.h"
 #import "DetailsViewController.h"
 
 
@@ -27,7 +26,6 @@
 
 }
 
-@property (nonatomic, strong) TestViewController *testViewController;
 @property (nonatomic, strong) DetailsViewController *nibViewController;
 
 /* Test Methods */
