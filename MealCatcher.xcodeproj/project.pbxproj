@@ -21,6 +21,8 @@
 		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
 		5B49247516715C13005ADD60 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D91664259400782803 /* SPViewController.xib */; };
 		5B49247716715C13005ADD60 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B49244316711E00005ADD60 /* user.png */; };
+		5B8B665B167B0DA9004648DC /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8B6659167B0DA9004648DC /* bar.png */; };
+		5B8B665E167B0FD4004648DC /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8B665D167B0FD4004648DC /* bar@2x.png */; };
 		5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA6405816726419007528BD /* DetailsViewController.xib */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA640631672644D007528BD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA640621672644D007528BD /* libTestFlight.a */; };
@@ -35,6 +37,8 @@
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		5B8B6659167B0DA9004648DC /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
+		5B8B665D167B0FD4004648DC /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
 		5BA6405816726419007528BD /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		5BA6405916726419007528BD /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5BA6405A16726419007528BD /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		5BD41752167B046500F5B9BB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5B8B6659167B0DA9004648DC /* bar.png */,
+				5B8B665D167B0FD4004648DC /* bar@2x.png */,
 				5BD41753167B046500F5B9BB /* Default.png */,
 				5BD41754167B046500F5B9BB /* Default@2x.png */,
 			);
@@ -232,6 +238,8 @@
 				5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */,
 				5BD41755167B046500F5B9BB /* Default.png in Resources */,
 				5BD41756167B046500F5B9BB /* Default@2x.png in Resources */,
+				5B8B665B167B0DA9004648DC /* bar.png in Resources */,
+				5B8B665E167B0FD4004648DC /* bar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

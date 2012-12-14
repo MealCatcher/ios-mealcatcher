@@ -16,6 +16,17 @@
 @synthesize window;
 @synthesize viewController;
 
+
+-(void)setupUI
+{
+    UIImage *navImage = [UIImage imageNamed:@"bar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navImage forBarMetrics:UIBarMetricsDefault];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
+                                                animated:YES];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -38,7 +49,7 @@
     #ifdef DEBUG
         NSLog(@"The DEBUG settings are working!");
     #endif
-    
+    [self setupUI];
     
     return YES;
 }

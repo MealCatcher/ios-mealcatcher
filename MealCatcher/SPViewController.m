@@ -53,7 +53,7 @@
     [super viewDidLoad];
     [worldView setShowsUserLocation:YES];
     [worldView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
-    self.title = @"MealCatcher";
+    //self.title = @"MealCatcher";
     
     
     
