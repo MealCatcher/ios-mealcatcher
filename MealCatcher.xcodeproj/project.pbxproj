@@ -19,15 +19,14 @@
 		5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
 		5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
 		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
-		5B49247216715C13005ADD60 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D01664259400782803 /* Default.png */; };
-		5B49247316715C13005ADD60 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D21664259400782803 /* Default@2x.png */; };
-		5B49247416715C13005ADD60 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D41664259400782803 /* Default-568h@2x.png */; };
 		5B49247516715C13005ADD60 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D91664259400782803 /* SPViewController.xib */; };
 		5B49247716715C13005ADD60 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B49244316711E00005ADD60 /* user.png */; };
 		5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA6405816726419007528BD /* DetailsViewController.xib */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA640631672644D007528BD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA640621672644D007528BD /* libTestFlight.a */; };
 		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
+		5BD41755167B046500F5B9BB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD41753167B046500F5B9BB /* Default.png */; };
+		5BD41756167B046500F5B9BB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD41754167B046500F5B9BB /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +43,8 @@
 		5BA640641672646F007528BD /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
 		5BA640651672646F007528BD /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
 		5BA640661672646F007528BD /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		5BD41753167B046500F5B9BB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5BD41754167B046500F5B9BB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5BEEF8441668909100DD0C75 /* SPAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAnnotations.h; sourceTree = "<group>"; };
 		5BEEF8451668909100DD0C75 /* SPAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAnnotations.m; sourceTree = "<group>"; };
 		8B0D34F81667F1E600D48C26 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -57,9 +58,6 @@
 		8BEBB8CC1664259400782803 /* MealCatcher-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MealCatcher-Prefix.pch"; sourceTree = "<group>"; };
 		8BEBB8CD1664259400782803 /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
 		8BEBB8CE1664259400782803 /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
-		8BEBB8D01664259400782803 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8BEBB8D21664259400782803 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8BEBB8D41664259400782803 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8BEBB8D61664259400782803 /* SPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPViewController.h; sourceTree = "<group>"; };
 		8BEBB8D71664259400782803 /* SPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPViewController.m; sourceTree = "<group>"; };
 		8BEBB8DA1664259400782803 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SPViewController.xib; sourceTree = "<group>"; };
@@ -103,6 +101,15 @@
 				5B84A3F516649736001A5DBF /* NSData+Base64.m */,
 			);
 			name = Base64;
+			sourceTree = "<group>";
+		};
+		5BD41752167B046500F5B9BB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5BD41753167B046500F5B9BB /* Default.png */,
+				5BD41754167B046500F5B9BB /* Default@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		8BEBB8AF1664259400782803 = {
@@ -157,9 +164,7 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8BEBB8D41664259400782803 /* Default-568h@2x.png */,
-				8BEBB8D01664259400782803 /* Default.png */,
-				8BEBB8D21664259400782803 /* Default@2x.png */,
+				5BD41752167B046500F5B9BB /* Images */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
 				8BEBB8C61664259400782803 /* MealCatcher-Info.plist */,
@@ -222,12 +227,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */,
-				5B49247216715C13005ADD60 /* Default.png in Resources */,
-				5B49247316715C13005ADD60 /* Default@2x.png in Resources */,
-				5B49247416715C13005ADD60 /* Default-568h@2x.png in Resources */,
 				5B49247516715C13005ADD60 /* SPViewController.xib in Resources */,
 				5B49247716715C13005ADD60 /* user.png in Resources */,
 				5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */,
+				5BD41755167B046500F5B9BB /* Default.png in Resources */,
+				5BD41756167B046500F5B9BB /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
