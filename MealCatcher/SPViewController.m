@@ -12,6 +12,7 @@
 #import "GTMStringEncoding.h"
 #import "SPAnnotations.h"
 #import "DetailsViewController.h"
+#import "MCSearchViewController.h"
 
 @interface SPViewController ()
 
@@ -28,9 +29,9 @@
     {
         locationManager = [[CLLocationManager alloc] init];
         
-        #ifdef DEBUB
-            NSLog(@"Location Manager Delegate set!");
-        #endif
+#ifdef DEBUB
+        NSLog(@"Location Manager Delegate set!");
+#endif
         
         [locationManager setDelegate:self];
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
@@ -70,6 +71,13 @@
 - (void)addRestaurant
 {
     NSLog(@"Adding restaurant button called");
+    
+    MCSearchViewController *searchViewController =
+    [[MCSearchViewController alloc] initWithNibName:@"MCSearchViewController" bundle:Nil];
+    
+    [self.navigationController pushViewController:searchViewController animated:YES];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,9 +103,9 @@
     jsonData = [[NSMutableData alloc] init];
     NSURL *myUrl = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@%@", BASE_SINGLEPLATFORM_HOST, uri]];
     
-    #ifdef DEBUG
-        NSLog(@"Final URL: %@", myUrl);
-    #endif
+#ifdef DEBUG
+    NSLog(@"Final URL: %@", myUrl);
+#endif
     
     
     NSURLRequest *request = [NSURLRequest requestWithURL:myUrl];
@@ -112,10 +120,10 @@
 -(void)fetchRestauransByZip:(NSInteger)zipCode
 {
     jsonData = [[NSMutableData alloc] init];
-   
-    #ifdef DEBUG
-      NSLog(@"Zip Code: %d", zipCode);  
-    #endif
+    
+#ifdef DEBUG
+    NSLog(@"Zip Code: %d", zipCode);
+#endif
     
     restaurantData = [[NSMutableData alloc] init];
     
@@ -137,9 +145,9 @@
     NSString *signedUrl = [noSingUrl stringByAppendingString:@"&sig=WP287B9XLhy42Q9X9JdXsJe41j0"];
     NSURL *finalURL = [NSURL URLWithString:signedUrl];
     
-    #ifdef DEBUG
-        NSLog(@"Final URL: %@", finalURL);
-    #endif
+#ifdef DEBUG
+    NSLog(@"Final URL: %@", finalURL);
+#endif
     
     NSURLRequest *request = [NSURLRequest requestWithURL:finalURL];
     connection  = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
@@ -154,11 +162,11 @@
     NSURL *url = [NSURL URLWithString:@"http://forums.bignerdranch.com/smartfeed.php?"
                   @"limit=1_DAY&sort_by=standard&feed_type=RSS2.0&feed_style=COMPACT"];
     
-    #ifdef DEBUG
-        NSLog(@"Path: %@", [url path]);
-        NSLog(@"Parameter String: %@", [url parameterString]);
-        NSLog(@"Query: %@", [url query]);
-    #endif
+#ifdef DEBUG
+    NSLog(@"Path: %@", [url path]);
+    NSLog(@"Parameter String: %@", [url parameterString]);
+    NSLog(@"Query: %@", [url query]);
+#endif
     
     //Put that URL into a NSURLRequest
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -180,9 +188,9 @@
     //We are just checking to make sure we are gettin back the JSON
     NSString *jsonCheck = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    #ifdef DEBUG
-        NSLog(@"jsonCheck = %@", jsonCheck);
-    #endif
+#ifdef DEBUG
+    NSLog(@"jsonCheck = %@", jsonCheck);
+#endif
     
     
     /* Now try to deserialize the JSON object into a dictionary */
@@ -191,9 +199,9 @@
     
     if(jsonObject != nil && error == nil)
     {
-        #ifdef DEBUG
-            NSLog(@"Data: %@", jsonObject);
-        #endif
+#ifdef DEBUG
+        NSLog(@"Data: %@", jsonObject);
+#endif
         
         
         if([jsonObject isKindOfClass:[NSDictionary class]])
@@ -201,9 +209,9 @@
             NSDictionary *deserializedDictionary = (NSDictionary *)jsonObject;
             NSString *count = [deserializedDictionary objectForKey:@"count"];
             
-            #ifdef DEBUG
-                NSLog(@"Count: %d", [count integerValue]);
-            #endif
+#ifdef DEBUG
+            NSLog(@"Count: %d", [count integerValue]);
+#endif
             
             
             if([count integerValue] > 0)
@@ -216,9 +224,9 @@
                 //NSLog(@"Type for results: %@", [results class]);
                 NSArray *results = [deserializedDictionary objectForKey:@"results"];
                 
-                #ifdef DEBUG
-                    NSLog(@"Results Array Count: %d", [results count]);
-                #endif
+#ifdef DEBUG
+                NSLog(@"Results Array Count: %d", [results count]);
+#endif
                 
                 
                 
@@ -238,11 +246,11 @@
                     
                     [worldView addAnnotation:anotherAnnotation];
                     
-                    #ifdef DEBUG
-                        NSLog(@"Business Name: %@", name);
-                        NSLog(@"Array Content: %@", results);
-                        NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
-                    #endif
+#ifdef DEBUG
+                    NSLog(@"Business Name: %@", name);
+                    NSLog(@"Array Content: %@", results);
+                    NSLog(@"Array Content Type: %@", [[results objectAtIndex:0] class]);
+#endif
                     
                     //NSArray *theKeys = [[results objectAtIndex:0] allKeys];
                     //NSLog(@"%@", theKeys);
@@ -258,9 +266,9 @@
         {
             NSArray *deserializedArray = (NSArray *)jsonObject;
             
-            #ifdef DEBUG
-                NSLog(@"Deserealized JSON Array %@", deserializedArray);
-            #endif
+#ifdef DEBUG
+            NSLog(@"Deserealized JSON Array %@", deserializedArray);
+#endif
             
         }
         else
@@ -342,10 +350,10 @@
 {
     
     
-    #ifdef DEBUG
-        NSLog(@"The user's location updated!");
-        NSLog(@"Update Location Center: %d", updateLocationCenter);
-    #endif
+#ifdef DEBUG
+    NSLog(@"The user's location updated!");
+    NSLog(@"Update Location Center: %d", updateLocationCenter);
+#endif
     
     
     if(updateLocationCenter == YES)
@@ -361,11 +369,11 @@
                            {
                                CLPlacemark *placeMark = [placemarks objectAtIndex:0];
                                
-                                #ifdef DEBUG
-                                    NSLog(@"Number of Placemarks: %d", [placemarks count]);
-                                    NSLog(@"Postal Code: %@", [placeMark postalCode]);
-                                #endif
-                            
+#ifdef DEBUG
+                               NSLog(@"Number of Placemarks: %d", [placemarks count]);
+                               NSLog(@"Postal Code: %@", [placeMark postalCode]);
+#endif
+                               
                                NSInteger test = [[placeMark postalCode] integerValue];
                                
                                [self searchRestaurantsByZip:test];
@@ -415,14 +423,14 @@
          we created previously */
         return result;
     }
-
+    
     SPAnnotations *senderAnnotation = (SPAnnotations *)annotation;
     NSString *pinReusableIndentifier = [SPAnnotations reusableIdentifierforPinColor:senderAnnotation.pinColor];
     
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pinReusableIndentifier];
     
     
-	    if(annotationView == nil)
+    if(annotationView == nil)
     {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:senderAnnotation reuseIdentifier:pinReusableIndentifier];
         
