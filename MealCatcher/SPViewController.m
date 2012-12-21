@@ -58,8 +58,18 @@
     
     
 	// Do any additional setup after loading the view, typically from a nib.
+    UIBarButtonItem* addButton =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRestaurant)];
     
-    
+    self.navigationItem.rightBarButtonItem = addButton;
+}
+
+/*
+ * Method that brings up the view to search for a restaurant
+ */
+- (void)addRestaurant
+{
+    NSLog(@"Adding restaurant button called");
 }
 
 - (void)didReceiveMemoryWarning

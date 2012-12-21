@@ -22,6 +22,11 @@
     UIImage *navImage = [UIImage imageNamed:@"bar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navImage forBarMetrics:UIBarMetricsDefault];
     
+    //self.navigationController.navigationBar.tintColor = [UIColor colorWithHue:0.6 saturation:0.33 brightness:0.69 alpha:50];
+    //self.navigationController.navigationBar.
+
+    
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
                                                 animated:YES];
 }

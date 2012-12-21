@@ -35,7 +35,8 @@
     
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"Details";
+    //self.title = @"Details";
+    
     
     #ifdef DEBUG
         NSLog(@"Restaurant ID: %@", restaurantID);
@@ -44,6 +45,8 @@
     
     [self getRestaurantDetails:restaurantID];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
