@@ -43,15 +43,56 @@
     return self;
 }
 
+/* This selector adds the title image to the main home view */
+-(void)addTitleImage
+{
+    //Set the image on the navigation item
+    UIImage *image = [UIImage imageNamed:@"text.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = self.navigationController.navigationBar.frame;
+    
+    imageView.tag = 1001;
+    [self.navigationController.view addSubview:imageView];
+}
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"viewDidAppear got called from SPViewController");
+    [self addTitleImage];
+}
+
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    NSLog(@"view did disapper got called");
+    UIView *imageView = [self.navigationController.view viewWithTag:1001];
+    
+    [imageView removeFromSuperview];
+}
+
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
 
 - (void)viewDidLoad
 {
+    
+    [super viewDidLoad];
+    
     //[self fetchForumsData];
     
     //[self fetchRestauransByZip: 94602];
     //[self searchRestaurantsByZip: 94602];
     
-    [super viewDidLoad];
+    
     [worldView setShowsUserLocation:YES];
     [worldView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
     //self.title = @"MealCatcher";
@@ -61,9 +102,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     UIBarButtonItem* addButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRestaurant)];
-    
     self.navigationItem.rightBarButtonItem = addButton;
+    
 }
+
+
+
 
 /*
  * Method that brings up the view to search for a restaurant
@@ -369,10 +413,12 @@
                            {
                                CLPlacemark *placeMark = [placemarks objectAtIndex:0];
                                
-#ifdef DEBUG
+                    #ifdef DEBUG
                                NSLog(@"Number of Placemarks: %d", [placemarks count]);
                                NSLog(@"Postal Code: %@", [placeMark postalCode]);
-#endif
+                    #endif
+                               
+                               
                                
                                NSInteger test = [[placeMark postalCode] integerValue];
                                

@@ -31,19 +31,26 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+   
     
     // Do any additional setup after loading the view from its nib.
     
-    //self.title = @"Details";
+    self.title = @"Details";
     
     
     #ifdef DEBUG
         NSLog(@"Restaurant ID: %@", restaurantID);
     #endif
     
+    //UIView *imageView = [self.navigationController.view viewWithTag:1001];
+
+    //[imageView removeFromSuperview];
+    
     
     [self getRestaurantDetails:restaurantID];
+    NSLog(@"View did load got called from DetailsViewController");
+    
+     [super viewDidLoad];
 }
 
 
