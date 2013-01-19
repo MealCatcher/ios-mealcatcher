@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0A0B5016AA5C980060D569 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A0B4F16AA5C980060D569 /* Default-568h@2x.png */; };
 		5B20786216A269C400E3AB0A /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B20786116A269C400E3AB0A /* SPViewController.xib */; };
 		5B20786616A269D100E3AB0A /* MCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20786416A269D100E3AB0A /* MCSearchViewController.m */; };
 		5B20786716A269D100E3AB0A /* MCSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B20786516A269D100E3AB0A /* MCSearchViewController.xib */; };
-		5B20786916A269DE00E3AB0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B20786816A269DE00E3AB0A /* Settings.bundle */; };
 		5B20786B16A26A0500E3AB0A /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B20786A16A26A0500E3AB0A /* user.png */; };
 		5B49245F16715C13005ADD60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CA1664259400782803 /* main.m */; };
 		5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CE1664259400782803 /* SPAppDelegate.m */; };
@@ -41,11 +41,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B0A0B4F16AA5C980060D569 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5B20786116A269C400E3AB0A /* SPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPViewController.xib; sourceTree = "<group>"; };
 		5B20786316A269D100E3AB0A /* MCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSearchViewController.h; sourceTree = "<group>"; };
 		5B20786416A269D100E3AB0A /* MCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSearchViewController.m; sourceTree = "<group>"; };
 		5B20786516A269D100E3AB0A /* MCSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSearchViewController.xib; sourceTree = "<group>"; };
-		5B20786816A269DE00E3AB0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5B20786A16A26A0500E3AB0A /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +138,7 @@
 				5BBB68F6169695D9007072EA /* clear_nav_bar@2x.png */,
 				5BB7E6AA167B1DAA0031B240 /* icon.png */,
 				5BB7E6AB167B1DAA0031B240 /* icon@2x.png */,
+				5B0A0B4F16AA5C980060D569 /* Default-568h@2x.png */,
 				5BD41753167B046500F5B9BB /* Default.png */,
 				5BD41754167B046500F5B9BB /* Default@2x.png */,
 			);
@@ -204,7 +205,6 @@
 				8BEBB8CA1664259400782803 /* main.m */,
 				8BEBB8C61664259400782803 /* MealCatcher-Info.plist */,
 				8BEBB8CC1664259400782803 /* MealCatcher-Prefix.pch */,
-				5B20786816A269DE00E3AB0A /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -219,6 +219,7 @@
 				5B49245E16715C13005ADD60 /* Sources */,
 				5B49246816715C13005ADD60 /* Frameworks */,
 				5B49247016715C13005ADD60 /* Resources */,
+				5BF002CA16A277DC0026BD8A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -275,12 +276,28 @@
 				5BBB690016969944007072EA /* bar@2x.png in Resources */,
 				5B20786216A269C400E3AB0A /* SPViewController.xib in Resources */,
 				5B20786716A269D100E3AB0A /* MCSearchViewController.xib in Resources */,
-				5B20786916A269DE00E3AB0A /* Settings.bundle in Resources */,
 				5B20786B16A26A0500E3AB0A /* user.png in Resources */,
+				5B0A0B5016AA5C980060D569 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BF002CA16A277DC0026BD8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ ${CONFIGURATION} == \"Debug\" ]; then\ncp -r ${PROJECT_DIR}/MealCatcher/Settings.bundle ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B49245E16715C13005ADD60 /* Sources */ = {
