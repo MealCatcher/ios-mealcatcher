@@ -13,6 +13,8 @@
 #import "SPAnnotations.h"
 #import "DetailsViewController.h"
 #import "MCSearchViewController.h"
+#import "SettingsViewController.h"
+
 
 @interface SPViewController ()
 
@@ -21,6 +23,10 @@
 @implementation SPViewController
 
 @synthesize nibViewController;
+
+
+
+#pragma mark Life Cycle Methods
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,27 +46,17 @@
     //initialize update center
     updateLocationCenter = YES;
     
+    NSLog(@"Value of updateLocationCenter in");
     return self;
 }
 
-/* This selector adds the title image to the main home view */
--(void)addTitleImage
-{
-    //Set the image on the navigation item
-    UIImage *image = [UIImage imageNamed:@"text.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = self.navigationController.navigationBar.frame;
-    
-    imageView.tag = 1001;
-    [self.navigationController.view addSubview:imageView];
-}
+
 
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    NSLog(@"viewDidAppear got called from SPViewController");
     [self addTitleImage];
 }
 
@@ -70,43 +66,85 @@
 {
     [super viewWillDisappear:animated];
     
-    NSLog(@"view did disapper got called");
     UIView *imageView = [self.navigationController.view viewWithTag:1001];
     
     [imageView removeFromSuperview];
 }
 
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
-    //[self fetchForumsData];
-    
-    //[self fetchRestauransByZip: 94602];
-    //[self searchRestaurantsByZip: 94602];
-    
-    
-    [worldView setShowsUserLocation:YES];
-    [worldView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
-    //self.title = @"MealCatcher";
-    
-    
+    if([self simulateLocation] == YES)
+    {
+        [self simulateMapLocation];
+    }
+    else
+    {
+        if([CLLocationManager locationServicesEnabled] == YES)
+        {
+            if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)
+            {
+                NSLog(@"Location Services AUTHORIZED");
+            }
+            else if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+            {
+                NSLog(@"Location Services Not Determined");
+            }
+            
+            
+            NSLog(@"Location Services are enabled");
+            [worldView setShowsUserLocation:YES];
+            [worldView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
+        }
+        else if([CLLocationManager locationServicesEnabled] == NO)
+        {
+            NSLog(@"Location Services are disabled");
+        }
+        
+        
+    }
     
 	// Do any additional setup after loading the view, typically from a nib.
     UIBarButtonItem* addButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRestaurant)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    //Add the other bar button item to push the settings view
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [button addTarget:self action:@selector(viewSettings) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setLeftBarButtonItem:settingsButton animated:YES];
 }
 
 
+#pragma mark Custom Methods
+
+-(BOOL)simulateLocation
+{
+    NSUserDefaults *locationPreferences = [NSUserDefaults standardUserDefaults];
+    
+    if([locationPreferences objectForKey:@"location_preferences"] == nil)
+    {
+        [locationPreferences setBool:NO forKey:@"location_preferences"];
+        [locationPreferences synchronize];
+        NSLog(@"The value of location preferences has been set to %@", [locationPreferences boolForKey:@"location_preferences"] ?@"YES":@"NO");
+        
+        return NO;
+    }
+    else
+    {
+        if([locationPreferences boolForKey:@"location_preferences"] == YES)
+        {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+    }
+}
 
 
 /*
@@ -120,15 +158,28 @@
     [[MCSearchViewController alloc] initWithNibName:@"MCSearchViewController" bundle:Nil];
     
     [self.navigationController pushViewController:searchViewController animated:YES];
-    
-    
 }
 
-- (void)didReceiveMemoryWarning
+
+/* This selector adds the title image to the main home view */
+-(void)addTitleImage
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //Set the image on the navigation item
+    UIImage *image = [UIImage imageNamed:@"text.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = self.navigationController.navigationBar.frame;
+    
+    imageView.tag = 1001;
+    [self.navigationController.view addSubview:imageView];
 }
+
+-(void)viewSettings
+{
+    SettingsViewController* settingsViewController =
+    [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    [self.navigationController pushViewController:settingsViewController animated:YES];
+}
+
 
 /* Method used to get search for restaurants by zip code
  *
@@ -198,26 +249,53 @@
     
 }
 
--(void)fetchForumsData
+/* This method signs the a URL using HMAC-SHA1 and returns the signature */
+-(NSString *)signURL:(NSMutableString *)url signingKey:(NSMutableString*)key
 {
-    //Create a new data container for the stuff that comes back from the service
-    jsonData = [[NSMutableData alloc] init];
+    [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     
-    NSURL *url = [NSURL URLWithString:@"http://forums.bignerdranch.com/smartfeed.php?"
-                  @"limit=1_DAY&sort_by=standard&feed_type=RSS2.0&feed_style=COMPACT"];
+    [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     
-#ifdef DEBUG
-    NSLog(@"Path: %@", [url path]);
-    NSLog(@"Parameter String: %@", [url parameterString]);
-    NSLog(@"Query: %@", [url query]);
-#endif
+    // Create instance of Google's URL-safe Base64 coder/decoder.
+    GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
     
-    //Put that URL into a NSURLRequest
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    // Decodes the URL-safe Base64 key to binary.
+    NSData *binaryKey = [encoding decode:key];
     
-    //Create a connection that will exchance this request for data from the URL
-    connection = [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
+    //Put the URL path and query in a string
+    NSString *urlpath = url;
+    
+    // Stores the url in a NSData.
+    //Put the URL in an NSData object using ASCII String Encoding. Stores it in binary.
+    NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
+    
+    // Sign the URL with Objective-C HMAC SHA1 algorithm and put it in character array
+    // the size of a SHA1 digest
+    unsigned char result[CC_SHA1_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA1,
+           [binaryKey bytes],
+           [binaryKey length],
+           [urlData bytes],
+           [urlData length],
+           &result);
+    
+    NSData *binarySignature = [NSData dataWithBytes:&result length:CC_SHA1_DIGEST_LENGTH];
+    
+    // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
+    NSMutableString *signature = [[NSMutableString alloc] initWithString:[encoding encode:binarySignature]];
+    
+    [signature replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
+    [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
+    
+    //Remove the equal sign at the end of the signature
+    [signature replaceOccurrencesOfString:@"=" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
+    
+    return signature;
 }
+
+
+
+#pragma mark Connetion Methods
 
 -(void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
 {
@@ -346,49 +424,39 @@
 }
 
 
-/* This method signs the a URL using HMAC-SHA1 and returns the signature */
--(NSString *)signURL:(NSMutableString *)url signingKey:(NSMutableString*)key
+#pragma mark Map and Location Methods
+
+-(void)simulateMapLocation
 {
-    [key replaceOccurrencesOfString:@"-" withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     
-    [key replaceOccurrencesOfString:@"_" withString:@"/" options:NSLiteralSearch range:NSMakeRange(0, [key length])];
     
-    // Create instance of Google's URL-safe Base64 coder/decoder.
-    GTMStringEncoding *encoding = [GTMStringEncoding rfc4648Base64WebsafeStringEncoding];
+    //Oakland, CA
+    //CLLocationCoordinate2D placeLocation = CLLocationCoordinate2DMake(37.802787, -122.211471);
     
-    // Decodes the URL-safe Base64 key to binary.
-    NSData *binaryKey = [encoding decode:key];
+    //Rackspace SF
+    CLLocationCoordinate2D placeLocation = CLLocationCoordinate2DMake(37.785147, -122.397449);
     
-    //Put the URL path and query in a string
-    NSString *urlpath = url;
     
-    // Stores the url in a NSData.
-    //Put the URL in an NSData object using ASCII String Encoding. Stores it in binary.
-    NSData *urlData = [urlpath dataUsingEncoding: NSASCIIStringEncoding];
+    //Center the map region around these coordinates
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(placeLocation, 1500, 1500);
+    [worldView setRegion:region animated:YES];
     
-    // Sign the URL with Objective-C HMAC SHA1 algorithm and put it in character array
-    // the size of a SHA1 digest
-    unsigned char result[CC_SHA1_DIGEST_LENGTH];
-    CCHmac(kCCHmacAlgSHA1,
-           [binaryKey bytes],
-           [binaryKey length],
-           [urlData bytes],
-           [urlData length],
-           &result);
+    CLLocation *userLocation = [[CLLocation alloc] initWithLatitude:placeLocation.latitude longitude:placeLocation.longitude];
     
-    NSData *binarySignature = [NSData dataWithBytes:&result length:CC_SHA1_DIGEST_LENGTH];
-    
-    // Encodes the signature to URL-safe Base64 using Google's encoder/decoder (from binary to URL-safe)
-    NSMutableString *signature = [[NSMutableString alloc] initWithString:[encoding encode:binarySignature]];
-    
-    [signature replaceOccurrencesOfString:@"+" withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
-    [signature replaceOccurrencesOfString:@"/" withString:@"_" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
-    
-    //Remove the equal sign at the end of the signature
-    [signature replaceOccurrencesOfString:@"=" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [signature length])];
-    
-    return signature;
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:userLocation
+                   completionHandler:^(NSArray* placemarks, NSError* error){
+                       if ([placemarks count] > 0)
+                       {
+                           CLPlacemark *placeMark = [placemarks objectAtIndex:0];
+                           
+                           NSInteger test = [[placeMark postalCode] integerValue];
+                           
+                           [self searchRestaurantsByZip:test];
+                       }
+                   }];
 }
+
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
@@ -413,16 +481,23 @@
                            {
                                CLPlacemark *placeMark = [placemarks objectAtIndex:0];
                                
-                    #ifdef DEBUG
+#ifdef DEBUG
                                NSLog(@"Number of Placemarks: %d", [placemarks count]);
                                NSLog(@"Postal Code: %@", [placeMark postalCode]);
-                    #endif
+#endif
                                
                                
                                
                                NSInteger test = [[placeMark postalCode] integerValue];
                                
                                [self searchRestaurantsByZip:test];
+                               
+                               /** Add code the check for the user defaults for the location **/
+                               //Load the user defaults
+                               //If simulate location is on, get the location of my place in oakland
+                               //Center the map to that location
+                               //search the restaurants by zip according to that location
+                               
                                
                                
                                //annotation.placemark = [placemarks objectAtIndex:0];
@@ -453,6 +528,14 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"Could not find location: %@", error);
+}
+
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status == kCLAuthorizationStatusAuthorized) {
+        updateLocationCenter = YES;
+    }
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -509,6 +592,12 @@
     self.nibViewController.restaurantID = @"blackberry-bistro";
     [self.navigationController pushViewController:self.nibViewController animated:YES];
     
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

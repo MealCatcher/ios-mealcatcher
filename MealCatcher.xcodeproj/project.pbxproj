@@ -24,6 +24,8 @@
 		5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
 		5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
 		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
+		5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E083516AA7E2C0096E065 /* SettingsViewController.m */; };
+		5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */; };
 		5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA6405816726419007528BD /* DetailsViewController.xib */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA640631672644D007528BD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA640621672644D007528BD /* libTestFlight.a */; };
@@ -51,6 +53,9 @@
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		5B9E083416AA7E2C0096E065 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5B9E083516AA7E2C0096E065 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		5BA6405816726419007528BD /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		5BA6405916726419007528BD /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5BA6405A16726419007528BD /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -178,10 +183,12 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
+				5B9E083416AA7E2C0096E065 /* SettingsViewController.h */,
+				5B9E083516AA7E2C0096E065 /* SettingsViewController.m */,
+				5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */,
 				5B20786316A269D100E3AB0A /* MCSearchViewController.h */,
 				5B20786416A269D100E3AB0A /* MCSearchViewController.m */,
 				5B20786516A269D100E3AB0A /* MCSearchViewController.xib */,
-				5B20786116A269C400E3AB0A /* SPViewController.xib */,
 				5BA6405A16726419007528BD /* DetailsViewController.h */,
 				5BA6405916726419007528BD /* DetailsViewController.m */,
 				5BA6405816726419007528BD /* DetailsViewController.xib */,
@@ -189,6 +196,7 @@
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				8BEBB8D61664259400782803 /* SPViewController.h */,
 				8BEBB8D71664259400782803 /* SPViewController.m */,
+				5B20786116A269C400E3AB0A /* SPViewController.xib */,
 				5BEEF8441668909100DD0C75 /* SPAnnotations.h */,
 				5BEEF8451668909100DD0C75 /* SPAnnotations.m */,
 				5B84A3F21664971B001A5DBF /* Base64 */,
@@ -278,6 +286,7 @@
 				5B20786716A269D100E3AB0A /* MCSearchViewController.xib in Resources */,
 				5B20786B16A26A0500E3AB0A /* user.png in Resources */,
 				5B0A0B5016AA5C980060D569 /* Default-568h@2x.png in Resources */,
+				5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +321,7 @@
 				5BA6405C16726419007528BD /* DetailsViewController.m in Sources */,
 				5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */,
 				5B20786616A269D100E3AB0A /* MCSearchViewController.m in Sources */,
+				5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
