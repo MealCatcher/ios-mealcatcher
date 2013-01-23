@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Search";
+    //[self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning

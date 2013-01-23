@@ -57,24 +57,18 @@
 {
     [super viewDidAppear:animated];
     
-    [self addTitleImage];
+    
 }
 
-
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    UIView *imageView = [self.navigationController.view viewWithTag:1001];
-    
-    [imageView removeFromSuperview];
-}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self addTitleImage];
+    //[self addMealCatcherImage];
+    //[self addTestTitleImage];
     
     if([self simulateLocation] == YES)
     {
@@ -162,15 +156,66 @@
 
 
 /* This selector adds the title image to the main home view */
+-(void)addMealCatcherImage
+{
+    NSLog(@"Called addMealCatcherImage!");
+    
+    
+    /* Create an image view to replace the Title View */
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
+    
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    /* Load an image. Be careful, this image will be cached */
+    UIImage *image = [UIImage imageNamed:@"text.png"];
+    
+    /* Set the image of the image view */
+    [imageView setImage:image];
+    
+    /* Set the title view */
+    self.navigationItem.titleView = imageView;
+}
+
+
+/* new method to test the title view */
+-(void)addTestTitleImage
+{
+    
+    NSLog(@"addTestTitleImage called");
+    //Set the image on the navigation item
+    UIImage *image = [UIImage imageNamed:@"text@2x.png"];
+  
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.navigationItem.titleView = imageView;
+    
+    NSLog(@"Width: %f", self.navigationItem.titleView.bounds.size.width);
+    NSLog(@"Height: %f", self.navigationItem.titleView.bounds.size.height);
+
+}
+
+
+/* This selector adds the title image to the main home view */
 -(void)addTitleImage
 {
     //Set the image on the navigation item
     UIImage *image = [UIImage imageNamed:@"text.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+    
     imageView.frame = self.navigationController.navigationBar.frame;
     
     imageView.tag = 1001;
     [self.navigationController.view addSubview:imageView];
+    
+    
+    NSLog(@"Width: %f", self.navigationItem.titleView.bounds.size.width);
+    NSLog(@"Height: %f", self.navigationItem.titleView.bounds.size.height);
+    
+    NSLog(@"Width: %f", imageView.bounds.size.width);
+    NSLog(@"Height: %f",imageView.bounds.size.height);
 }
 
 -(void)viewSettings
