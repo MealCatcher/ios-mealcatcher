@@ -38,6 +38,9 @@
 		5BBB68FC169695E6007072EA /* text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB68FA169695E6007072EA /* text@2x.png */; };
 		5BBB68FF16969944007072EA /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB68FD16969944007072EA /* bar.png */; };
 		5BBB690016969944007072EA /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB68FE16969944007072EA /* bar@2x.png */; };
+		5BCA782116E078330041FA20 /* MCFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */; };
+		5BCA782216E078330041FA20 /* MCFavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA782016E078330041FA20 /* MCFavoritesViewController.xib */; };
+		5BCA782416E08F940041FA20 /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA782316E08F940041FA20 /* bira.ttf */; };
 		5BD41755167B046500F5B9BB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD41753167B046500F5B9BB /* Default.png */; };
 		5BD41756167B046500F5B9BB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD41754167B046500F5B9BB /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -72,6 +75,10 @@
 		5BBB68FA169695E6007072EA /* text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text@2x.png"; sourceTree = "<group>"; };
 		5BBB68FD16969944007072EA /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		5BBB68FE16969944007072EA /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
+		5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFavoritesViewController.h; sourceTree = "<group>"; };
+		5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFavoritesViewController.m; sourceTree = "<group>"; };
+		5BCA782016E078330041FA20 /* MCFavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCFavoritesViewController.xib; sourceTree = "<group>"; };
+		5BCA782316E08F940041FA20 /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
 		5BD41753167B046500F5B9BB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5BD41754167B046500F5B9BB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5BEEF8441668909100DD0C75 /* SPAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAnnotations.h; sourceTree = "<group>"; };
@@ -199,6 +206,9 @@
 				5B20786116A269C400E3AB0A /* SPViewController.xib */,
 				5BEEF8441668909100DD0C75 /* SPAnnotations.h */,
 				5BEEF8451668909100DD0C75 /* SPAnnotations.m */,
+				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
+				5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */,
+				5BCA782016E078330041FA20 /* MCFavoritesViewController.xib */,
 				5B84A3F21664971B001A5DBF /* Base64 */,
 				8BEBB8C51664259400782803 /* Supporting Files */,
 			);
@@ -208,6 +218,7 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5BCA782316E08F940041FA20 /* bira.ttf */,
 				5BD41752167B046500F5B9BB /* Images */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
@@ -287,6 +298,8 @@
 				5B20786B16A26A0500E3AB0A /* user.png in Resources */,
 				5B0A0B5016AA5C980060D569 /* Default-568h@2x.png in Resources */,
 				5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */,
+				5BCA782216E078330041FA20 /* MCFavoritesViewController.xib in Resources */,
+				5BCA782416E08F940041FA20 /* bira.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +335,7 @@
 				5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */,
 				5B20786616A269D100E3AB0A /* MCSearchViewController.m in Sources */,
 				5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */,
+				5BCA782116E078330041FA20 /* MCFavoritesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@
 
 @implementation MCSearchViewController
 
+@synthesize testLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,14 +30,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self removeTitleImage];
+    
     self.title = @"Search";
     //[self.navigationController setNavigationBarHidden:YES];
+    
+
+    testLabel.text = @"Setting Bira!";
+    [testLabel setFont:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:24.0]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Custom Methods
+
+-(void)removeTitleImage
+{
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    if(nil == navBar)
+    {
+        NSLog(@"nav bar is nil");
+    }
+    else
+    {
+        NSLog(@"nav bar is not nil");
+    }
+    
+    NSLog(@"UINavigationItems: %d", navBar.items.count);
 }
 
 @end

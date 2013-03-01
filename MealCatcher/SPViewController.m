@@ -66,9 +66,11 @@
 {
     [super viewDidLoad];
     
-    [self addTitleImage];
+    //[self addTitleImage];
     //[self addMealCatcherImage];
     //[self addTestTitleImage];
+    //[self addSampleTitleImage];
+    [self changeNavigationTitleFont];
     
     if([self simulateLocation] == YES)
     {
@@ -169,7 +171,7 @@
     /* Load an image. Be careful, this image will be cached */
     UIImage *image = [UIImage imageNamed:@"text.png"];
     
-    /* Set the image of the image view */
+    /* Set the image of the ImageView */
     [imageView setImage:image];
     
     /* Set the title view */
@@ -195,6 +197,36 @@
     NSLog(@"Height: %f", self.navigationItem.titleView.bounds.size.height);
 
 }
+
+/* new method to test the title view */
+-(void)addSampleTitleImage
+{
+    
+    //Set the image on the navigation item
+    UIImage *image = [UIImage imageNamed:@"text.png"];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+    //imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.navigationItem.titleView = imageView;
+    
+}
+
+/* new method to test the title view */
+-(void)changeNavigationTitleFont
+{
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], UITextAttributeTextColor,
+                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,
+                                                           [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
+                                                           UITextAttributeTextShadowOffset,
+                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];
+
+    
+}
+
 
 
 /* This selector adds the title image to the main home view */

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TestFlight.h"
+#import "MCFavoritesViewController.h"
+
+#define MC_FAVORITES_VIEW_CONTROLLER @"MCFavoritesViewController"
 
 @class SPViewController;
 
@@ -19,5 +22,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) SPViewController *viewController;
+@property (strong, nonatomic) MCFavoritesViewController *favoritesViewController;
 
 @end

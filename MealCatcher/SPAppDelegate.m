@@ -7,8 +7,8 @@
 //
 
 #import "SPAppDelegate.h"
-
 #import "SPViewController.h"
+#import "MCFavoritesViewController.h"
 
 @implementation SPAppDelegate
 
@@ -32,10 +32,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
    
-     self.viewController = [[SPViewController alloc] initWithNibName:@"SPViewController" bundle:nil];
+    //self.viewController = [[SPViewController alloc] initWithNibName:@"SPViewController" bundle:nil];
+    self.favoritesViewController = [[MCFavoritesViewController alloc] initWithNibName:MC_FAVORITES_VIEW_CONTROLLER bundle:nil];
     
     //Allocating navigation view controller
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    //self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.favoritesViewController];
     
     //[self.window addSubview:self.navigationController.view];
     //self.window.rootViewController = self.viewController;
