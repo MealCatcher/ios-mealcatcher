@@ -37,10 +37,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     //Add the title image
-    //[self addTitleImage];
+   // [self addTitleImage];
     //[self addSampleTitleImage];
-    [self changeNavigationTitleFont];
-    self.title = @"Meal Catcher";
+    // [self changeNavigationTitleFont];
+    //self.title = @"Meal Catcher";
+    [self addLabelTitle];
     
     // Add the plus uibar button item
     UIBarButtonItem* addButton =
@@ -50,7 +51,6 @@
 #warning Don't forget to replace this data source with either Core Data or cloud storage
     //Create the restaurant array (temp data source)
     self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
-    
     
 }
 
@@ -156,8 +156,13 @@
                                                            UITextAttributeTextShadowOffset,
                                                            [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];*/
     
-[[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:27.0], UITextAttributeFont, nil]];
-
+    //[[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:26], UITextAttributeFont, nil]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:26], UITextAttributeFont, nil]];
+    
+    
+    CGFloat verticalOffset = +6;
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
 
 
 }
@@ -174,6 +179,41 @@
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     self.navigationItem.titleView = imageView;
+ 
+}
+
+/* new method to test the title view */
+-(void)addLabelTitle
+{
+    NSString *titleText = @"Meal catcher";
+    UIFont* titleFont = [UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:30.0];
+    CGSize requestedTitleSize = [titleText sizeWithFont:titleFont];
+    CGFloat titleWidth = MIN(320.0f, requestedTitleSize.width);
+    
+    NSLog(@"Requested title size height: %f", requestedTitleSize.height);
+    UILabel *navLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, requestedTitleSize.width, 50.0f)];
+    NSLog(@"frame size height: %f", navLabel.frame.size.height);
+    NSLog(@"bounds size height: %f", navLabel.bounds.size.height);
+    navLabel.backgroundColor = [UIColor clearColor];
+    navLabel.textColor = [UIColor whiteColor];
+    
+    navLabel.font = [UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:30];
+    //navLabel.textAlignment = UITextAlignmentCenter;
+    navLabel.text = titleText;
+    //[navLabel sizeToFit];
+    //.adjustsFontSizeToFitWidth = FALSE;
+    self.navigationItem.titleView = navLabel;
+//[navLabel sizeToFit];
+    
+    
+    NSLog(@"Width: %f", self.navigationItem.titleView.bounds.size.width);
+    NSLog(@"Height: %f", self.navigationItem.titleView.bounds.size.height);
+    
+    
+    
+    //CGFloat verticalOffset = +6;
+    //[[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
+    
     
 }
 
