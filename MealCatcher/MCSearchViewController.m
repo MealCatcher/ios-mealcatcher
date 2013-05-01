@@ -7,6 +7,7 @@
 //
 
 #import "MCSearchViewController.h"
+#import "MCSearchResultsViewController.h"
 
 @interface MCSearchViewController ()
 
@@ -71,6 +72,10 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"Search Button Clicked");
+    
+    MCSearchResultsViewController *searchResultsVC = [[MCSearchResultsViewController alloc]init];
+
+    [self.navigationController pushViewController:searchResultsVC animated:YES];
 }
 
 
