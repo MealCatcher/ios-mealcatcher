@@ -38,6 +38,7 @@
 
     testLabel.text = @"Setting Bira!";
     [testLabel setFont:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:24.0]];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     
 }
@@ -64,5 +65,13 @@
     
     NSLog(@"UINavigationItems: %d", navBar.items.count);
 }
+
+#pragma mark Search Actions
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"Search Button Clicked");
+}
+
 
 @end
