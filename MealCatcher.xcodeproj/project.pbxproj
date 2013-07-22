@@ -32,6 +32,7 @@
 		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
 		5BB7E6AC167B1DAA0031B240 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB7E6AA167B1DAA0031B240 /* icon.png */; };
 		5BB7E6AD167B1DAA0031B240 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB7E6AB167B1DAA0031B240 /* icon@2x.png */; };
+		5BB9EAF3179CE0B100A0350B /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EAF2179CE0B100A0350B /* Favorite.m */; };
 		5BBB68F7169695D9007072EA /* clear_nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB68F5169695D9007072EA /* clear_nav_bar.png */; };
 		5BBB68F8169695D9007072EA /* clear_nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB68F6169695D9007072EA /* clear_nav_bar@2x.png */; };
 		5BBB68FB169695E6007072EA /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB68F9169695E6007072EA /* text.png */; };
@@ -79,6 +80,8 @@
 		5BA640661672646F007528BD /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		5BB7E6AA167B1DAA0031B240 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		5BB7E6AB167B1DAA0031B240 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		5BB9EAF1179CE0B100A0350B /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = Model/Favorite.h; sourceTree = "<group>"; };
+		5BB9EAF2179CE0B100A0350B /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = Model/Favorite.m; sourceTree = "<group>"; };
 		5BBB68F5169695D9007072EA /* clear_nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear_nav_bar.png; sourceTree = "<group>"; };
 		5BBB68F6169695D9007072EA /* clear_nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear_nav_bar@2x.png"; sourceTree = "<group>"; };
 		5BBB68F9169695E6007072EA /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
@@ -147,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B234E7F179CDCA8001F1329 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BB9EAF1179CE0B100A0350B /* Favorite.h */,
+				5BB9EAF2179CE0B100A0350B /* Favorite.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		5B49245116714EDB005ADD60 /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +167,7 @@
 				5B49245216714F34005ADD60 /* libz.dylib */,
 			);
 			name = TestFlight;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5B84A3F21664971B001A5DBF /* Base64 */ = {
@@ -192,8 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				8BEBB8C41664259400782803 /* MealCatcher */,
-				E7756F6B173093A60068615A /* AFNetworking */,
-				5B49245116714EDB005ADD60 /* TestFlight */,
 				8BEBB8BD1664259400782803 /* Frameworks */,
 				8BEBB8BB1664259400782803 /* Products */,
 			);
@@ -222,6 +233,7 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
+				5B234E7F179CDCA8001F1329 /* Model */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				5B234E3C179CB6E1001F1329 /* MainStoryboard.storyboard */,
@@ -252,10 +264,12 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5BCA782316E08F940041FA20 /* bira.ttf */,
+				5B49245116714EDB005ADD60 /* TestFlight */,
+				E7756F6B173093A60068615A /* AFNetworking */,
 				5BD41752167B046500F5B9BB /* Images */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
+				5BCA782316E08F940041FA20 /* bira.ttf */,
 				8BEBB8C61664259400782803 /* MealCatcher-Info.plist */,
 				8BEBB8CC1664259400782803 /* MealCatcher-Prefix.pch */,
 			);
@@ -285,7 +299,8 @@
 				E7756F7D173093A60068615A /* UIImageView+AFNetworking.h */,
 				E7756F7E173093A60068615A /* UIImageView+AFNetworking.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = ../AFNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB9EAF3179CE0B100A0350B /* Favorite.m in Sources */,
 				5B49245F16715C13005ADD60 /* main.m in Sources */,
 				5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */,
 				5B49246116715C13005ADD60 /* SPViewController.m in Sources */,

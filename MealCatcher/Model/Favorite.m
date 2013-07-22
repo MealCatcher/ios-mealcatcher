@@ -8,10 +8,8 @@
 
 #import "Favorite.h"
 
-@interface Favorite() : NSObject
-
+@interface Favorite()
 @end
-
 
 @implementation Favorite
 

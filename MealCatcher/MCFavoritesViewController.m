@@ -8,6 +8,7 @@
 
 #import "MCFavoritesViewController.h"
 #import "MCSearchViewController.h"
+#import "Favorite.h"
 
 @interface MCFavoritesViewController ()
 
@@ -17,14 +18,42 @@
 
 @synthesize drinks;
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(NSMutableArray *)favorites
+{
+    if(!_favorites)
+    {
+        NSLog(@"Favorites does not exist. Creating it now!");
+        _favorites = [[NSMutableArray alloc] init];
+    }
+    return _favorites;
+}
+
+/* Ideally this data would be loaded from core data or some remote store
+ *
+ */
+-(void)setupFavorites
+{    
+    Favorite *favorite1 = [[Favorite alloc] init];
+    [favorite1 setName:@"Duende"];
+    
+    Favorite *favorite2 = [[Favorite alloc] init];
+    [favorite2 setName:@"Molcajetes"];
+    
+    [[self favorites] addObject:favorite1];
+    [[self favorites] addObject:favorite2];
+}
+
+
+
+
+/*- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
     return self;
-}
+}*/
 
 - (void)viewDidLoad
 {
@@ -41,34 +70,32 @@
     //[self addSampleTitleImage];
     // [self changeNavigationTitleFont];
     //self.title = @"Meal Catcher";
-    [self addLabelTitle];
+    //[self addLabelTitle];
     
     // Add the plus uibar button item
     /*UIBarButtonItem* addButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRestaurant)];
     self.navigationItem.rightBarButtonItem = addButton;*/
-    
-#warning Don't forget to replace this data source with either Core Data or cloud storage
+
     //Create the restaurant array (temp data source)
-    self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
+    //self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
+    [self setupFavorites];
+    
     
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view data source methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    
-    return self.drinks.count;
+    return self.favorites.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,49 +106,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [self.drinks objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [self.drinks objectAtIndex:indexPath.row];
+    Favorite *myFavorite = [self.favorites objectAtIndex:indexPath.row];
+    cell.textLabel.text  = [myFavorite name];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

@@ -9,20 +9,20 @@
         <scene sceneID="T50-P2-2cf">
             <objects>
                 <tableViewController id="94W-HR-Cms" customClass="MCFavoritesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Cku-m1-I29">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="1" id="Cku-m1-I29">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restaurantCell" textLabel="u7U-3R-bvu" style="IBUITableViewCellStyleDefault" id="2kK-gr-faP">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restaurantCell" textLabel="E9W-tp-sve" style="IBUITableViewCellStyleDefault" id="Vpr-LL-O0d">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-3R-bvu">
-                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9W-tp-sve">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -33,6 +33,7 @@
                                 </view>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="94W-HR-Cms" id="1z7-VL-e1E"/>
                             <outlet property="delegate" destination="94W-HR-Cms" id="rAS-wW-xKg"/>
@@ -42,7 +43,7 @@
                     <navigationItem key="navigationItem" title="Favorites" id="qzp-WW-Zo7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nYX-cy-L4K">
                             <connections>
-                                <segue destination="Xg6-GV-niK" kind="push" id="ZUb-tr-ROE"/>
+                                <segue destination="2L0-Lb-DLv" kind="push" id="pEd-ZB-kvp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -52,50 +53,33 @@
             <point key="canvasLocation" x="745" y="12"/>
         </scene>
         <!--Search View Controller - Search-->
-        <scene sceneID="s5j-hI-NHb">
+        <scene sceneID="bIz-8H-S00">
             <objects>
-                <viewController id="Xg6-GV-niK" customClass="MCSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aYi-Kc-bGp">
+                <viewController id="2L0-Lb-DLv" customClass="MCSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lix-M7-ZaS">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting Bira!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b0-pZ-hzY">
-                                <rect key="frame" x="109" y="241" width="90" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="GPe-gT-Q3l">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="nuO-NI-3NR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Xg6-GV-niK" id="gii-rr-xRP"/>
+                                    <outlet property="delegate" destination="2L0-Lb-DLv" id="gE7-bx-ibt"/>
                                 </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Search" id="I0Y-dE-Eeo"/>
+                    <navigationItem key="navigationItem" title="Search" id="rdl-9k-H7D"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="ug3-oA-3dA" id="Z7e-C9-Zka"/>
-                        <outlet property="testLabel" destination="4b0-pZ-hzY" id="xX9-3S-izB"/>
+                        <outlet property="searchBar" destination="nuO-NI-3NR" id="lbT-mp-DRu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h8B-aS-O6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="ug3-oA-3dA">
-                    <connections>
-                        <outlet property="delegate" destination="Xg6-GV-niK" id="YzV-Cz-8rn"/>
-                        <outlet property="searchBar" destination="GPe-gT-Q3l" id="Dd8-8s-Lhe"/>
-                        <outlet property="searchContentsController" destination="Xg6-GV-niK" id="qg8-Bb-teq"/>
-                        <outlet property="searchResultsDataSource" destination="Xg6-GV-niK" id="YNe-cA-FFg"/>
-                        <outlet property="searchResultsDelegate" destination="Xg6-GV-niK" id="fMe-UG-23P"/>
-                    </connections>
-                </searchDisplayController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09b-gz-i13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205" y="12"/>
+            <point key="canvasLocation" x="1208" y="12"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="agG-ao-SW0">
@@ -124,7 +108,7 @@
         <class className="MCSearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MCSearchViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="testLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
     </classes>

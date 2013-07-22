@@ -14,5 +14,6 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *drinks;
+@property (strong, nonatomic) NSMutableArray *favorites;
 
 @end

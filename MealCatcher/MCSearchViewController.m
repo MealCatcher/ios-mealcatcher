@@ -10,56 +10,16 @@
 #import "MCSearchResultsViewController.h"
 
 @interface MCSearchViewController ()
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
 @implementation MCSearchViewController
 
-@synthesize testLabel;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    //[self removeTitleImage];
-    
-    //[self.navigationController setNavigationBarHidden:YES];
-    
-
-    testLabel.text = @"Setting Bira!";
-    [testLabel setFont:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:24.0]];
-    //[[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
-    
 }
-
-
-#pragma mark Custom Methods
-
-//-(void)removeTitleImage
-//{
-//    UINavigationBar *navBar = self.navigationController.navigationBar;
-//    if(nil == navBar)
-//    {
-//        NSLog(@"nav bar is nil");
-//    }
-//    else
-//    {
-//        NSLog(@"nav bar is not nil");
-//    }
-//    
-//    NSLog(@"UINavigationItems: %d", navBar.items.count);
-//}
 
 #pragma mark Search Actions
 
@@ -70,6 +30,13 @@
     MCSearchResultsViewController *searchResultsVC = [[MCSearchResultsViewController alloc]init];
 
     [self.navigationController pushViewController:searchResultsVC animated:YES];
+}
+
+-(void)setupFont
+{
+    //testLabel.text = @"Setting Bira!";
+    //[testLabel setFont:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:24.0]];
+    //[[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 

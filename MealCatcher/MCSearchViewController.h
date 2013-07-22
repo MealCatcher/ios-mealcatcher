@@ -10,6 +10,4 @@
 
 @interface MCSearchViewController : UIViewController <UISearchBarDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *testLabel;
-
 @end
