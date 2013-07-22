@@ -44,20 +44,14 @@
     [self addLabelTitle];
     
     // Add the plus uibar button item
-    UIBarButtonItem* addButton =
+    /*UIBarButtonItem* addButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRestaurant)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.rightBarButtonItem = addButton;*/
     
 #warning Don't forget to replace this data source with either Core Data or cloud storage
     //Create the restaurant array (temp data source)
     self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -79,7 +73,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"restaurantCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -242,7 +236,7 @@
 /*
  * Method that brings up the view to search for a restaurant
  */
-- (void)addRestaurant
+/*- (void)addRestaurant
 {
     NSLog(@"Adding restaurant button called");
     
@@ -250,7 +244,7 @@
     [[MCSearchViewController alloc] initWithNibName:@"MCSearchViewController" bundle:Nil];
     
     [self.navigationController pushViewController:searchViewController animated:YES];
-}
+}*/
 
 
 @end

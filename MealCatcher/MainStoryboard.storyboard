@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="13A497d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ixI-Zb-uyj">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites View Controller - Favorites-->
+        <scene sceneID="T50-P2-2cf">
+            <objects>
+                <tableViewController id="94W-HR-Cms" customClass="MCFavoritesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Cku-m1-I29">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restaurantCell" textLabel="u7U-3R-bvu" style="IBUITableViewCellStyleDefault" id="2kK-gr-faP">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-3R-bvu">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="94W-HR-Cms" id="1z7-VL-e1E"/>
+                            <outlet property="delegate" destination="94W-HR-Cms" id="rAS-wW-xKg"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="qzp-WW-Zo7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nYX-cy-L4K">
+                            <connections>
+                                <segue destination="Xg6-GV-niK" kind="push" id="ZUb-tr-ROE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Lu-3n-rjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="12"/>
+        </scene>
+        <!--Search View Controller - Search-->
+        <scene sceneID="s5j-hI-NHb">
+            <objects>
+                <viewController id="Xg6-GV-niK" customClass="MCSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aYi-Kc-bGp">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting Bira!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b0-pZ-hzY">
+                                <rect key="frame" x="109" y="241" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="GPe-gT-Q3l">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Xg6-GV-niK" id="gii-rr-xRP"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Search" id="I0Y-dE-Eeo"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="ug3-oA-3dA" id="Z7e-C9-Zka"/>
+                        <outlet property="testLabel" destination="4b0-pZ-hzY" id="xX9-3S-izB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8B-aS-O6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ug3-oA-3dA">
+                    <connections>
+                        <outlet property="delegate" destination="Xg6-GV-niK" id="YzV-Cz-8rn"/>
+                        <outlet property="searchBar" destination="GPe-gT-Q3l" id="Dd8-8s-Lhe"/>
+                        <outlet property="searchContentsController" destination="Xg6-GV-niK" id="qg8-Bb-teq"/>
+                        <outlet property="searchResultsDataSource" destination="Xg6-GV-niK" id="YNe-cA-FFg"/>
+                        <outlet property="searchResultsDelegate" destination="Xg6-GV-niK" id="fMe-UG-23P"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1205" y="12"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="agG-ao-SW0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ixI-Zb-uyj" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xJR-7t-nYN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="94W-HR-Cms" kind="relationship" relationship="rootViewController" id="Nzf-19-DYq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqN-OC-iqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="219" y="12"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="MCFavoritesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MCFavoritesViewController.h"/>
+        </class>
+        <class className="MCSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MCSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="testLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -39,15 +39,17 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>bira.ttf</string>
+	</array>
+	<key>UIMainStoryboardFile</key>
+	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>bira.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
