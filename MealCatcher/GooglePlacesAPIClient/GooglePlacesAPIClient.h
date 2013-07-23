@@ -11,6 +11,6 @@
 
 @interface GooglePlacesAPIClient : AFHTTPClient
 
-+(GooglePlacesAPIClient)sharedClient;
++(GooglePlacesAPIClient *)sharedClient;
 
 @end

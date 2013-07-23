@@ -9,6 +9,7 @@
 #import "SPAppDelegate.h"
 #import "SPViewController.h"
 #import "MCFavoritesViewController.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @implementation SPAppDelegate
 
@@ -25,6 +26,9 @@
         
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
                                                 animated:YES];
+    
+    //Enabling the network activity indicator in AFNetwork library
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 }
 
 

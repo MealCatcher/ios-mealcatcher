@@ -43,6 +43,7 @@
 		5BCA782416E08F940041FA20 /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA782316E08F940041FA20 /* bira.ttf */; };
 		5BD41755167B046500F5B9BB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD41753167B046500F5B9BB /* Default.png */; };
 		5BD41756167B046500F5B9BB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD41754167B046500F5B9BB /* Default@2x.png */; };
+		5BFF20F5179E526C0052306C /* GooglePlacesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF20F4179E526C0052306C /* GooglePlacesAPIClient.m */; };
 		E7756F7F173093A60068615A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F6D173093A60068615A /* AFHTTPClient.m */; };
 		E7756F80173093A60068615A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F6F173093A60068615A /* AFHTTPRequestOperation.m */; };
 		E7756F81173093A60068615A /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F71173093A60068615A /* AFImageRequestOperation.m */; };
@@ -95,6 +96,8 @@
 		5BD41754167B046500F5B9BB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5BEEF8441668909100DD0C75 /* SPAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAnnotations.h; sourceTree = "<group>"; };
 		5BEEF8451668909100DD0C75 /* SPAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAnnotations.m; sourceTree = "<group>"; };
+		5BFF20F3179E526C0052306C /* GooglePlacesAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GooglePlacesAPIClient.h; path = GooglePlacesAPIClient/GooglePlacesAPIClient.h; sourceTree = "<group>"; };
+		5BFF20F4179E526C0052306C /* GooglePlacesAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GooglePlacesAPIClient.m; path = GooglePlacesAPIClient/GooglePlacesAPIClient.m; sourceTree = "<group>"; };
 		8B0D34F81667F1E600D48C26 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8B0D34FB1667F1EC00D48C26 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BEBB8BE1664259400782803 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -201,6 +204,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		5BFF20E8179E4E8B0052306C /* Google Places API */ = {
+			isa = PBXGroup;
+			children = (
+				5BFF20F3179E526C0052306C /* GooglePlacesAPIClient.h */,
+				5BFF20F4179E526C0052306C /* GooglePlacesAPIClient.m */,
+			);
+			name = "Google Places API";
+			sourceTree = "<group>";
+		};
 		8BEBB8AF1664259400782803 = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +276,7 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5BFF20E8179E4E8B0052306C /* Google Places API */,
 				5B49245116714EDB005ADD60 /* TestFlight */,
 				E7756F6B173093A60068615A /* AFNetworking */,
 				5BD41752167B046500F5B9BB /* Images */,
@@ -413,6 +426,7 @@
 				5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */,
 				5BCA782116E078330041FA20 /* MCFavoritesViewController.m in Sources */,
 				E7756F7F173093A60068615A /* AFHTTPClient.m in Sources */,
+				5BFF20F5179E526C0052306C /* GooglePlacesAPIClient.m in Sources */,
 				E7756F80173093A60068615A /* AFHTTPRequestOperation.m in Sources */,
 				E7756F81173093A60068615A /* AFImageRequestOperation.m in Sources */,
 				E7756F82173093A60068615A /* AFJSONRequestOperation.m in Sources */,
