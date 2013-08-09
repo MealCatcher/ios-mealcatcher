@@ -60,6 +60,8 @@
     [self callGooglePlaces];
 }
 
+// TODO: The methods to call the Google API need to be refactored and finished
+#warning This method needs refactoring
 /* This method will call the Google Places API */
 -(void)callGooglePlaces
 {

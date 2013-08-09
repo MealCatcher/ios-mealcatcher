@@ -5,6 +5,8 @@
 //  Created by Jorge E. Astorga on 7/22/13.
 //  Copyright (c) 2013 Test. All rights reserved.
 //
+// TODO: This class might need refactoring
+#warning This class needs refactoring
 
 #import "GooglePlacesAPIClient.h"
 #import "AFJSONRequestOperation.h"
