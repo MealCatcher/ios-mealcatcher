@@ -19,6 +19,8 @@
 		5B3B1DCE17B55A2A00C5E18B /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B1DC717B55A2A00C5E18B /* user.png */; };
 		5B3B1DD217B55AA200C5E18B /* MCMainSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */; };
 		5B3B1DD417B8AAE600C5E18B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B1DD317B8AAE600C5E18B /* Media.xcassets */; };
+		5B3B1DD717B8B22000C5E18B /* MCSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */; };
+		5B3B1DDD17B8B83200C5E18B /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B1DDC17B8B83200C5E18B /* profile.jpg */; };
 		5B49245F16715C13005ADD60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CA1664259400782803 /* main.m */; };
 		5B49246016715C13005ADD60 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8CE1664259400782803 /* SPAppDelegate.m */; };
 		5B49246116715C13005ADD60 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB8D71664259400782803 /* SPViewController.m */; };
@@ -72,6 +74,9 @@
 		5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMainSideViewController.h; sourceTree = "<group>"; };
 		5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMainSideViewController.m; sourceTree = "<group>"; };
 		5B3B1DD317B8AAE600C5E18B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSidebarController.h; sourceTree = "<group>"; };
+		5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSidebarController.m; sourceTree = "<group>"; };
+		5B3B1DDC17B8B83200C5E18B /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -203,6 +208,14 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		5B3B1DDB17B8B83200C5E18B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5B3B1DDC17B8B83200C5E18B /* profile.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		5B49245116714EDB005ADD60 /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,13 +237,6 @@
 				5B84A3F516649736001A5DBF /* NSData+Base64.m */,
 			);
 			name = Base64;
-			sourceTree = "<group>";
-		};
-		5BD41752167B046500F5B9BB /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		5BFF20E8179E4E8B0052306C /* Google Places API */ = {
@@ -274,9 +280,11 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
-				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
+				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
+				5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */,
+				5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */,
 				5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */,
 				5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
@@ -309,10 +317,10 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B3B1DDB17B8B83200C5E18B /* Images */,
 				5BFF20E8179E4E8B0052306C /* Google Places API */,
 				5B49245116714EDB005ADD60 /* TestFlight */,
 				E7756F6B173093A60068615A /* AFNetworking */,
-				5BD41752167B046500F5B9BB /* Images */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
 				5BCA782316E08F940041FA20 /* bira.ttf */,
@@ -415,6 +423,7 @@
 				5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */,
 				5BCA782416E08F940041FA20 /* bira.ttf in Resources */,
 				E7756F91173095DE0068615A /* MCSearchResultsViewController.xib in Resources */,
+				5B3B1DDD17B8B83200C5E18B /* profile.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +472,7 @@
 				E7756F83173093A60068615A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E7756F84173093A60068615A /* AFPropertyListRequestOperation.m in Sources */,
 				E7756F85173093A60068615A /* AFURLConnectionOperation.m in Sources */,
+				5B3B1DD717B8B22000C5E18B /* MCSidebarController.m in Sources */,
 				E7756F86173093A60068615A /* AFXMLRequestOperation.m in Sources */,
 				E7756F87173093A60068615A /* UIImageView+AFNetworking.m in Sources */,
 				E7756F90173095DE0068615A /* MCSearchResultsViewController.m in Sources */,

@@ -32,12 +32,19 @@
 
     frontController.navigationItem.leftBarButtonItem = menuItem;
     
-    //UIViewController *frontController = [[UIViewController alloc] init];
+    UIViewController *rearController = [mainStoryboard instantiateViewControllerWithIdentifier:@"SidebarMenuController"];
     
     frontController.view.backgroundColor = [UIColor whiteColor];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:frontController];
     
     self.contentViewController = nav;
+    self.sidebarViewController = rearController;
 }
+
+-(void)revealToggle:(id)sender
+{
+    [super toggleSidebar:!self.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
+}
+
 
 @end
