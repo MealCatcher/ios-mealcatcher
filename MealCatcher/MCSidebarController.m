@@ -39,7 +39,8 @@
     self.profileLocationLabel.font = [UIFont fontWithName:fontName size:12.0f];
     self.profileLocationLabel.text = @"Oakland, CA";
     
-    self.profileImageView.image = [UIImage imageNamed:@"profile_jorge.jpg"];
+    //self.profileImageView.image = [UIImage imageNamed:@"profile_jorge.jpg"];
+    self.profileImageView.image = [UIImage imageNamed:@"profile.jpg"];
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderWidth = 4.0f;
     self.profileImageView.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:0.5f].CGColor;
