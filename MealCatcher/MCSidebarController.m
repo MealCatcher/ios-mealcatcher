@@ -7,6 +7,7 @@
 //
 
 #import "MCSidebarController.h"
+#import "SideBarCell.h"
 
 @interface MCSidebarController ()
 
@@ -27,19 +28,26 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor clearColor];
     
-    self.profileLocationLabel.text = @"Jorge Astorga";
+    NSString *boldFontName = @"Avenir-Black";
+    NSString *fontName = @"Avenir-BlackOblique";
     
+    self.profileNameLabel.textColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    self.profileNameLabel.font = [UIFont fontWithName:boldFontName size:14.0f];
+    self.profileNameLabel.text = @"Jorge Astorga";
+    
+    self.profileLocationLabel.textColor = [UIColor colorWithRed:222.0/255 green:59.0/255 blue:47.0/255 alpha:1.0f];
+    self.profileLocationLabel.font = [UIFont fontWithName:fontName size:12.0f];
     self.profileLocationLabel.text = @"Oakland, CA";
     
-    self.profileImageView.image = [UIImage imageNamed:@"profile.jpg"];
+    self.profileImageView.image = [UIImage imageNamed:@"profile_jorge.jpg"];
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderWidth = 4.0f;
     self.profileImageView.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:0.5f].CGColor;
     self.profileImageView.layer.cornerRadius = 35.0f;
     
-    NSDictionary* object1 = [NSDictionary dictionaryWithObjects:@[ @"Inbox", @"7", @"envelope" ] forKeys:@[ @"title", @"count", @"icon" ]];
-    NSDictionary* object2 = [NSDictionary dictionaryWithObjects:@[ @"Updates", @"7", @"check" ] forKeys:@[ @"title", @"count", @"icon" ]];
-    NSDictionary* object3 = [NSDictionary dictionaryWithObjects:@[ @"Account", @"0", @"account" ] forKeys:@[ @"title", @"count", @"icon" ]];
+    NSDictionary* object1 = [NSDictionary dictionaryWithObjects:@[ @"Favorites", @"0", @"envelope" ] forKeys:@[ @"title", @"count", @"icon" ]];
+    NSDictionary* object2 = [NSDictionary dictionaryWithObjects:@[ @"Recommended", @"7", @"check" ] forKeys:@[ @"title", @"count", @"icon" ]];
+    NSDictionary* object3 = [NSDictionary dictionaryWithObjects:@[ @"SignUp", @"0", @"account" ] forKeys:@[ @"title", @"count", @"icon" ]];
     NSDictionary* object4 = [NSDictionary dictionaryWithObjects:@[ @"Settings", @"0", @"settings" ] forKeys:@[ @"title", @"count", @"icon" ]];
     NSDictionary* object5 = [NSDictionary dictionaryWithObjects:@[ @"Logout", @"0", @"arrow" ] forKeys:@[ @"title", @"count", @"icon" ]];
     
@@ -53,12 +61,30 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    
+    SideBarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    
+    NSDictionary* item = self.items[indexPath.row];
+    
+    cell.titleLabel.text = item[@"title"];
+    cell.iconImageView.image = [UIImage imageNamed:item[@"icon"]];
+    
+    NSString *count = item[@"count"];
+    if(![count isEqualToString:@"0"])
+    {
+        cell.countLabel.text = count;
+    }
+    else
+    {
+        cell.countLabel.alpha = 0;
+    }
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
     return 46;
 }
 
