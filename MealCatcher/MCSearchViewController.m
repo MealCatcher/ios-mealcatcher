@@ -10,6 +10,7 @@
 #import "MCSearchResultsViewController.h"
 #import "AFJSONRequestOperation.h"
 #import "GooglePlacesAPIClient.h"
+#import "Place.h"
 
 @interface MCSearchViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -19,6 +20,8 @@
 @end
 
 @implementation MCSearchViewController
+
+#define GOOGLE_API_KEY @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"
 
 -(NSMutableArray *)results
 {
@@ -38,7 +41,6 @@
 {
     [super viewWillAppear:animated];
     
-    NSLog(@"viewWillAppear got called");
     if([[self results] count] == 0)
     {
         [[self resultsTable] setHidden:YES];
@@ -48,16 +50,21 @@
 
 #pragma mark Search Actions
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    NSLog(@"cancel got called");
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"Search Button Clicked");
-    [[self resultsTable] setHidden:NO];
-    
-    [[self results] addObject:@"Test 1"];
-    [[self results] addObject:@"Test 2"];
-    [[self resultsTable] reloadData];
-    
+    [[self resultsTable] setHidden:NO];    
     [self callGooglePlaces];
+
+    
+#warning testing removing all objects
+    [self.results removeAllObjects];
+    [[self resultsTable] reloadData];
 }
 
 // TODO: The methods to call the Google API need to be refactored and finished
@@ -65,24 +72,8 @@
 /* This method will call the Google Places API */
 -(void)callGooglePlaces
 {
-    NSString *apiKey = [[NSString alloc] initWithFormat:@"%@", @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"];
     
-    NSString *url1 = [NSString stringWithFormat:@"%@", @"https://maps.googleapis.com/maps/api/place/textsearch/json?query=sidebar+in+Oakland&sensor=false&key=AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"];
-    
-    NSURL *url = [NSURL URLWithString:url1];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            NSLog(@"request succeeded");
-                                                                                            //NSLog(@"%@", JSON);
-
-    }
-                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            NSLog(@"operation failed");
-                                                                                        }];
-    
-    [operation start];
+    NSString *searchTerm = [self.searchBar text];
     
     GooglePlacesAPIClient *gpClient = [GooglePlacesAPIClient sharedClient];
     if(!gpClient)
@@ -92,11 +83,41 @@
     else
     {
         NSLog(@"Created the client successfully");
-        NSDictionary *parameters =  [[NSDictionary alloc] initWithObjectsAndKeys:@"sidebar+in+Oakland",@"query",
-                                     @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg", @"key",
-                                     @"false", @"sensor",nil];
+        NSDictionary *parameters =  [[NSDictionary alloc] initWithObjectsAndKeys:searchTerm,
+                                     @"query",
+                                     GOOGLE_API_KEY,
+                                     @"key",
+                                     @"false",
+                                     @"sensor",nil];
         [gpClient getPath:@"json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Yay, this is exciting");
+            NSLog(@"Here are the results: %@", responseObject);
+            //NSLog(@"Class for JSON: %@", [responseObject dic]);
+            
+            NSMutableDictionary *results = [[NSMutableDictionary alloc] initWithDictionary:responseObject];
+            NSLog(@"Results: %d", [results count]);
+           
+            NSArray *keys = [results allKeys];
+            for (int i = 0; i < [keys count]; i++) {
+                NSLog(@"Key Name: %@", keys[i]);
+            }
+            
+            NSArray *internalResults = [results objectForKey:@"results"];
+            //NSLog(@"internal results class: %@", [internalResults class]);
+            NSLog(@"internal results count: %d", [internalResults count]);
+          
+            for(int i = 0; i < internalResults.count; i++)
+            {
+                NSDictionary *item = internalResults[i];
+                Place *newPlace = [[Place alloc] init];
+                newPlace.address = [item objectForKey:@"formatted_address"];
+                newPlace.name = [item objectForKey:@"name"];
+                [self.results addObject:newPlace];
+            }
+            
+            [[self resultsTable] reloadData];
+            [self.searchBar resignFirstResponder];
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"wah wah wah!");
             NSLog(@"Description: %@", [gpClient description]);
@@ -110,12 +131,6 @@
     
 }
 
--(void)setupFont
-{
-    //testLabel.text = @"Setting Bira!";
-    //[testLabel setFont:[UIFont fontWithName:@"Bira PERSONAL USE ONLY" size:24.0]];
-    //[[self navigationController] setNavigationBarHidden:YES animated:YES];
-}
 
 #pragma mark UITableViewDataSource Methods
 
@@ -135,7 +150,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = @"Jorge";
+    if(self.results.count == 0)
+    {
+        cell.textLabel.text = @"Jorge";
+    }
+    else
+    {
+        Place *resultPlace = self.results[indexPath.row];
+        cell.textLabel.text = resultPlace.name;
+        cell.detailTextLabel.text = resultPlace.address;
+    }
     
     return cell;
 }

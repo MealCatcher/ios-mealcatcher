@@ -34,6 +34,7 @@
 		5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
 		5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
 		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
+		5B53A4A517C18D3300BEB7FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B53A4A417C18D3300BEB7FE /* Place.m */; };
 		5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E083516AA7E2C0096E065 /* SettingsViewController.m */; };
 		5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */; };
 		5BA6405B16726419007528BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA6405816726419007528BD /* DetailsViewController.xib */; };
@@ -82,6 +83,8 @@
 		5B3B1DDE17B8BCDF00C5E18B /* profile_jorge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_jorge.jpg; sourceTree = "<group>"; };
 		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B53A4A317C18D3300BEB7FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = Model/Place.h; sourceTree = "<group>"; };
+		5B53A4A417C18D3300BEB7FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = Model/Place.m; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5B9E083416AA7E2C0096E065 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 			children = (
 				5BB9EAF1179CE0B100A0350B /* Favorite.h */,
 				5BB9EAF2179CE0B100A0350B /* Favorite.m */,
+				5B53A4A317C18D3300BEB7FE /* Place.h */,
+				5B53A4A417C18D3300BEB7FE /* Place.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				E7756F83173093A60068615A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E7756F84173093A60068615A /* AFPropertyListRequestOperation.m in Sources */,
 				E7756F85173093A60068615A /* AFURLConnectionOperation.m in Sources */,
+				5B53A4A517C18D3300BEB7FE /* Place.m in Sources */,
 				5B3B1DD717B8B22000C5E18B /* MCSidebarController.m in Sources */,
 				E7756F86173093A60068615A /* AFXMLRequestOperation.m in Sources */,
 				E7756F87173093A60068615A /* UIImageView+AFNetworking.m in Sources */,

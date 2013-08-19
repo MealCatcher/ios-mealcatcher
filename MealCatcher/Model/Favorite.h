@@ -7,15 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Place.h"
 
-@interface Favorite : NSObject
+@interface Favorite : Place
 {
+    
 }
-
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *address;
-@property (strong, nonatomic) NSString *id;
-@property (nonatomic) NSUInteger rating;
-@property (strong, nonatomic) NSString *reference;
 
 @end
