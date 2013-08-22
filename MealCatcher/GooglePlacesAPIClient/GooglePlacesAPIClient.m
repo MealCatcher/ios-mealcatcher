@@ -13,7 +13,8 @@
 
 /*@"https://maps.googleapis.com/maps/api/place/textsearch/json?query=sidebar+in+Oakland&sensor=false&key=AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"];*/
 
-static NSString *const kGooglePlacesAPIBaseURLString = @"https://maps.googleapis.com/maps/api/place/textsearch/";
+//static NSString *const kGooglePlacesAPIBaseURLString = @"https://maps.googleapis.com/maps/api/place/textsearch/";
+static NSString *const kGooglePlacesAPIBaseURLString = @"https://maps.googleapis.com/maps/api/place/";
 
 @implementation GooglePlacesAPIClient
 

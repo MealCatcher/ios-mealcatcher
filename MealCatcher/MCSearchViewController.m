@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTable;
 @property (strong, nonatomic)NSMutableArray *results;
+@property (weak, nonatomic) IBOutlet UIView *modalBlock;
 
 @end
 
@@ -45,7 +46,6 @@
     {
         [[self resultsTable] setHidden:YES];
     }
-
 }
 
 #pragma mark Search Actions
@@ -53,7 +53,6 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [self.searchBar resignFirstResponder];
-    NSLog(@"cancel got called");
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -72,39 +71,33 @@
 /* This method will call the Google Places API */
 -(void)callGooglePlaces
 {
-    
     NSString *searchTerm = [self.searchBar text];
-    
     GooglePlacesAPIClient *gpClient = [GooglePlacesAPIClient sharedClient];
+    
     if(!gpClient)
     {
         NSLog(@"could not create the client");
     }
     else
     {
-        NSLog(@"Created the client successfully");
         NSDictionary *parameters =  [[NSDictionary alloc] initWithObjectsAndKeys:searchTerm,
                                      @"query",
                                      GOOGLE_API_KEY,
                                      @"key",
                                      @"false",
                                      @"sensor",nil];
-        [gpClient getPath:@"json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Yay, this is exciting");
+        
+        [gpClient getPath:@"textsearch/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Here are the results: %@", responseObject);
-            //NSLog(@"Class for JSON: %@", [responseObject dic]);
             
             NSMutableDictionary *results = [[NSMutableDictionary alloc] initWithDictionary:responseObject];
-            NSLog(@"Results: %d", [results count]);
-           
+            
             NSArray *keys = [results allKeys];
             for (int i = 0; i < [keys count]; i++) {
                 NSLog(@"Key Name: %@", keys[i]);
             }
             
             NSArray *internalResults = [results objectForKey:@"results"];
-            //NSLog(@"internal results class: %@", [internalResults class]);
-            NSLog(@"internal results count: %d", [internalResults count]);
           
             for(int i = 0; i < internalResults.count; i++)
             {
@@ -112,6 +105,7 @@
                 Place *newPlace = [[Place alloc] init];
                 newPlace.address = [item objectForKey:@"formatted_address"];
                 newPlace.name = [item objectForKey:@"name"];
+                newPlace.reference = [item objectForKey:@"reference"];
                 [self.results addObject:newPlace];
             }
             
@@ -119,18 +113,12 @@
             [self.searchBar resignFirstResponder];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"wah wah wah!");
             NSLog(@"Description: %@", [gpClient description]);
             NSLog(@"Error: %@", [error localizedDescription]);
             NSLog(@"Request: %@",[[operation request] description]);
-            
         }];
-        
     }
-    
-    
 }
-
 
 #pragma mark UITableViewDataSource Methods
 
