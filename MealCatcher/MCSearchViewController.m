@@ -7,7 +7,6 @@
 //
 
 #import "MCSearchViewController.h"
-#import "MCSearchResultsViewController.h"
 #import "AFJSONRequestOperation.h"
 #import "GooglePlacesAPIClient.h"
 #import "Place.h"

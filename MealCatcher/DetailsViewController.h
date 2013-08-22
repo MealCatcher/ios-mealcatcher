@@ -11,8 +11,6 @@
 
 @interface DetailsViewController : UIViewController
 {
-    NSURLConnection *connection;
-    NSMutableData *jsonData;
     NSMutableData *restaurantData;
     IBOutlet UILabel *restaurantNameLabel;
     IBOutlet UILabel *websiteURL;
@@ -28,7 +26,5 @@
 @property (nonatomic) NSString *restaurantID;
 
 -(IBAction)popTheController:(id)sender;
-/* Utility Methods */
--(NSString *)signURL:(NSMutableString*)url signingKey:(NSMutableString*)key;
 
 @end

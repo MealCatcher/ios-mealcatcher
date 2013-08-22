@@ -28,17 +28,5 @@
 
 @property (nonatomic, strong) DetailsViewController *nibViewController;
 
-//-(void)fetchRestaurantData;
-
-/* SinglePlatform API Methods */
--(void )searchRestaurantsByZip:(NSInteger)zipCode;
-//-(NSDictionary *)searchRestaurantsByPhone:(NSString *)phone;
-//-(NSDictionary *)serachRestaurantsByKeyword:(NSString *)keyword;
-//-(NSDictionary *)getRestaurantDetails:(NSString *)location;
-//-(NSDictionary *)getRestaurantMenu:(NSString *)location;
-
-/* Utility Methods */
--(NSString *)signURL:(NSMutableString*)url signingKey:(NSMutableString*)key;
-
 
 @end

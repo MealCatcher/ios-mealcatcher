@@ -23,9 +23,6 @@
 {
     UIImage *navImage = [UIImage imageNamed:@"clear_nav_bar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navImage forBarMetrics:UIBarMetricsDefault];
-        
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
-                                                animated:YES];
     
     //Enabling the network activity indicator in AFNetwork library
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];

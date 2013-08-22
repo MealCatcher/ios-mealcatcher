@@ -54,7 +54,6 @@
 		E7756F85173093A60068615A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F7A173093A60068615A /* AFURLConnectionOperation.m */; };
 		E7756F86173093A60068615A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F7C173093A60068615A /* AFXMLRequestOperation.m */; };
 		E7756F87173093A60068615A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F7E173093A60068615A /* UIImageView+AFNetworking.m */; };
-		E7756F90173095DE0068615A /* MCSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F8E173095DE0068615A /* MCSearchResultsViewController.m */; };
 		E7756F91173095DE0068615A /* MCSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7756F8F173095DE0068615A /* MCSearchResultsViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -139,8 +138,6 @@
 		E7756F7C173093A60068615A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		E7756F7D173093A60068615A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		E7756F7E173093A60068615A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		E7756F8D173095DE0068615A /* MCSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSearchResultsViewController.h; sourceTree = "<group>"; };
-		E7756F8E173095DE0068615A /* MCSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSearchResultsViewController.m; sourceTree = "<group>"; };
 		E7756F8F173095DE0068615A /* MCSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSearchResultsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,8 +307,6 @@
 				5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */,
 				5B20786316A269D100E3AB0A /* MCSearchViewController.h */,
 				5B20786416A269D100E3AB0A /* MCSearchViewController.m */,
-				E7756F8D173095DE0068615A /* MCSearchResultsViewController.h */,
-				E7756F8E173095DE0068615A /* MCSearchResultsViewController.m */,
 				E7756F8F173095DE0068615A /* MCSearchResultsViewController.xib */,
 				5B9E083416AA7E2C0096E065 /* SettingsViewController.h */,
 				5B9E083516AA7E2C0096E065 /* SettingsViewController.m */,
@@ -405,6 +400,11 @@
 				CLASSPREFIX = SP;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Test;
+				TargetAttributes = {
+					5B49245D16715C13005ADD60 = {
+						DevelopmentTeam = 7YLT2FBT4C;
+					};
+				};
 			};
 			buildConfigurationList = 8BEBB8B41664259400782803 /* Build configuration list for PBXProject "MealCatcher" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -495,7 +495,6 @@
 				5B3B1DD717B8B22000C5E18B /* MCSidebarController.m in Sources */,
 				E7756F86173093A60068615A /* AFXMLRequestOperation.m in Sources */,
 				E7756F87173093A60068615A /* UIImageView+AFNetworking.m in Sources */,
-				E7756F90173095DE0068615A /* MCSearchResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

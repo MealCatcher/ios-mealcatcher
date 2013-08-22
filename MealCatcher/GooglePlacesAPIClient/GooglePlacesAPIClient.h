@@ -10,8 +10,6 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
 
-// TODO: This class might need refactoring
-#warning This class needs refactoring
 @interface GooglePlacesAPIClient : AFHTTPClient
 
 +(GooglePlacesAPIClient *)sharedClient;
