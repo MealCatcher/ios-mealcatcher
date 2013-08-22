@@ -294,9 +294,9 @@
 			isa = PBXGroup;
 			children = (
 				5BDC33B317BDC40300C6D983 /* Cell */,
+				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
-				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */,
 				5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */,
 				5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */,

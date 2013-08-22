@@ -92,7 +92,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="x0c-bq-Ln0" kind="push" id="cam-GX-TS3"/>
+                                            <segue destination="x0c-bq-Ln0" kind="push" identifier="DetailsViewSegue" id="cam-GX-TS3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,6 +116,7 @@
                     <connections>
                         <outlet property="resultsTable" destination="xDI-ir-bUy" id="13a-Xw-FRb"/>
                         <outlet property="searchBar" destination="nuO-NI-3NR" id="lbT-mp-DRu"/>
+                        <outlet property="tableView" destination="xDI-ir-bUy" id="5Xn-1a-3ay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09b-gz-i13" userLabel="First Responder" sceneMemberID="firstResponder"/>

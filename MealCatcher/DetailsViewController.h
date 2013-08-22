@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+/*@protocol DetailsViewDelegate <NSObject>
+
+@required
+-(void)someMethod;
+
+@optional
+-(void)theOptionalMethod;
+
+@end*/
+
 @interface DetailsViewController : UIViewController
 {
     NSMutableData *restaurantData;
@@ -24,6 +34,7 @@
 }
 
 @property (nonatomic) NSString *restaurantID;
+//@property (nonatomic, weak) id <DetailsViewDelegate> delegate;
 
 -(IBAction)popTheController:(id)sender;
 

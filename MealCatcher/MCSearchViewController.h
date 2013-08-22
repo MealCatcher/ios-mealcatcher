@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailsViewController.h"
 
-@interface MCSearchViewController : UIViewController <UISearchBarDelegate,UITableViewDataSource >
+@interface MCSearchViewController : UIViewController <UISearchBarDelegate,UITableViewDataSource>
+
+
 
 @end

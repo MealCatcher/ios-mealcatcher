@@ -40,11 +40,12 @@
     {
         NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:GOOGLE_API_KEY,
                                     @"key",
-                                    @"CoQBcwAAAGl23o0-bxmd8mVLZ73QZ2xefBeiQgU9LoUPhftbzfTsIOfJjkiMZT8l0lXoHu7ekY8v5cHkRu0HEdXsi_uvKRlNaXPjVUXNeHseEc6imzlyKnwD5vzZ_Y3AxxnXZKi-EdcoDx2teRJtu182WpSeDyZLl669-g8mcMK0ctIiu4QGEhB7pYofGCor3XihcVuCnKDXGhSWhE5NOAj6R_oF1xm7Yo_tElYSaw",
+                                    self.restaurantID,
                                     @"reference",
                                     @"false",
                                     @"sensor",
                                     nil];
+        
         
         [gpClient getPath:@"details/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Got the details right");

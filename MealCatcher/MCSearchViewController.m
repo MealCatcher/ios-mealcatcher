@@ -14,14 +14,36 @@
 @interface MCSearchViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTable;
-@property (strong, nonatomic)NSMutableArray *results;
+@property (strong, nonatomic) NSMutableArray *results;
 @property (weak, nonatomic) IBOutlet UIView *modalBlock;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation MCSearchViewController
 
 #define GOOGLE_API_KEY @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"DetailsViewSegue"])
+    {
+        if([segue.destinationViewController isKindOfClass:[DetailsViewController class]])
+        {
+            DetailsViewController *detailsViewController = segue.destinationViewController;
+            //detailsViewController.delegate = self;
+
+            UITableViewCell *cell = sender;
+            NSIndexPath *pathOfCell = [self.tableView indexPathForCell:cell];
+            NSInteger rowOfTheCell = [pathOfCell row];
+            NSLog(@"Index of cell: %d", rowOfTheCell);
+            
+            Place *place = self.results[rowOfTheCell];
+            detailsViewController.restaurantID = place.reference;            
+        }
+    }
+}
 
 -(NSMutableArray *)results
 {
