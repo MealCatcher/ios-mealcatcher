@@ -33,7 +33,9 @@
     IBOutlet UILabel *description;
 }
 
-@property (nonatomic) NSString *restaurantID;
+@property (nonatomic, strong) NSString *restaurantID;
+@property (nonatomic, strong) NSString *photoReference;
+
 //@property (nonatomic, weak) id <DetailsViewDelegate> delegate;
 
 -(IBAction)popTheController:(id)sender;

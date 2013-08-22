@@ -136,18 +136,18 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bq-9a-hKT">
-                                <rect key="frame" x="20" y="57" width="103" height="92"/>
+                                <rect key="frame" x="0.0" y="61" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCL-C2-NER">
-                                <rect key="frame" x="20" y="173" width="280" height="21"/>
+                                <rect key="frame" x="14" y="299" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3V4-sw-QJy">
-                                <rect key="frame" x="20" y="207" width="280" height="21"/>
+                                <rect key="frame" x="20" y="376" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -166,6 +166,7 @@
                     <navigationItem key="navigationItem" id="OKx-AT-uDC"/>
                     <connections>
                         <outlet property="placeAddressLabel" destination="3V4-sw-QJy" id="NdH-Zv-fnH"/>
+                        <outlet property="placeImageView" destination="8bq-9a-hKT" id="PyL-4Q-0fF"/>
                         <outlet property="placeNameLabel" destination="iCL-C2-NER" id="sDn-z5-lpK"/>
                     </connections>
                 </viewController>

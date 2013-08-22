@@ -128,6 +128,8 @@
                 newPlace.name = [item objectForKey:@"name"];
                 newPlace.reference = [item objectForKey:@"reference"];
                 [self.results addObject:newPlace];
+                
+                
             }
             
             [[self resultsTable] reloadData];

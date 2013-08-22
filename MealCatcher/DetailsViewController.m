@@ -11,10 +11,13 @@
 #import "NSData+Base64.h"
 #import "GTMStringEncoding.h"
 #import "GooglePlacesAPIClient.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
 @end
 
 @implementation DetailsViewController
@@ -46,23 +49,63 @@
                                     @"sensor",
                                     nil];
         
-        
+        //Get the place details
         [gpClient getPath:@"details/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Got the details right");
+            NSLog(@"Got the details right: %@", responseObject);
             
             NSArray *keys = [responseObject allKeys];
             for (int i = 0; i < keys.count; i++) {
                 NSLog(@"Key: %@", keys[i]);
             }
             
-            NSDictionary *results = [responseObject objectForKey:@"result"];
-            NSLog(@"Result Class Type: %@", [results class]);
+            NSDictionary *result = [responseObject objectForKey:@"result"];
+            NSLog(@"Result Class Type: %@", [result class]);
             
-            self.placeNameLabel.text = [results objectForKey:@"name"];
+            NSArray *keys1 = [result allKeys];
+            for (int i = 0; i < keys1.count; i++) {
+                NSLog(@"Key: %@", keys1[i]);
+            }
+            
+            self.placeNameLabel.text = [result objectForKey:@"name"];
+            
+#warning This might need to change. It's grabing the first photo. What if there is no photo?
+            NSArray *photoArray = [result objectForKey:@"photos"];
+            NSDictionary *photoDictionary = photoArray[1];
+            
+
+            NSString *photoReference = [photoDictionary objectForKey:@"photo_reference"];
+            NSLog(@"Photo Reference: %@", photoReference);
+
+            
+            NSDictionary *photoParameters = [[NSDictionary alloc] initWithObjectsAndKeys:@"400", @"maxwidth",
+                                             photoReference,
+                                             @"photoreference",
+                                             @"false",
+                                             @"sensor",
+                                   GOOGLE_API_KEY,
+                                   @"key",
+                                             nil];
+            
+            //Get the place photo
+            /*[gpClient getPath:@"photo" parameters:photoParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"Got the photo");
+                
+             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"did not get the photo: %@", [error localizedDescription]);
+                 NSLog(@"did not get the photo: %@", operation);
+             }];*/
+            NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
+            [self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];
+            NSLog(@"URL for image: %@", urlString);
+
+            
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"This didn't work. Let's try again.");
         }];
+        
+        
+        
     }
     
 }
