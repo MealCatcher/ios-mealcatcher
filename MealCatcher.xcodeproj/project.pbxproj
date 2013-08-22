@@ -54,7 +54,6 @@
 		E7756F85173093A60068615A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F7A173093A60068615A /* AFURLConnectionOperation.m */; };
 		E7756F86173093A60068615A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F7C173093A60068615A /* AFXMLRequestOperation.m */; };
 		E7756F87173093A60068615A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F7E173093A60068615A /* UIImageView+AFNetworking.m */; };
-		E7756F91173095DE0068615A /* MCSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7756F8F173095DE0068615A /* MCSearchResultsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,7 +137,6 @@
 		E7756F7C173093A60068615A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		E7756F7D173093A60068615A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		E7756F7E173093A60068615A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		E7756F8F173095DE0068615A /* MCSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSearchResultsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,7 +305,6 @@
 				5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */,
 				5B20786316A269D100E3AB0A /* MCSearchViewController.h */,
 				5B20786416A269D100E3AB0A /* MCSearchViewController.m */,
-				E7756F8F173095DE0068615A /* MCSearchResultsViewController.xib */,
 				5B9E083416AA7E2C0096E065 /* SettingsViewController.h */,
 				5B9E083516AA7E2C0096E065 /* SettingsViewController.m */,
 				5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */,
@@ -440,7 +437,6 @@
 				5B3B1DCC17B55A2A00C5E18B /* searchBarIcon@2x.png in Resources */,
 				5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */,
 				5BCA782416E08F940041FA20 /* bira.ttf in Resources */,
-				E7756F91173095DE0068615A /* MCSearchResultsViewController.xib in Resources */,
 				5B3B1DDD17B8B83200C5E18B /* profile.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
