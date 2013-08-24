@@ -35,7 +35,15 @@
     UIViewController *rearController = [mainStoryboard instantiateViewControllerWithIdentifier:@"SidebarMenuController"];
     
     frontController.view.backgroundColor = [UIColor whiteColor];
+    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:frontController];
+    
+    nav.navigationBar.barTintColor = [UIColor colorWithRed:(203/255.0)
+                                                     green:(59/255.0)
+                                                      blue:(29/255.0) alpha:1];
+    
+    nav.navigationBar.titleTextAttributes = [[NSDictionary alloc]
+                                             initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     self.contentViewController = nav;
     self.sidebarViewController = rearController;
