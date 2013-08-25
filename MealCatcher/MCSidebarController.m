@@ -25,8 +25,15 @@
     self.tableView.delegate = self;
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    //self.view.backgroundColor = [UIColor colorWithRed:209/255.0 green:78/255.0 blue:51/255.0 alpha:1.0];
+    //self.view.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:209/255.0 alpha:1.0];
+    
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    //self.tableView.backgroundColor = [UIColor colorWithRed:209/255.0 green:78/255.0 blue:51/255.0 alpha:1.0];
+    //self.tableView.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:209/255.0 alpha:1.0];
     self.tableView.separatorColor = [UIColor clearColor];
+    
+    
     
     NSString *boldFontName = @"Avenir-Black";
     NSString *fontName = @"Avenir-BlackOblique";

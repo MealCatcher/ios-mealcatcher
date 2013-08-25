@@ -27,6 +27,7 @@
     UIButton *menuButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 20)];
     [menuButton setBackgroundImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     [menuButton addTarget:self action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [menuButton setAlpha:0.5f];
     
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
 
