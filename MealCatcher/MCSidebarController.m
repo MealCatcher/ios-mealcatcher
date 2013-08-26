@@ -8,6 +8,8 @@
 
 #import "MCSidebarController.h"
 #import "SideBarCell.h"
+#import "SignupViewController.h"
+#import "SWRevealViewControllerSegue.h"
 
 @interface MCSidebarController ()
 
@@ -21,8 +23,9 @@
 {
     [super viewDidLoad];
 
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    //Isn't this set in the StoryBoard?
+    //self.tableView.dataSource = self;
+    //self.tableView.delegate = self;
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     //self.view.backgroundColor = [UIColor colorWithRed:209/255.0 green:78/255.0 blue:51/255.0 alpha:1.0];
@@ -60,16 +63,26 @@
     NSDictionary* object5 = [NSDictionary dictionaryWithObjects:@[ @"Logout", @"0", @"arrow" ] forKeys:@[ @"title", @"count", @"icon" ]];
     
     self.items = @[object1, object2, object3, object4, object5];
+    
+    self.menuItems = @[@"favorites", @"recommended", @"signup", @"settings", @"logout"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.items count];
+    //return [self.items count];
+    return [self.menuItems count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    NSString *CellIdentifier = [self.menuItems objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    return cell;
+}
+
+/*-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     SideBarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
     
@@ -89,17 +102,46 @@
     }
     
     return cell;
-}
+}*/
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     return 46;
 }
 
-- (void)didReceiveMemoryWarning
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"Just selected a row from the table");
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showSignup"])
+    {
+        NSLog(@"showing the signup screen");
+        
+    }
+    else if([segue.identifier isEqualToString:@"TestSegue"])
+    {
+        if([segue.destinationViewController isKindOfClass:[SignupViewController class]])
+        {
+            SignupViewController *signUpViewController = segue.destinationViewController;
+            //detailsViewController.delegate = self;
+            
+            UITableViewCell *cell = sender;
+            if([cell isKindOfClass: [SideBarCell class]])
+            {
+                SideBarCell *myCell = sender;
+                NSLog(@"The cell is a SideBarCell");
+                NSLog(@"Cell Tapped: %@", myCell.titleLabel);
+            }
+            NSIndexPath *pathOfCell = [self.tableView indexPathForCell:cell];
+            NSInteger rowOfTheCell = [pathOfCell row];
+            
+        }
+    }
+
 }
 
 @end

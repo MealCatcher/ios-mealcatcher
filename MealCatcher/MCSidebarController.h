@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *profileLocationLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *menuItems;
 @end

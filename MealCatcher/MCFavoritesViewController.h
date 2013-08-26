@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MCMainSideViewController.h"
 
 @interface MCFavoritesViewController : UITableViewController
 {
@@ -15,5 +16,6 @@
 
 @property (nonatomic, retain) NSMutableArray *drinks;
 @property (strong, nonatomic) NSMutableArray *favorites;
+@property (strong, nonatomic) MCMainSideViewController *mainSideViewController;
 
 @end

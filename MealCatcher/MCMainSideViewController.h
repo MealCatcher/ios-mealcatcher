@@ -13,4 +13,5 @@
 
 @interface MCMainSideViewController : GHRevealViewController
 
++(MCMainSideViewController *)sharedClient;
 @end

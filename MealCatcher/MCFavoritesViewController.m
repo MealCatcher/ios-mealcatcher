@@ -11,7 +11,6 @@
 #import "Favorite.h"
 
 @interface MCFavoritesViewController ()
-
 @end
 
 @implementation MCFavoritesViewController
@@ -39,8 +38,13 @@
     Favorite *favorite2 = [[Favorite alloc] init];
     [favorite2 setName:@"Molcajetes"];
     
+    Favorite *favorite3 = [[Favorite alloc] init];
+    [favorite3 setName:@"Sidebar"];
+    
+    
     [[self favorites] addObject:favorite1];
     [[self favorites] addObject:favorite2];
+    [[self favorites] addObject:favorite3];
 }
 
 - (void)viewDidLoad
@@ -56,7 +60,21 @@
     //self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
     [self setupFavorites];
     
+    UIImage *menuButtonImage = [UIImage imageNamed:@"sidebar_menu"];
+    self.mainSideViewController = [MCMainSideViewController sharedClient];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
+                                                                 style:UIControlStateNormal
+                                                                target:self.mainSideViewController
+                                                                action:@selector(revealToggle:)];
+    [self.navigationItem setLeftBarButtonItem:menuItem];
     
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(203/255.0)
+                                                     green:(59/255.0)
+                                                      blue:(29/255.0) alpha:1];
+    
+    self.navigationController.navigationBar.titleTextAttributes = [[NSDictionary alloc]
+                                             initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
 }
 
 #pragma mark - Table view data source methods

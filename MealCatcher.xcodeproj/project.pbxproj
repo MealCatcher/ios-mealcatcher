@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2050C617CAA356008A94D7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2050C517CAA356008A94D7 /* SignupViewController.m */; };
+		5B2050C817CAE751008A94D7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050C717CAE751008A94D7 /* Parse.framework */; };
+		5B2050CA17CAE77C008A94D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050C917CAE77C008A94D7 /* AudioToolbox.framework */; };
+		5B2050CC17CAE783008A94D7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050CB17CAE783008A94D7 /* CFNetwork.framework */; };
+		5B2050CE17CAE795008A94D7 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050CD17CAE795008A94D7 /* libz.1.1.3.dylib */; };
+		5B2050D017CAE79D008A94D7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050CF17CAE79D008A94D7 /* MobileCoreServices.framework */; };
+		5B2050D217CAE7A4008A94D7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050D117CAE7A4008A94D7 /* QuartzCore.framework */; };
+		5B2050D417CAE7AB008A94D7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050D317CAE7AB008A94D7 /* Security.framework */; };
+		5B2050D617CAE7B4008A94D7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050D517CAE7B4008A94D7 /* StoreKit.framework */; };
+		5B2050D817CAE7BD008A94D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2050D717CAE7BD008A94D7 /* SystemConfiguration.framework */; };
+		5B2050DB17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */; };
 		5B20786216A269C400E3AB0A /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B20786116A269C400E3AB0A /* SPViewController.xib */; };
 		5B20786616A269D100E3AB0A /* MCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20786416A269D100E3AB0A /* MCSearchViewController.m */; };
 		5B234E3D179CB6E1001F1329 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B234E3C179CB6E1001F1329 /* MainStoryboard.storyboard */; };
@@ -57,6 +68,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B2050C417CAA356008A94D7 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		5B2050C517CAA356008A94D7 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		5B2050C717CAE751008A94D7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		5B2050C917CAE77C008A94D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5B2050CB17CAE783008A94D7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5B2050CD17CAE795008A94D7 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		5B2050CF17CAE79D008A94D7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5B2050D117CAE7A4008A94D7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5B2050D317CAE7AB008A94D7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5B2050D517CAE7B4008A94D7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5B2050D717CAE7BD008A94D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5B2050D917CAFDB1008A94D7 /* SWRevealViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewControllerSegue.h; sourceTree = "<group>"; };
+		5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewControllerSegue.m; sourceTree = "<group>"; };
 		5B20786116A269C400E3AB0A /* SPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPViewController.xib; sourceTree = "<group>"; };
 		5B20786316A269D100E3AB0A /* MCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSearchViewController.h; sourceTree = "<group>"; };
 		5B20786416A269D100E3AB0A /* MCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSearchViewController.m; sourceTree = "<group>"; };
@@ -144,12 +168,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2050D817CAE7BD008A94D7 /* SystemConfiguration.framework in Frameworks */,
+				5B2050D617CAE7B4008A94D7 /* StoreKit.framework in Frameworks */,
+				5B2050D417CAE7AB008A94D7 /* Security.framework in Frameworks */,
+				5B2050D217CAE7A4008A94D7 /* QuartzCore.framework in Frameworks */,
+				5B2050D017CAE79D008A94D7 /* MobileCoreServices.framework in Frameworks */,
+				5B2050CE17CAE795008A94D7 /* libz.1.1.3.dylib in Frameworks */,
+				5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */,
+				5B2050CC17CAE783008A94D7 /* CFNetwork.framework in Frameworks */,
+				5B2050CA17CAE77C008A94D7 /* AudioToolbox.framework in Frameworks */,
 				5B49246916715C13005ADD60 /* MapKit.framework in Frameworks */,
 				5B49246A16715C13005ADD60 /* CoreLocation.framework in Frameworks */,
 				5B49246B16715C13005ADD60 /* UIKit.framework in Frameworks */,
 				5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */,
-				5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */,
 				5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */,
+				5B2050C817CAE751008A94D7 /* Parse.framework in Frameworks */,
 				5BA640631672644D007528BD /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +204,9 @@
 		5B3B1DA817B558F900C5E18B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				5B49245116714EDB005ADD60 /* TestFlight */,
+				E7756F6B173093A60068615A /* AFNetworking */,
+				5BFF20E8179E4E8B0052306C /* Google Places API */,
 				5B3B1DBC17B55A2A00C5E18B /* GHSidebarNav */,
 			);
 			name = Library;
@@ -228,7 +264,6 @@
 				5B49245216714F34005ADD60 /* libz.dylib */,
 			);
 			name = TestFlight;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		5B84A3F21664971B001A5DBF /* Base64 */ = {
@@ -259,6 +294,7 @@
 				5BFF20F4179E526C0052306C /* GooglePlacesAPIClient.m */,
 			);
 			name = "Google Places API";
+			path = MealCatcher;
 			sourceTree = "<group>";
 		};
 		8BEBB8AF1664259400782803 = {
@@ -281,8 +317,17 @@
 		8BEBB8BD1664259400782803 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B0D34FB1667F1EC00D48C26 /* MapKit.framework */,
+				5B2050D717CAE7BD008A94D7 /* SystemConfiguration.framework */,
+				5B2050D517CAE7B4008A94D7 /* StoreKit.framework */,
+				5B2050D317CAE7AB008A94D7 /* Security.framework */,
+				5B2050D117CAE7A4008A94D7 /* QuartzCore.framework */,
+				5B2050CF17CAE79D008A94D7 /* MobileCoreServices.framework */,
+				5B2050CD17CAE795008A94D7 /* libz.1.1.3.dylib */,
+				5B2050CB17CAE783008A94D7 /* CFNetwork.framework */,
+				5B2050C917CAE77C008A94D7 /* AudioToolbox.framework */,
 				8B0D34F81667F1E600D48C26 /* CoreLocation.framework */,
+				5B2050C717CAE751008A94D7 /* Parse.framework */,
+				8B0D34FB1667F1EC00D48C26 /* MapKit.framework */,
 				8BEBB8BE1664259400782803 /* UIKit.framework */,
 				8BEBB8C01664259400782803 /* Foundation.framework */,
 				8BEBB8C21664259400782803 /* CoreGraphics.framework */,
@@ -293,12 +338,16 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
+				5B2050D917CAFDB1008A94D7 /* SWRevealViewControllerSegue.h */,
+				5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */,
 				5BDC33B317BDC40300C6D983 /* Cell */,
 				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */,
 				5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */,
+				5B2050C417CAA356008A94D7 /* SignupViewController.h */,
+				5B2050C517CAA356008A94D7 /* SignupViewController.m */,
 				5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */,
 				5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
@@ -328,9 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				5B3B1DDB17B8B83200C5E18B /* Images */,
-				5BFF20E8179E4E8B0052306C /* Google Places API */,
-				5B49245116714EDB005ADD60 /* TestFlight */,
-				E7756F6B173093A60068615A /* AFNetworking */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,
 				5BCA782316E08F940041FA20 /* bira.ttf */,
@@ -363,8 +409,7 @@
 				E7756F7D173093A60068615A /* UIImageView+AFNetworking.h */,
 				E7756F7E173093A60068615A /* UIImageView+AFNetworking.m */,
 			);
-			name = AFNetworking;
-			path = ../AFNetworking;
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +521,7 @@
 				5B20786616A269D100E3AB0A /* MCSearchViewController.m in Sources */,
 				5BDC33B217BDC3AE00C6D983 /* SideBarCell.m in Sources */,
 				5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */,
+				5B2050DB17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m in Sources */,
 				5B3B1DC817B55A2A00C5E18B /* GHRevealViewController.m in Sources */,
 				5BCA782116E078330041FA20 /* MCFavoritesViewController.m in Sources */,
 				E7756F7F173093A60068615A /* AFHTTPClient.m in Sources */,
@@ -490,6 +536,7 @@
 				5B53A4A517C18D3300BEB7FE /* Place.m in Sources */,
 				5B3B1DD717B8B22000C5E18B /* MCSidebarController.m in Sources */,
 				E7756F86173093A60068615A /* AFXMLRequestOperation.m in Sources */,
+				5B2050C617CAA356008A94D7 /* SignupViewController.m in Sources */,
 				E7756F87173093A60068615A /* UIImageView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +562,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/esteban/iosapps/ios-mealcatcher",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
 				INFOPLIST_FILE = "MealCatcher/MealCatcher-Info.plist";
@@ -539,6 +590,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/esteban/iosapps/ios-mealcatcher",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
 				INFOPLIST_FILE = "MealCatcher/MealCatcher-Info.plist";
