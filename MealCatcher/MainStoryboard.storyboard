@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="FavoritesController" id="94W-HR-Cms" customClass="MCFavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="1" id="Cku-m1-I29">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -137,11 +137,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Lz2-Nj-Ii7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lix-M7-ZaS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xDI-ir-bUy">
-                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -338,6 +338,7 @@
                                             <outlet property="iconImageView" destination="WF2-Cb-v0B" id="YFL-ha-8Vb"/>
                                             <outlet property="titleLabel" destination="BVU-Ns-jkz" id="Qx7-ns-eLk"/>
                                             <outlet property="topSeparator" destination="FFG-Rp-HuS" id="KrW-rm-j59"/>
+                                            <segue destination="94W-HR-Cms" kind="custom" identifier="showFavorites" customClass="SWRevealViewControllerSegue" id="2Hv-Uf-MsG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recommended" id="FQs-Ad-fas" customClass="SideBarCell">
@@ -608,4 +609,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Hv-Uf-MsG"/>
+    </inferredMetricsTieBreakers>
 </document>

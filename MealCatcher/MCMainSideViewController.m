@@ -102,7 +102,6 @@
 
 -(void)prepareForSegue:(SWRevealViewControllerSegue *)segue sender:(id)sender
 {
-    NSLog(@"Whoah! Prepare for segue got called");
     NSString *identifier = segue.identifier;
     if ( [segue isKindOfClass:[SWRevealViewControllerSegue class]] && sender == nil )
     {

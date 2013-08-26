@@ -115,8 +115,17 @@
     NSLog(@"Just selected a row from the table");
 }
 
+
+//TODO: Look at the sidebar menu. We need to get the UINAvigationControl
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    
+    // Set the title of navigation bar by using the menu items
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
+    destViewController.title = [[_menuItems objectAtIndex:indexPath.row] capitalizedString];
+    
     if([segue.identifier isEqualToString:@"showSignup"])
     {
         NSLog(@"showing the signup screen");
@@ -140,6 +149,18 @@
             NSInteger rowOfTheCell = [pathOfCell row];
             
         }
+    }
+    else if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
+        
+        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+            
+            //TODO: Look at the sidebar menu. We need to get the UINAvigationControl
+            /*UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
+            [navController setViewControllers: @[dvc] animated: NO ];
+            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];*/
+        };
+        
     }
 
 }
