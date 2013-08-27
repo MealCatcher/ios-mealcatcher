@@ -45,6 +45,15 @@
         {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             NSLog(@"Error String: %@", errorString);
+            
+            //Display an alert view with a proper error message
+            UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                               message:errorString
+                                                              delegate:self
+                                                     cancelButtonTitle:@"OK"
+                                                     otherButtonTitles:nil, nil];
+            
+            [theAlert show];
         }
     }];
     
