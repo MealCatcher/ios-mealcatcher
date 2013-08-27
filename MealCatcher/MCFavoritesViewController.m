@@ -9,6 +9,7 @@
 #import "MCFavoritesViewController.h"
 #import "MCSearchViewController.h"
 #import "Favorite.h"
+#import "MCMainSideViewController.h"
 
 @interface MCFavoritesViewController ()
 @end
@@ -62,10 +63,21 @@
     
     UIImage *menuButtonImage = [UIImage imageNamed:@"sidebar_menu"];
     self.mainSideViewController = [MCMainSideViewController sharedClient];
-    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
+    
+    //testing the category
+
+    
+    /*UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
                                                                  style:UIControlStateNormal
                                                                 target:self.mainSideViewController
+                                                                action:@selector(revealToggle:)];*/
+    
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
+                                                                 style:UIControlStateNormal
+                                                                target:self.revealViewController
                                                                 action:@selector(revealToggle:)];
+    
+    
     [self.navigationItem setLeftBarButtonItem:menuItem];
     
     

@@ -10,6 +10,7 @@
 #import "SideBarCell.h"
 #import "SignupViewController.h"
 #import "SWRevealViewControllerSegue.h"
+#import "MCMainSideViewController.h"
 
 @interface MCSidebarController ()
 
@@ -151,14 +152,28 @@
         }
     }
     else if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+        NSLog(@"1.1 got in this method");
+        
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         
         swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
             
             //TODO: Look at the sidebar menu. We need to get the UINAvigationControl
-            /*UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            [navController setViewControllers: @[dvc] animated: NO ];
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];*/
+            //UINavigationController* navController = (UINavigationController *)self.revealViewController.contentViewController;
+          UINavigationController *testController =  (UINavigationController *)self.revealViewController.contentViewController;
+            NSLog(@"Type of view controller: %@", [testController class]);
+            
+            NSLog(@"DVC Class: %@", [dvc class]);
+            
+            [testController setViewControllers:@[dvc] animated:NO];
+            [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
+            
+            
+            
+            
+            //[navController setViewControllers: @[dvc] animated: NO ];
+            //[self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+            //[self.revealViewController setContentViewController:navController];
         };
         
     }

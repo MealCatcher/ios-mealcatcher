@@ -123,3 +123,22 @@
 }
 
 @end
+
+#pragma mark MCMainSideViewController Category
+@implementation UIViewController (MCMainSideViewController)
+
+
+-(MCMainSideViewController *)revealViewController
+{
+    UIViewController *parent = self;
+    Class revealClass = [MCMainSideViewController class];
+    
+    while(nil != (parent = [parent parentViewController]) && ![parent isKindOfClass:revealClass])
+    {
+        
+    }
+    
+    return (id)parent;
+}
+
+@end

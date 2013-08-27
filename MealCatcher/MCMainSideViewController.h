@@ -15,3 +15,10 @@
 
 +(MCMainSideViewController *)sharedClient;
 @end
+
+#pragma mark MCMainSideViewController Category
+@interface UIViewController (MCMainSideViewController)
+
+- (MCMainSideViewController *)revealViewController;
+
+@end
