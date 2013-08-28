@@ -61,7 +61,7 @@
     //self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
     [self setupFavorites];
     
-    UIImage *menuButtonImage = [UIImage imageNamed:@"list"];
+    UIImage *menuButtonImage = [UIImage imageNamed:@"list3"];
     self.mainSideViewController = [MCMainSideViewController sharedClient];
     
     //testing the category
