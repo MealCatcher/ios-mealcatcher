@@ -98,6 +98,8 @@
 {
     //get the results out of the vc
     NSLog(@"Done got called");
+    UIViewController *vc = segue.sourceViewController;
+    NSLog(@"Segue View Controller: %@", [vc class]);
 }
 
 -(void)prepareForSegue:(SWRevealViewControllerSegue *)segue sender:(id)sender

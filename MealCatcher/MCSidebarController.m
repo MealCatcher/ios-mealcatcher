@@ -8,7 +8,7 @@
 
 #import "MCSidebarController.h"
 #import "SideBarCell.h"
-#import "SignupViewController.h"
+#import "AccountViewController.h"
 #import "SWRevealViewControllerSegue.h"
 #import "MCMainSideViewController.h"
 
@@ -129,9 +129,9 @@
     else if([segue.identifier isEqualToString:@"TestSegue"])
     {
         NSLog(@"TestSegue got called");
-        if([segue.destinationViewController isKindOfClass:[SignupViewController class]])
+        if([segue.destinationViewController isKindOfClass:[AccountViewController class]])
         {
-            SignupViewController *signUpViewController = segue.destinationViewController;
+            AccountViewController *signUpViewController = segue.destinationViewController;
             //detailsViewController.delegate = self;
             
             UITableViewCell *cell = sender;

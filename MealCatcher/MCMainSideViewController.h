@@ -20,5 +20,6 @@
 @interface UIViewController (MCMainSideViewController)
 
 - (MCMainSideViewController *)revealViewController;
+-(void)revealToggle:(id)sender;
 
 @end

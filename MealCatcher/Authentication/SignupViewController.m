@@ -2,34 +2,25 @@
 //  SignupViewController.m
 //  MealCatcher
 //
-//  Created by Jorge E. Astorga on 8/25/13.
+//  Created by Jorge E. Astorga on 8/28/13.
 //  Copyright (c) 2013 Test. All rights reserved.
 //
 
 #import "SignupViewController.h"
 
-
 @interface SignupViewController ()
-
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-
 
 @end
 
 @implementation SignupViewController
 
-- (IBAction)cancelSignup:(id)sender {
+- (IBAction)signup:(id)sender {
     
-}
-
-- (IBAction)regularSignup:(id)sender {
     PFUser *user = [PFUser user];
-    //user.username = @"chuchosabe";
     user.username = self.emailField.text;
-    //user.password = @"12345";
     user.password = self.passwordField.text;
-    //user.email = @"email@example.com";
     user.email = self.emailField.text;
     
     
@@ -56,7 +47,7 @@
             [theAlert show];
         }
     }];
-    
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -74,5 +65,10 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end
