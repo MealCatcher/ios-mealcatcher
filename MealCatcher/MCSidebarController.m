@@ -20,6 +20,7 @@
 
 @implementation MCSidebarController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

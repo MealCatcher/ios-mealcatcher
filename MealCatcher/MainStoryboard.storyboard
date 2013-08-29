@@ -99,6 +99,10 @@
                                 <state key="normal" title="Sign In with Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="facebookAuthenticate:" destination="oFs-uz-rH8" eventType="touchUpInside" id="was-Ur-5Vg"/>
+                                    <segue destination="fqC-Rq-Bcu" kind="unwind" unwindAction="done:" id="48U-c8-0am"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0x7-5t-uA8">
                                 <rect key="frame" x="136" y="538" width="48" height="30"/>
@@ -397,11 +401,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="favorites" id="Xv8-bL-dLu" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="favorites" id="Xv8-bL-dLu" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Xv8-bL-dLu" id="POy-cL-l30">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qb2-Oz-Hb5">
@@ -447,11 +451,11 @@
                                             <segue destination="94W-HR-Cms" kind="custom" identifier="showFavorites" customClass="SWRevealViewControllerSegue" id="2Hv-Uf-MsG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recommended" id="FQs-Ad-fas" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="recommended" id="FQs-Ad-fas" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="FQs-Ad-fas" id="FQV-xb-okz">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLW-NS-aCd">
@@ -496,11 +500,11 @@
                                             <outlet property="topSeparator" destination="ZMk-NN-N1k" id="aLq-9J-ZoP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="signup" id="26c-Vs-GCb" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="signup" id="26c-Vs-GCb" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="26c-Vs-GCb" id="pi9-UW-kDf">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2zS-nv-tQQ">
@@ -546,11 +550,11 @@
                                             <segue destination="oFs-uz-rH8" kind="modal" identifier="showSignup" customClass="SWRevealViewControllerSegue" id="eeL-2T-YMZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" id="Vsi-ZN-tNL" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="settings" id="Vsi-ZN-tNL" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="154" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Vsi-ZN-tNL" id="9kF-8O-4iD">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njD-o7-cRa">
@@ -595,24 +599,26 @@
                                             <outlet property="topSeparator" destination="g5X-iC-m4i" id="LAA-gK-SBO"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="logout" id="AES-yn-2mN" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="logout" id="AES-yn-2mN" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="198" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="AES-yn-2mN" id="lbI-qH-rvI">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vu5-5n-hFL">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nf-HZ-0VQ">
+                                                            <rect key="frame" x="49" y="12" width="132" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nf-HZ-0VQ">
-                                                    <rect key="frame" x="49" y="12" width="132" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beJ-eX-2qT">
                                                     <rect key="frame" x="201" y="12" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -644,11 +650,11 @@
                                             <outlet property="topSeparator" destination="eC1-CJ-CRt" id="M91-Jp-WMV"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="account" id="Tqf-qy-pbE" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="account" id="Tqf-qy-pbE" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="242" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Tqf-qy-pbE" id="C6y-UJ-hAx">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMw-96-UR6">

@@ -9,6 +9,8 @@
 #import "MCMainSideViewController.h"
 #import "SWRevealViewControllerSegue.h"
 #import "MCFavoritesViewController.h"
+#import "AccountViewController.h"
+#import "MCSidebarController.h"
 
 @interface MCMainSideViewController ()
 
@@ -100,6 +102,19 @@
     NSLog(@"Done got called");
     UIViewController *vc = segue.sourceViewController;
     NSLog(@"Segue View Controller: %@", [vc class]);
+    
+    if([segue.sourceViewController isKindOfClass:[AccountViewController class]])
+    {
+        NSLog(@"Just came back from AccountViewController - signed up via Facebook");
+        MCSidebarController *sideBarVC = (MCSidebarController *)self.sidebarViewController;
+        sideBarVC.profileNameLabel.text = @"La Chucha!";
+        
+        //Remove the Signup Row
+        sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
+        [sideBarVC.tableView reloadData];
+        
+    }
+    
 }
 
 -(void)prepareForSegue:(SWRevealViewControllerSegue *)segue sender:(id)sender

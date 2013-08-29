@@ -10,6 +10,12 @@
 
 @implementation SideBarCell
 
+/* This probably needs to go in the MCSideBarController */
+-(IBAction)logout:(id)sender
+{
+    NSLog(@"Logging Out");
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

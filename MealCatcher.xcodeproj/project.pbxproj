@@ -48,6 +48,7 @@
 		5B575E5217CEEB6400F9692C /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5117CEEB6400F9692C /* SignupViewController.m */; };
 		5B575E5717CEF83A00F9692C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5617CEF79600F9692C /* LoginViewController.m */; };
 		5B575E5817CEF84400F9692C /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5317CEF79600F9692C /* AccountViewController.m */; };
+		5B61388417CEFABF0076216B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B61388317CEFABF0076216B /* FacebookSDK.framework */; };
 		5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E083516AA7E2C0096E065 /* SettingsViewController.m */; };
 		5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
@@ -112,6 +113,7 @@
 		5B575E5417CEF79600F9692C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Authentication/LoginViewController.h; sourceTree = "<group>"; };
 		5B575E5517CEF79600F9692C /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = Authentication/AccountViewController.h; sourceTree = "<group>"; };
 		5B575E5617CEF79600F9692C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Authentication/LoginViewController.m; sourceTree = "<group>"; };
+		5B61388317CEFABF0076216B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5B9E083416AA7E2C0096E065 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				5B2050CE17CAE795008A94D7 /* libz.1.1.3.dylib in Frameworks */,
 				5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */,
 				5B2050CC17CAE783008A94D7 /* CFNetwork.framework in Frameworks */,
+				5B61388417CEFABF0076216B /* FacebookSDK.framework in Frameworks */,
 				5B2050CA17CAE77C008A94D7 /* AudioToolbox.framework in Frameworks */,
 				5B49246916715C13005ADD60 /* MapKit.framework in Frameworks */,
 				5B49246A16715C13005ADD60 /* CoreLocation.framework in Frameworks */,
@@ -276,8 +279,8 @@
 			isa = PBXGroup;
 			children = (
 				5B575E5317CEF79600F9692C /* AccountViewController.m */,
-				5B575E5417CEF79600F9692C /* LoginViewController.h */,
 				5B575E5517CEF79600F9692C /* AccountViewController.h */,
+				5B575E5417CEF79600F9692C /* LoginViewController.h */,
 				5B575E5617CEF79600F9692C /* LoginViewController.m */,
 				5B575E5017CEEB6400F9692C /* SignupViewController.h */,
 				5B575E5117CEEB6400F9692C /* SignupViewController.m */,
@@ -336,6 +339,7 @@
 		8BEBB8BD1664259400782803 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B61388317CEFABF0076216B /* FacebookSDK.framework */,
 				5B2050D717CAE7BD008A94D7 /* SystemConfiguration.framework */,
 				5B2050D517CAE7B4008A94D7 /* StoreKit.framework */,
 				5B2050D317CAE7AB008A94D7 /* Security.framework */,
@@ -585,6 +589,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/esteban/iosapps/ios-mealcatcher",
+					/Users/esteban/iosapps/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
@@ -613,6 +618,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/esteban/iosapps/ios-mealcatcher",
+					/Users/esteban/iosapps/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MealCatcher/MealCatcher-Prefix.pch";
