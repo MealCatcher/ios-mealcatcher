@@ -64,13 +64,14 @@
     
 }
 
+/* Method used to authenticate (signup/sign in) with Facebook in MealCatcher */
 - (IBAction)facebookAuthenticate:(id)sender {
     
     [PFFacebookUtils logInWithPermissions:@[@"email"] block:^(PFUser *user, NSError *error) {
+        
+        //user canceled the login/signup with Facebook
         if(!user)
         {
-            NSLog(@"Uh oh! The user cancelled the Facebook login. ");
-            
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             NSLog(@"Error String: %@", errorString);
             
@@ -82,10 +83,8 @@
                                                      otherButtonTitles:nil, nil];
             [theAlert show];
         }
-        else if(user.isNew)
+        else if(user.isNew) //If user with FacebookID is not in the MealCatcher system
         {
-            NSLog(@"User logged in through Facebook!");
-            
             [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if(!error)
                 {
@@ -105,6 +104,7 @@
         }
         else
         {
+            
             NSLog(@"User logged in through Facebook!");
         }
     }];

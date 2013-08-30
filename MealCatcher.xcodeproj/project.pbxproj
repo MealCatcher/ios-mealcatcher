@@ -80,8 +80,8 @@
 		5B2050D317CAE7AB008A94D7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5B2050D517CAE7B4008A94D7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5B2050D717CAE7BD008A94D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		5B2050D917CAFDB1008A94D7 /* SWRevealViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewControllerSegue.h; sourceTree = "<group>"; };
-		5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewControllerSegue.m; sourceTree = "<group>"; };
+		5B2050D917CAFDB1008A94D7 /* SWRevealViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewControllerSegue.h; path = MealCatcher/SWRevealViewControllerSegue.h; sourceTree = "<group>"; };
+		5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewControllerSegue.m; path = MealCatcher/SWRevealViewControllerSegue.m; sourceTree = "<group>"; };
 		5B20786116A269C400E3AB0A /* SPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPViewController.xib; sourceTree = "<group>"; };
 		5B20786316A269D100E3AB0A /* MCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSearchViewController.h; sourceTree = "<group>"; };
 		5B20786416A269D100E3AB0A /* MCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSearchViewController.m; sourceTree = "<group>"; };
@@ -96,11 +96,11 @@
 		5B3B1DC517B55A2A00C5E18B /* searchBarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBarIcon@2x.png"; sourceTree = "<group>"; };
 		5B3B1DC617B55A2A00C5E18B /* searchTextBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchTextBG.png; sourceTree = "<group>"; };
 		5B3B1DC717B55A2A00C5E18B /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMainSideViewController.h; sourceTree = "<group>"; };
-		5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMainSideViewController.m; sourceTree = "<group>"; };
+		5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCMainSideViewController.h; path = MealCatcher/MCMainSideViewController.h; sourceTree = "<group>"; };
+		5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCMainSideViewController.m; path = MealCatcher/MCMainSideViewController.m; sourceTree = "<group>"; };
 		5B3B1DD317B8AAE600C5E18B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSidebarController.h; sourceTree = "<group>"; };
-		5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSidebarController.m; sourceTree = "<group>"; };
+		5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCSidebarController.h; path = MealCatcher/MCSidebarController.h; sourceTree = "<group>"; };
+		5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCSidebarController.m; path = MealCatcher/MCSidebarController.m; sourceTree = "<group>"; };
 		5B3B1DDC17B8B83200C5E18B /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		5B3B1DDE17B8BCDF00C5E18B /* profile_jorge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_jorge.jpg; sourceTree = "<group>"; };
 		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -210,6 +210,21 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		5B395A3E17D00C7500B8EA58 /* SidebarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5BDC33B317BDC40300C6D983 /* Cell */,
+				5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */,
+				5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */,
+				5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */,
+				5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */,
+				5B2050D917CAFDB1008A94D7 /* SWRevealViewControllerSegue.h */,
+				5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */,
+			);
+			name = SidebarMenu;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		5B3B1DA817B558F900C5E18B /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,8 +293,8 @@
 		5B575E4F17CEE71500F9692C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				5B575E5317CEF79600F9692C /* AccountViewController.m */,
 				5B575E5517CEF79600F9692C /* AccountViewController.h */,
+				5B575E5317CEF79600F9692C /* AccountViewController.m */,
 				5B575E5417CEF79600F9692C /* LoginViewController.h */,
 				5B575E5617CEF79600F9692C /* LoginViewController.m */,
 				5B575E5017CEEB6400F9692C /* SignupViewController.h */,
@@ -307,6 +322,7 @@
 				5BDC33B117BDC3AE00C6D983 /* SideBarCell.m */,
 			);
 			name = Cell;
+			path = MealCatcher;
 			sourceTree = "<group>";
 		};
 		5BFF20E8179E4E8B0052306C /* Google Places API */ = {
@@ -361,17 +377,11 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
-				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				5B575E4F17CEE71500F9692C /* Authentication */,
-				5B2050D917CAFDB1008A94D7 /* SWRevealViewControllerSegue.h */,
-				5B2050DA17CAFDB1008A94D7 /* SWRevealViewControllerSegue.m */,
-				5BDC33B317BDC40300C6D983 /* Cell */,
+				5B395A3E17D00C7500B8EA58 /* SidebarMenu */,
+				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
-				5B3B1DD517B8B22000C5E18B /* MCSidebarController.h */,
-				5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */,
-				5B3B1DD017B55AA200C5E18B /* MCMainSideViewController.h */,
-				5B3B1DD117B55AA200C5E18B /* MCMainSideViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
 				5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */,
 				5B20786316A269D100E3AB0A /* MCSearchViewController.h */,

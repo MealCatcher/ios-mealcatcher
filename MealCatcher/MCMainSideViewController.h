@@ -11,7 +11,7 @@
 
 #import "GHRevealViewController.h"
 
-@interface MCMainSideViewController : GHRevealViewController
+@interface MCMainSideViewController : GHRevealViewController <NSURLConnectionDelegate>
 
 +(MCMainSideViewController *)sharedClient;
 @end

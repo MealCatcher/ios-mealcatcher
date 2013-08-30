@@ -11,6 +11,7 @@
 #import "MCFavoritesViewController.h"
 #import "AccountViewController.h"
 #import "MCSidebarController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MCMainSideViewController ()
 
@@ -107,14 +108,38 @@
     {
         NSLog(@"Just came back from AccountViewController - signed up via Facebook");
         MCSidebarController *sideBarVC = (MCSidebarController *)self.sidebarViewController;
-        sideBarVC.profileNameLabel.text = @"La Chucha!";
         
         //Remove the Signup Row
         sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
         [sideBarVC.tableView reloadData];
         
+        //Change the name of the user to actual name
+        PFUser *currentUser = [PFUser currentUser];
+        NSString *name = [currentUser objectForKey:@"name"];
+        sideBarVC.profileNameLabel.text = name;
+        NSLog(@"The name: %@", name);
+        
+        //Get the profile picture
+        FBRequest *request = [FBRequest requestForMe];
+        
+        //Send the request to Facebook
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if(!error)
+            {
+                //result is a dictionary with the user's Facebook data
+                
+                NSDictionary *userData = (NSDictionary *)result;
+                NSString *facebookID = userData[@"id"];
+                NSLog(@"Facebook ID: %@", facebookID);
+                
+                NSURL *pictureURL = [NSURL URLWithString:[NSString
+                                                          stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1",
+                                                          facebookID]];
+                
+                [sideBarVC.profileImageView setImageWithURL:pictureURL placeholderImage:nil];
+            }
+        }];
     }
-    
 }
 
 -(void)prepareForSegue:(SWRevealViewControllerSegue *)segue sender:(id)sender
