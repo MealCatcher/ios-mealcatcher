@@ -17,12 +17,33 @@
 
 @implementation MCFavoritesViewController
 
--(NSArray *)favorites
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSLog(@"Favorites Count: %d", [self.favorites count]);
+    PFObject *deleteFavorite = [self.favorites objectAtIndex:indexPath.row];
+    [deleteFavorite deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(!error)
+        {
+            //Remove the row from data model
+            [self.favorites removeObjectAtIndex:indexPath.row];
+            
+            //Request table view to reload
+            [self.tableView reloadData];
+        }
+    }];
+    
+    
+    
+    
+}
+
+-(NSMutableArray *)favorites
 {
     if(!_favorites)
     {
         NSLog(@"Favorites does not exist. Creating it now!");
-        _favorites = [[NSArray alloc] init];
+        _favorites = [[NSMutableArray alloc] init];
     }
     return _favorites;
 }
@@ -41,27 +62,11 @@
         if(!error)
         {
             NSLog(@"Got the favorites");
-            self.favorites = objects;
+            self.favorites = [objects mutableCopy];
             NSLog(@"Favorites Count: %d", [self.favorites count]);
             [self.tableView reloadData];
-            
         }
     }];
-
-    
-    /*Favorite *favorite1 = [[Favorite alloc] init];
-    [favorite1 setName:@"Duende"];
-    
-    Favorite *favorite2 = [[Favorite alloc] init];
-    [favorite2 setName:@"Molcajetes"];
-    
-    Favorite *favorite3 = [[Favorite alloc] init];
-    [favorite3 setName:@"Sidebar"];
-    
-    
-    [[self favorites] addObject:favorite1];
-    [[self favorites] addObject:favorite2];
-    [[self favorites] addObject:favorite3];*/
 }
 
 - (void)viewDidLoad

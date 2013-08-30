@@ -13,8 +13,7 @@
 {
 }
 
-//@property (strong, nonatomic) NSMutableArray *favorites;
-@property (strong, nonatomic) NSArray *favorites;
+@property (strong, nonatomic) NSMutableArray *favorites;
 @property (strong, nonatomic) MCMainSideViewController *mainSideViewController;
 
 @end
