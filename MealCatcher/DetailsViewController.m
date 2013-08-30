@@ -12,15 +12,59 @@
 #import "GTMStringEncoding.h"
 #import "GooglePlacesAPIClient.h"
 #import "UIImageView+AFNetworking.h"
+#import "Favorite.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
-
 @property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
 @end
 
 @implementation DetailsViewController
+
+- (IBAction)addToFavorites:(id)sender
+{
+    
+    //This will save both myFavorite and the user
+    /*[self.myFavorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded)
+        {
+            NSLog(@"I was able to save favorite");
+        }
+        else
+        {
+            NSLog(@"Saving Error: %@", [error localizedDescription]);
+        }
+    }];*/
+    
+    [self.myFavorite save];
+    
+    /*//Creat the Favorite
+    PFObject *myFavorite = [PFObject objectWithClassName:@"Favorite"];
+    [myFavorite setObject:@"Chipotle" forKey:@"restaurant"];
+    [myFavorite setObject:@"1234 Ocean Street, San Francico, CA 94602" forKey:@"address"];
+    [myFavorite setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
+    
+    //Method 1 for making the relationship
+    //[myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
+    
+    //Method 2 for making the relationship
+    NSLog(@"User Object ID: %@", [[PFUser currentUser] objectId]);
+    [myFavorite setObject:[PFUser objectWithoutDataWithClassName:@"User" objectId:[[PFUser currentUser] objectId]] forKey:@"parent"];
+
+    
+    //This will save both myFavorite and the user
+    [myFavorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded)
+        {
+            NSLog(@"I was able to save favorite");
+        }
+        else
+        {
+            NSLog(@"Saving Error: %@", [error localizedDescription]);
+        }
+    }];*/
+}
 
 #define GOOGLE_API_KEY @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"
 
@@ -32,7 +76,6 @@
     [super viewDidLoad];
     self.title = @"Details";
     
-    //[self getRestaurantDetails:restaurantID];
     GooglePlacesAPIClient *gpClient = [GooglePlacesAPIClient sharedClient];
     
     if(!gpClient)
@@ -68,46 +111,41 @@
             
             self.placeNameLabel.text = [result objectForKey:@"name"];
             
+            //Creat the Favorite
+            self.myFavorite = [PFObject objectWithClassName:@"Favorite"];
+            [self.myFavorite  setObject:[result objectForKey:@"name"] forKey:@"restaurant"];
+            [self.myFavorite  setObject:[result objectForKey:@"formatted_address"] forKey:@"address"];
+            [self.myFavorite  setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
+            
+            //Method 1 for making the relationship
+            //[myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
+            
+            //Method 2 for making the relationship
+            NSLog(@"User Object ID: %@", [[PFUser currentUser] objectId]);
+            [self.myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
+            
 #warning This might need to change. It's grabing the first photo. What if there is no photo?
             NSArray *photoArray = [result objectForKey:@"photos"];
             NSDictionary *photoDictionary = photoArray[1];
-            
 
             NSString *photoReference = [photoDictionary objectForKey:@"photo_reference"];
-            NSLog(@"Photo Reference: %@", photoReference);
-
             
             NSDictionary *photoParameters = [[NSDictionary alloc] initWithObjectsAndKeys:@"400", @"maxwidth",
                                              photoReference,
                                              @"photoreference",
                                              @"false",
                                              @"sensor",
-                                   GOOGLE_API_KEY,
-                                   @"key",
+                                             GOOGLE_API_KEY,
+                                             @"key",
                                              nil];
-            
-            //Get the place photo
-            /*[gpClient getPath:@"photo" parameters:photoParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"Got the photo");
-                
-             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 NSLog(@"did not get the photo: %@", [error localizedDescription]);
-                 NSLog(@"did not get the photo: %@", operation);
-             }];*/
+
             NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
             [self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];
-            NSLog(@"URL for image: %@", urlString);
-
-            
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"This didn't work. Let's try again.");
         }];
-        
-        
-        
     }
-    
 }
 
 -(IBAction)popTheController:(id)sender

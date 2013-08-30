@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Parse/Parse.h>
 
 /*@protocol DetailsViewDelegate <NSObject>
 
@@ -35,6 +36,8 @@
 
 @property (nonatomic, strong) NSString *restaurantID;
 @property (nonatomic, strong) NSString *photoReference;
+@property (nonatomic, strong) PFObject *myFavorite;
+
 
 //@property (nonatomic, weak) id <DetailsViewDelegate> delegate;
 

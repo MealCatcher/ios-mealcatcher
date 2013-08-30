@@ -10,24 +10,19 @@
 #import "MCSearchViewController.h"
 #import "Favorite.h"
 #import "MCMainSideViewController.h"
+#import "DetailsViewController.h"
 
 @interface MCFavoritesViewController ()
 @end
 
 @implementation MCFavoritesViewController
 
-@synthesize drinks;
-
-
-
-
-
--(NSMutableArray *)favorites
+-(NSArray *)favorites
 {
     if(!_favorites)
     {
         NSLog(@"Favorites does not exist. Creating it now!");
-        _favorites = [[NSMutableArray alloc] init];
+        _favorites = [[NSArray alloc] init];
     }
     return _favorites;
 }
@@ -36,8 +31,25 @@
  *
  */
 -(void)setupFavorites
-{    
-    Favorite *favorite1 = [[Favorite alloc] init];
+{
+    //query all the favorites
+    PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
+    //put the favorites in the array
+    [favoritesQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
+    //reload the table view
+    [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error)
+        {
+            NSLog(@"Got the favorites");
+            self.favorites = objects;
+            NSLog(@"Favorites Count: %d", [self.favorites count]);
+            [self.tableView reloadData];
+            
+        }
+    }];
+
+    
+    /*Favorite *favorite1 = [[Favorite alloc] init];
     [favorite1 setName:@"Duende"];
     
     Favorite *favorite2 = [[Favorite alloc] init];
@@ -49,7 +61,7 @@
     
     [[self favorites] addObject:favorite1];
     [[self favorites] addObject:favorite2];
-    [[self favorites] addObject:favorite3];
+    [[self favorites] addObject:favorite3];*/
 }
 
 - (void)viewDidLoad
@@ -109,9 +121,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //cell.textLabel.text = [self.drinks objectAtIndex:indexPath.row];
-    Favorite *myFavorite = [self.favorites objectAtIndex:indexPath.row];
-    cell.textLabel.text  = [myFavorite name];
+    PFObject *myFavorite = [self.favorites objectAtIndex:indexPath.row];
+    cell.textLabel.text  = [myFavorite objectForKey:@"restaurant"];
     
     return cell;
 }
@@ -128,6 +139,16 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+-(IBAction)savedFavorite:(UIStoryboardSegue *)segue
+{
+    if([segue.sourceViewController isKindOfClass:[DetailsViewController class]])
+    {
+        [self setupFavorites];
+    }
+    
+    
 }
 
 @end

@@ -11,11 +11,10 @@
 
 @interface MCFavoritesViewController : UITableViewController
 {
-    NSMutableArray *drinks;
 }
 
-@property (nonatomic, retain) NSMutableArray *drinks;
-@property (strong, nonatomic) NSMutableArray *favorites;
+//@property (strong, nonatomic) NSMutableArray *favorites;
+@property (strong, nonatomic) NSArray *favorites;
 @property (strong, nonatomic) MCMainSideViewController *mainSideViewController;
 
 @end
