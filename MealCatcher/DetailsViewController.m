@@ -116,6 +116,7 @@
             [self.myFavorite  setObject:[result objectForKey:@"name"] forKey:@"restaurant"];
             [self.myFavorite  setObject:[result objectForKey:@"formatted_address"] forKey:@"address"];
             [self.myFavorite  setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
+            [self.myFavorite setObject:self.restaurantID forKey:@"restaurant_id"];
             
             //Method 1 for making the relationship
             //[myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
