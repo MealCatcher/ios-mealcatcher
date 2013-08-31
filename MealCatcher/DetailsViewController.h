@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSString *restaurantID;
 @property (nonatomic, strong) NSString *photoReference;
 @property (nonatomic, strong) PFObject *myFavorite;
+@property (nonatomic, strong) PFObject *myRecommendation;
 
 
 //@property (nonatomic, weak) id <DetailsViewDelegate> delegate;

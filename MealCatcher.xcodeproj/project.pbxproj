@@ -51,6 +51,7 @@
 		5B61388417CEFABF0076216B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B61388317CEFABF0076216B /* FacebookSDK.framework */; };
 		5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E083516AA7E2C0096E065 /* SettingsViewController.m */; };
 		5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */; };
+		5BA555F717D14E63006E3F11 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA555F617D14E63006E3F11 /* RecommendedViewController.m */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA640631672644D007528BD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA640621672644D007528BD /* libTestFlight.a */; };
 		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
@@ -119,6 +120,8 @@
 		5B9E083416AA7E2C0096E065 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5B9E083516AA7E2C0096E065 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		5BA555F517D14E63006E3F11 /* RecommendedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedViewController.h; sourceTree = "<group>"; };
+		5BA555F617D14E63006E3F11 /* RecommendedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedViewController.m; sourceTree = "<group>"; };
 		5BA6405916726419007528BD /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5BA6405A16726419007528BD /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		5BA640611672644D007528BD /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = MealCatcher/TestFlight.h; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
+				5BA555F517D14E63006E3F11 /* RecommendedViewController.h */,
+				5BA555F617D14E63006E3F11 /* RecommendedViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
 				5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */,
 				5B20786316A269D100E3AB0A /* MCSearchViewController.h */,
@@ -565,6 +570,7 @@
 				E7756F81173093A60068615A /* AFImageRequestOperation.m in Sources */,
 				E7756F82173093A60068615A /* AFJSONRequestOperation.m in Sources */,
 				E7756F83173093A60068615A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				5BA555F717D14E63006E3F11 /* RecommendedViewController.m in Sources */,
 				E7756F84173093A60068615A /* AFPropertyListRequestOperation.m in Sources */,
 				E7756F85173093A60068615A /* AFURLConnectionOperation.m in Sources */,
 				5B53A4A517C18D3300BEB7FE /* Place.m in Sources */,

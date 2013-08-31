@@ -147,18 +147,32 @@
             NSInteger rowOfTheCell = [pathOfCell row];
         }
     }
-    else if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
-        
-        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
-        
-        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+    else if ([segue isKindOfClass: [SWRevealViewControllerSegue class]] )
+    {
+        if([segue.identifier isEqualToString:@"showFavorites"])
+        {
+            NSLog(@"I am going to show favorites now");
+            SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
             
-        UINavigationController *testController =  (UINavigationController *)self.revealViewController.contentViewController;
+            swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+                
+                UINavigationController *testController =  (UINavigationController *)self.revealViewController.contentViewController;
+                
+                [testController setViewControllers:@[dvc] animated:NO];
+                [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
+            };
+        }
+        else if([segue.identifier isEqualToString:@"showRecommended"])
+        {
+            SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue *)segue;
             
-        [testController setViewControllers:@[dvc] animated:NO];
-        [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
-
-        };
+            swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc){
+                UINavigationController *testController = (UINavigationController *)self.revealViewController.contentViewController;
+                
+                [testController setViewControllers:@[dvc] animated:NO];
+                [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
+            };
+        }
     }
 }
 

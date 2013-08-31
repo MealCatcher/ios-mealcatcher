@@ -22,6 +22,26 @@
 
 @implementation DetailsViewController
 
+
+- (IBAction)recommend:(id)sender {
+    //Get Karen's user
+    PFUser *kUser = [PFQuery getUserObjectWithId:@"TmoqqK6ue8"];
+    if(kUser)
+    {
+        NSLog(@"User name: %@", [kUser objectForKey:@"name"]);
+    }
+    
+    [self.myRecommendation setObject:kUser forKey:@"recommender"];
+    [self.myRecommendation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(!error)
+        {
+            NSLog(@"Saved the recommended restaurant successfully");
+        }
+    }];
+    
+
+}
+
 - (IBAction)addToFavorites:(id)sender
 {
     
@@ -118,12 +138,20 @@
             [self.myFavorite  setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
             [self.myFavorite setObject:self.restaurantID forKey:@"restaurant_id"];
             
+            //Creat the recommendation
+            self.myRecommendation = [PFObject objectWithClassName:@"Recommendation"];
+            [self.myRecommendation  setObject:[result objectForKey:@"name"] forKey:@"restaurant"];
+            [self.myRecommendation  setObject:[result objectForKey:@"formatted_address"] forKey:@"address"];
+            [self.myRecommendation  setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
+            [self.myRecommendation setObject:self.restaurantID forKey:@"restaurant_id"];
+            
             //Method 1 for making the relationship
             //[myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
             
             //Method 2 for making the relationship
             NSLog(@"User Object ID: %@", [[PFUser currentUser] objectId]);
             [self.myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
+            [self.myRecommendation  setObject:[PFUser currentUser] forKey:@"parent"];
             
 #warning This might need to change. It's grabing the first photo. What if there is no photo?
             NSArray *photoArray = [result objectForKey:@"photos"];
