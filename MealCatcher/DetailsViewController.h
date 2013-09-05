@@ -20,7 +20,7 @@
 
 @end*/
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : UIViewController <UIActionSheetDelegate, FBFriendPickerDelegate>
 {
     NSMutableData *restaurantData;
     IBOutlet UILabel *restaurantNameLabel;

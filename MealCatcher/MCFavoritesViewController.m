@@ -53,20 +53,25 @@
  */
 -(void)setupFavorites
 {
-    //query all the favorites
-    PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
-    //put the favorites in the array
-    [favoritesQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
-    //reload the table view
-    [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error)
-        {
-            NSLog(@"Got the favorites");
-            self.favorites = [objects mutableCopy];
-            NSLog(@"Favorites Count: %d", [self.favorites count]);
-            [self.tableView reloadData];
-        }
-    }];
+    if([PFUser currentUser])
+    {
+        //query all the favorites
+        PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
+        //put the favorites in the array
+        [favoritesQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
+        //reload the table view
+        [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(!error)
+            {
+                NSLog(@"Got the favorites");
+                self.favorites = [objects mutableCopy];
+                NSLog(@"Favorites Count: %d", [self.favorites count]);
+                [self.tableView reloadData];
+            }
+        }];
+    }
+    
+    
 }
 
 - (void)viewDidLoad
@@ -80,6 +85,7 @@
 
     //Create the restaurant array (temp data source)
     //self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
+    
     [self setupFavorites];
     
     UIImage *menuButtonImage = [UIImage imageNamed:@"list3"];

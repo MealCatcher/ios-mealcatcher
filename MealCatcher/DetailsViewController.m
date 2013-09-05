@@ -18,14 +18,84 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
+@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 @end
 
 @implementation DetailsViewController
 
+#pragma mark FacebookFriendPicker Delegate Protocol
+-(void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker
+{
+    NSLog(@"Selection was made");
+}
+
+- (void)facebookViewControllerDoneWasPressed:(id)sender {
+
+    NSLog(@"Done button was pressed");
+    NSMutableString *text = [[NSMutableString alloc] init];
+    
+    // we pick up the users from the selection, and create a string that we use to update the text view
+    // at the bottom of the display; note that self.selection is a property inherited from our base class
+    for (id<FBGraphUser> user in self.friendPickerController.selection) {
+        if ([text length]) {
+            [text appendString:@", "];
+        }
+        [text appendString:user.name];
+    }
+    
+    NSLog(@"Names Picked: %@",text);
+    [self dismissViewControllerAnimated:self.friendPickerController completion:^{
+        NSLog(@"Dismissed the View Controller");
+    }];
+}
+
+- (void)facebookViewControllerCancelWasPressed:(id)sender {
+    [self dismissViewControllerAnimated:self.friendPickerController completion:^{
+        NSLog(@"Dismissed the View Controller");
+    }];
+}
+
+#pragma Action Sheet Delegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    FBSession *fbSession = [PFFacebookUtils session];
+    if(fbSession)
+    {
+        NSLog(@"Facebook Session is not nil");
+        
+        [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if(!error)
+            {
+                NSLog(@"Requested Facebook Friends");
+                NSLog(@"Results: %@", result);
+                
+                self.friendPickerController = [[FBFriendPickerViewController alloc] init];
+                self.friendPickerController.title = @"Pick Friends";
+                
+                
+                [self.friendPickerController loadData];
+                [self.friendPickerController clearSelection];
+                self.friendPickerController.delegate = self;
+                
+                [self presentViewController:self.friendPickerController animated:YES completion:nil];
+                
+                
+            }
+        }];
+    }
+    else
+    {
+        NSLog(@"Facebook session is nil");
+    }
+}
+
 
 - (IBAction)recommend:(id)sender {
+    
+#warning Save this snippet of code for sharing purposes
     //Get Karen's user
-    PFUser *kUser = [PFQuery getUserObjectWithId:@"TmoqqK6ue8"];
+    /*PFUser *kUser = [PFQuery getUserObjectWithId:@"TmoqqK6ue8"];
     if(kUser)
     {
         NSLog(@"User name: %@", [kUser objectForKey:@"name"]);
@@ -37,8 +107,13 @@
         {
             NSLog(@"Saved the recommended restaurant successfully");
         }
-    }];
+    }];*/
     
+    //Display action sheet with recommending options
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Proximity",nil];
+    
+    [actionSheet showInView:self.view];
 
 }
 

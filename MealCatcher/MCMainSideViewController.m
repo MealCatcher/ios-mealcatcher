@@ -49,7 +49,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+   // UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
     //UIViewController *frontController = [mainStoryboard instantiateViewControllerWithIdentifier:@"FavoritesController"];
     
