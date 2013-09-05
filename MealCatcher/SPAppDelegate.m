@@ -30,21 +30,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-   
-    //self.viewController = [[SPViewController alloc] initWithNibName:@"SPViewController" bundle:nil];
-//    self.favoritesViewController = [[MCFavoritesViewController alloc] initWithNibName:MC_FAVORITES_VIEW_CONTROLLER bundle:nil];
-    
-    //Allocating navigation view controller
-    //self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.favoritesViewController];
-    
-    //[self.window addSubview:self.navigationController.view];
-    //self.window.rootViewController = self.viewController;
-//    self.window.rootViewController = self.navigationController;
-    
-    //[self.window makeKeyAndVisible];
     
     //Enabling the network activity indicator in AFNetwork library
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
@@ -62,6 +47,8 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     [PFFacebookUtils initializeFacebook];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

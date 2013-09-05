@@ -104,9 +104,9 @@
     [self.navigationItem setLeftBarButtonItem:menuItem];
     
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(203/255.0)
+    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(203/255.0)
                                                      green:(59/255.0)
-                                                      blue:(29/255.0) alpha:1];
+                                                      blue:(29/255.0) alpha:1];*/
     
     self.navigationController.navigationBar.titleTextAttributes = [[NSDictionary alloc]
                                              initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];

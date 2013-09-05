@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TestFlight.h"
 #import "MCFavoritesViewController.h"
-#import <Parse/Parse.h>
+//#import <Parse/Parse.h>
 
 #define MC_FAVORITES_VIEW_CONTROLLER @"MCFavoritesViewController"
 
