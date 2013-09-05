@@ -23,10 +23,6 @@
     user.password = self.passwordField.text;
     user.email = self.emailField.text;
     
-    
-    //other fields can be set just like with PFObject
-    [user setObject:@"415-392-0202" forKey:@"phone"];
-    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(!error)
         {

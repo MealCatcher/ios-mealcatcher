@@ -11,6 +11,4 @@
 
 @interface MCSearchViewController : UIViewController <UISearchBarDelegate,UITableViewDataSource>
 
-
-
 @end

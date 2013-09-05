@@ -23,8 +23,6 @@
 }
 
 @property (nonatomic,unsafe_unretained,readonly)CLLocationCoordinate2D coordinate;
-//@property (nonatomic, copy, readonly)NSString* title;
-//@property (nonatomic, copy, readonly)NSString* subtitle;
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, copy)NSString *subtitle;
 

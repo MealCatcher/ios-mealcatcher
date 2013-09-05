@@ -7,9 +7,6 @@
 //
 
 #import "DetailsViewController.h"
-#import <CommonCrypto/CommonHMAC.h>
-#import "NSData+Base64.h"
-#import "GTMStringEncoding.h"
 #import "GooglePlacesAPIClient.h"
 #import "UIImageView+AFNetworking.h"
 #import "Favorite.h"
@@ -24,8 +21,6 @@
 @implementation DetailsViewController
 
 #define GOOGLE_API_KEY @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"
-
-//@synthesize restaurantID;
 
 #pragma mark FacebookFriendPicker Delegate Protocol
 -(void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker
@@ -233,15 +228,6 @@
             NSDictionary *photoDictionary = photoArray[1];
 
             NSString *photoReference = [photoDictionary objectForKey:@"photo_reference"];
-            
-            NSDictionary *photoParameters = [[NSDictionary alloc] initWithObjectsAndKeys:@"400", @"maxwidth",
-                                             photoReference,
-                                             @"photoreference",
-                                             @"false",
-                                             @"sensor",
-                                             GOOGLE_API_KEY,
-                                             @"key",
-                                             nil];
 
             NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
             [self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];

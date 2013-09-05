@@ -22,25 +22,12 @@
 
 @interface DetailsViewController : UIViewController <UIActionSheetDelegate, FBFriendPickerDelegate>
 {
-    NSMutableData *restaurantData;
-    IBOutlet UILabel *restaurantNameLabel;
-    IBOutlet UILabel *websiteURL;
-    IBOutlet UILabel *address1;
-    IBOutlet UILabel *address2;
-    IBOutlet UILabel *city;
-    IBOutlet UILabel *state;
-    IBOutlet UILabel *zip;
-    IBOutlet UILabel *phone;
-    IBOutlet UILabel *description;
 }
 
 @property (nonatomic, strong) NSString *restaurantID;
 @property (nonatomic, strong) NSString *photoReference;
 @property (nonatomic, strong) PFObject *myFavorite;
 @property (nonatomic, strong) PFObject *myRecommendation;
-
-
-//@property (nonatomic, weak) id <DetailsViewDelegate> delegate;
 
 -(IBAction)popTheController:(id)sender;
 

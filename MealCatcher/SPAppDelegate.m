@@ -7,24 +7,14 @@
 //
 
 #import "SPAppDelegate.h"
-#import "SPViewController.h"
-#import "MCFavoritesViewController.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
 @implementation SPAppDelegate
-
-@synthesize navigationController;
-@synthesize window;
-@synthesize viewController;
-
-//Testing work computer commit
 
 -(void)setupUI
 {
     UIImage *navImage = [UIImage imageNamed:@"clear_nav_bar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navImage forBarMetrics:UIBarMetricsDefault];
-    
-    
 }
 
 

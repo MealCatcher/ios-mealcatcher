@@ -127,8 +127,6 @@
     PFUser *currentUser = [PFUser currentUser];
     if(currentUser)
     {
-        //do stuff with the user
-        NSLog(@"the user is alive");
     }
     else
     {

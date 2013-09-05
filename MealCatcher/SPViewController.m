@@ -282,16 +282,7 @@
 /* Method that responds to taps on the map pin callout accessory control */
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    
-    //self.testViewController = [[TestViewController alloc]initWithNibName:nil bundle:NULL];
     self.nibViewController = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:Nil];
-    
-    //THIS IS A GOOD PLACE TO INSERT THE other view
-    //[self presentModalViewController:testViewController animated:YES];
-    //[self presentModalViewController:nibViewController animated:YES];
-    /*  bellanico */
-    /* blackberry-bistro */
-    /*  mcdonalds-1032 */
     self.nibViewController.restaurantID = @"blackberry-bistro";
     [self.navigationController pushViewController:self.nibViewController animated:YES];
     

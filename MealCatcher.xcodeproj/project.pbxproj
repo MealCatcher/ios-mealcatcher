@@ -388,8 +388,6 @@
 				5B575E4F17CEE71500F9692C /* Authentication */,
 				5B395A3E17D00C7500B8EA58 /* SidebarMenu */,
 				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
-				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
-				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				5BA555F517D14E63006E3F11 /* RecommendedViewController.h */,
 				5BA555F617D14E63006E3F11 /* RecommendedViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
@@ -400,9 +398,9 @@
 				5B9E083516AA7E2C0096E065 /* SettingsViewController.m */,
 				5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */,
 				5BA6405A16726419007528BD /* DetailsViewController.h */,
+				5BA6405916726419007528BD /* DetailsViewController.m */,
 				E72ED22F17D939EA00D231EB /* MCNavigationController.h */,
 				E72ED23017D939EA00D231EB /* MCNavigationController.m */,
-				5BA6405916726419007528BD /* DetailsViewController.m */,
 				8BEBB8D61664259400782803 /* SPViewController.h */,
 				8BEBB8D71664259400782803 /* SPViewController.m */,
 				5B20786116A269C400E3AB0A /* SPViewController.xib */,
@@ -420,6 +418,8 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
+				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				5B3B1DDB17B8B83200C5E18B /* Images */,
 				8BEBB8C71664259400782803 /* InfoPlist.strings */,
 				8BEBB8CA1664259400782803 /* main.m */,

@@ -74,39 +74,17 @@
 {
     [super viewDidLoad];
 
-    // Add the plus uibar button item
-    /*UIBarButtonItem* addButton =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRestaurant)];
-    self.navigationItem.rightBarButtonItem = addButton;*/
-
-    //Create the restaurant array (temp data source)
-    //self.drinks = [[NSMutableArray alloc] initWithObjects:@"Duende", @"HomeRoom",@"Lin Jia's", @"Boot & Shoe", nil];
-    
     [self setupFavorites];
     
     UIImage *menuButtonImage = [UIImage imageNamed:@"list3"];
     self.mainSideViewController = [MCMainSideViewController sharedClient];
-    
-    //testing the category
 
-    
-    /*UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
-                                                                 style:UIControlStateNormal
-                                                                target:self.mainSideViewController
-                                                                action:@selector(revealToggle:)];*/
-    
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
                                                                  style:UIControlStateNormal
                                                                 target:self.revealViewController
                                                                 action:@selector(revealToggle:)];
     
-    
     [self.navigationItem setLeftBarButtonItem:menuItem];
-    
-    
-    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(203/255.0)
-                                                     green:(59/255.0)
-                                                      blue:(29/255.0) alpha:1];*/
     
     self.navigationController.navigationBar.titleTextAttributes = [[NSDictionary alloc]
                                              initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];

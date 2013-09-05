@@ -133,8 +133,6 @@
         NSLog(@"TestSegue got called");
         if([segue.destinationViewController isKindOfClass:[AccountViewController class]])
         {
-            AccountViewController *signUpViewController = segue.destinationViewController;
-            //detailsViewController.delegate = self;
             
             UITableViewCell *cell = sender;
             if([cell isKindOfClass: [SideBarCell class]])
@@ -143,8 +141,6 @@
                 NSLog(@"The cell is a SideBarCell");
                 NSLog(@"Cell Tapped: %@", myCell.titleLabel);
             }
-            NSIndexPath *pathOfCell = [self.tableView indexPathForCell:cell];
-            NSInteger rowOfTheCell = [pathOfCell row];
         }
     }
     else if ([segue isKindOfClass: [SWRevealViewControllerSegue class]] )

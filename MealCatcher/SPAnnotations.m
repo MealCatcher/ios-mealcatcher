@@ -37,11 +37,6 @@
     return result;
 }
 
-/*-(id)init
-{
-    return [self initWithCoordinates:CLLocationCoordinate2DMake(43.07, -89.32) title:@"Hometown" subtitle:@"Random Place"];
-}*/
-
 -(id)initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates
                    title:(NSString *)paramTitle
                 subtitle:(NSString *)paramSubTitle
