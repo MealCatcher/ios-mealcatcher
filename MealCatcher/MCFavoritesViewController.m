@@ -32,10 +32,6 @@
             [self.tableView reloadData];
         }
     }];
-    
-    
-    
-    
 }
 
 -(NSMutableArray *)favorites
@@ -143,6 +139,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSLog(@"THIS IS GETTING CALLED");
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -158,8 +156,19 @@
     {
         [self setupFavorites];
     }
-    
-    
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"FavoriteDetailsSegue"])
+    {
+        UITableViewCell *cell = (UITableViewCell *)sender;
+        NSIndexPath *ip = [self.tableView indexPathForCell:cell];
+        PFObject *favorite = [self.favorites objectAtIndex:ip.row];
+        DetailsViewController *dvc = (DetailsViewController *)segue.destinationViewController;
+        [dvc setRestaurantID:[favorite objectForKey:@"restaurant_id"]];
+    }
 }
 
 @end
