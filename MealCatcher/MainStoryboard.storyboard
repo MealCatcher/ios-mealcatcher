@@ -343,7 +343,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToFavorites:" destination="x0c-bq-Ln0" eventType="touchUpInside" id="nlt-43-nOy"/>
                                     <segue destination="VRn-Tk-IfO" kind="unwind" unwindAction="savedFavorite:" id="sQ5-yT-it1"/>
                                 </connections>
                             </button>
@@ -816,8 +815,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow" width="16" height="16"/>
-        <image name="arrow" width="16" height="16"/>
         <image name="arrow" width="16" height="16"/>
         <image name="background" width="640" height="940"/>
         <image name="check" width="64" height="64"/>

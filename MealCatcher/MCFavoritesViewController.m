@@ -55,13 +55,13 @@
         PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
         //put the favorites in the array
         [favoritesQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
+        //Sort results by name
+        [favoritesQuery orderByAscending:@"restaurant"];
         //reload the table view
         [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if(!error)
             {
-                NSLog(@"Got the favorites");
                 self.favorites = [objects mutableCopy];
-                NSLog(@"Favorites Count: %d", [self.favorites count]);
                 [self.tableView reloadData];
             }
         }];
