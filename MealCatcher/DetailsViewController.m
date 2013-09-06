@@ -21,6 +21,8 @@
 @implementation DetailsViewController
 
 #define GOOGLE_API_KEY @"AIzaSyBiDP9jVA2Tad-yvyEIm1gIi2umJRvYzUg"
+#define FACEBOOK_SHARE_INDEX 0
+#define PROXIMITY_SHARE_INDEX 1
 
 #pragma mark FacebookFriendPicker Delegate Protocol
 -(void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker
@@ -54,126 +56,47 @@
     }];
 }
 
-#pragma Action Sheet Delegate Methods
+#pragma mark Action Sheet Delegate Methods
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    FBSession *fbSession = [PFFacebookUtils session];
-    if(fbSession)
-    {
-        NSLog(@"Facebook Session is not nil");
-        
-        [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            if(!error)
-            {
-                NSLog(@"Requested Facebook Friends");
-                NSLog(@"Results: %@", result);
-                
-                self.friendPickerController = [[FBFriendPickerViewController alloc] init];
-                self.friendPickerController.title = @"Pick Friends";
-                
-                
-                [self.friendPickerController loadData];
-                [self.friendPickerController clearSelection];
-                self.friendPickerController.delegate = self;
-                
-                [self presentViewController:self.friendPickerController animated:YES completion:nil];
-                
-                
-            }
-        }];
-    }
-    else
-    {
-        NSLog(@"Facebook session is nil");
-    }
-}
-
-
-- (IBAction)recommend:(id)sender {
     
-#warning Save this snippet of code for sharing purposes
-    //Get Karen's user
-    /*PFUser *kUser = [PFQuery getUserObjectWithId:@"TmoqqK6ue8"];
-    if(kUser)
+    if(buttonIndex == FACEBOOK_SHARE_INDEX)
     {
-        NSLog(@"User name: %@", [kUser objectForKey:@"name"]);
-    }
-    
-    [self.myRecommendation setObject:kUser forKey:@"recommender"];
-    [self.myRecommendation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(!error)
+        FBSession *fbSession = [PFFacebookUtils session];
+        if(fbSession)
         {
-            NSLog(@"Saved the recommended restaurant successfully");
-        }
-    }];*/
-    
-    //Display action sheet with recommending options
-    
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Proximity",nil];
-    
-    [actionSheet showInView:self.view];
-
-}
-
-/** Method used to add favorites **/
-- (BOOL)addToFavorites
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
-    [query whereKey:@"parent" equalTo:[PFUser currentUser]];
-    
-    BOOL saveFavorite = NO;
-    NSArray *favorites = [query findObjects];
-    if([favorites count] == 0)
-    {
-        //Save the favorite
-        [self.myFavorite save];
-        saveFavorite = YES;
-    }
-    else //The place is already in the user's favorites list
-    {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Ooops"
-                                                     message:@"You already have this in your favorites"
-                                                    delegate:self
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [av show];
-    }
-    
-    return saveFavorite;
-    
-    
-
-    
-    
-    /*//Creat the Favorite
-    PFObject *myFavorite = [PFObject objectWithClassName:@"Favorite"];
-    [myFavorite setObject:@"Chipotle" forKey:@"restaurant"];
-    [myFavorite setObject:@"1234 Ocean Street, San Francico, CA 94602" forKey:@"address"];
-    [myFavorite setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
-    
-    //Method 1 for making the relationship
-    //[myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
-    
-    //Method 2 for making the relationship
-    NSLog(@"User Object ID: %@", [[PFUser currentUser] objectId]);
-    [myFavorite setObject:[PFUser objectWithoutDataWithClassName:@"User" objectId:[[PFUser currentUser] objectId]] forKey:@"parent"];
-
-    
-    //This will save both myFavorite and the user
-    [myFavorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(succeeded)
-        {
-            NSLog(@"I was able to save favorite");
+            NSLog(@"Facebook Session is not nil");
+            
+            [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if(!error)
+                {
+                    self.friendPickerController = [[FBFriendPickerViewController alloc] init];
+                    self.friendPickerController.title = @"Pick Friends";
+                    
+                    
+                    [self.friendPickerController loadData];
+                    [self.friendPickerController clearSelection];
+                    self.friendPickerController.delegate = self;
+                    
+                    [self presentViewController:self.friendPickerController animated:YES completion:nil];
+                }
+            }];
         }
         else
         {
-            NSLog(@"Saving Error: %@", [error localizedDescription]);
+            NSLog(@"Facebook session is nil");
         }
-    }];*/
+
+    }
+    else if (buttonIndex == PROXIMITY_SHARE_INDEX)
+    {
+        ///Bring up logic to share via proximity
+    }
 }
 
 
+#pragma mark Lifecycle Methods
 
 - (void)viewDidLoad
 {
@@ -238,11 +161,93 @@
     }
 }
 
+#pragma mark Custom Methods
+- (IBAction)recommend:(id)sender {
+    
+#warning Save this snippet of code for sharing purposes
+    //Get Karen's user
+    /*PFUser *kUser = [PFQuery getUserObjectWithId:@"TmoqqK6ue8"];
+     if(kUser)
+     {
+     NSLog(@"User name: %@", [kUser objectForKey:@"name"]);
+     }
+     
+     [self.myRecommendation setObject:kUser forKey:@"recommender"];
+     [self.myRecommendation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+     if(!error)
+     {
+     NSLog(@"Saved the recommended restaurant successfully");
+     }
+     }];*/
+    
+    //Display action sheet with recommending options
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Proximity",nil];
+    
+    [actionSheet showInView:self.view];
+
+}
+
+
+/** Method used to add favorites **/
+- (BOOL)addToFavorites
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
+    [query whereKey:@"parent" equalTo:[PFUser currentUser]];
+    
+    BOOL saveFavorite = NO;
+    NSArray *favorites = [query findObjects];
+    if([favorites count] == 0)
+    {
+        //Save the favorite
+        [self.myFavorite save];
+        saveFavorite = YES;
+    }
+    else //The place is already in the user's favorites list
+    {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Ooops"
+                                                     message:@"You already have this in your favorites"
+                                                    delegate:self
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    }
+    
+    return saveFavorite;
+
+    /*//Creat the Favorite
+     PFObject *myFavorite = [PFObject objectWithClassName:@"Favorite"];
+     [myFavorite setObject:@"Chipotle" forKey:@"restaurant"];
+     [myFavorite setObject:@"1234 Ocean Street, San Francico, CA 94602" forKey:@"address"];
+     [myFavorite setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
+     
+     //Method 1 for making the relationship
+     //[myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
+     
+     //Method 2 for making the relationship
+     NSLog(@"User Object ID: %@", [[PFUser currentUser] objectId]);
+     [myFavorite setObject:[PFUser objectWithoutDataWithClassName:@"User" objectId:[[PFUser currentUser] objectId]] forKey:@"parent"];
+     
+     
+     //This will save both myFavorite and the user
+     [myFavorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+     if(succeeded)
+     {
+     NSLog(@"I was able to save favorite");
+     }
+     else
+     {
+     NSLog(@"Saving Error: %@", [error localizedDescription]);
+     }
+     }];*/
+}
+
 -(IBAction)popTheController:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark Segue Methods
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {

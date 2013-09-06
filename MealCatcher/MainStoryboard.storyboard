@@ -354,7 +354,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToFavorites:" destination="x0c-bq-Ln0" eventType="touchUpInside" id="TAq-Hj-8dR"/>
                                     <action selector="recommend:" destination="x0c-bq-Ln0" eventType="touchUpInside" id="Zej-nV-0PO"/>
                                 </connections>
                             </button>
@@ -815,8 +814,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow" width="16" height="16"/>
-        <image name="arrow" width="16" height="16"/>
         <image name="arrow" width="16" height="16"/>
         <image name="background" width="640" height="940"/>
         <image name="check" width="64" height="64"/>
