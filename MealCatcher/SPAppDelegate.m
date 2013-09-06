@@ -28,7 +28,7 @@
     [TestFlight takeOff:@"c096138643dd233a896e69c2b19b3a55_MTYzNzQxMjAxMi0xMi0wNiAxNzoxNToyMy4wOTMwMjc"];
     
     #ifdef DEBUG
-        NSLog(@"The DEBUG settings are working!");
+    
     #endif
     
     [Parse setApplicationId:@"2Yjd5bZO0eeYwpSoB6eor8vfEaN4H61NSlU1Ho8b"

@@ -19,8 +19,6 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSLog(@"Favorites Count: %d", [self.favorites count]);
     PFObject *deleteFavorite = [self.favorites objectAtIndex:indexPath.row];
     [deleteFavorite deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(!error)
@@ -38,7 +36,6 @@
 {
     if(!_favorites)
     {
-        NSLog(@"Favorites does not exist. Creating it now!");
         _favorites = [[NSMutableArray alloc] init];
     }
     return _favorites;
@@ -66,8 +63,6 @@
             }
         }];
     }
-    
-    
 }
 
 - (void)viewDidLoad
@@ -112,22 +107,6 @@
     return cell;
 }
 
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    NSLog(@"THIS IS GETTING CALLED");
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
 -(IBAction)savedFavorite:(UIStoryboardSegue *)segue
 {
     if([segue.sourceViewController isKindOfClass:[DetailsViewController class]])
@@ -135,7 +114,6 @@
         [self setupFavorites];
     }
 }
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

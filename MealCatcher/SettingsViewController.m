@@ -16,7 +16,6 @@
 
 @synthesize locationSimulationSwitch;
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -44,9 +43,6 @@
             [self.locationSimulationSwitch setOn:NO animated:YES];
         }
     }
-
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +69,6 @@
             NSLog(@"simulate location set to OFF ");
         #endif
     }
-    
     [locationPreferences synchronize];
 }
 

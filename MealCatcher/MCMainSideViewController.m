@@ -29,7 +29,6 @@
 /* This is a hack very likely. Don't really understand this code*/
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"init with coder got called");
     self = [super initWithCoder:aDecoder];
     
     static MCMainSideViewController *_sharedClient;
@@ -54,7 +53,6 @@
 
 -(void)revealToggle:(id)sender
 {
-    NSLog(@"reveal toggle got called");
     [super toggleSidebar:!self.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
 }
 

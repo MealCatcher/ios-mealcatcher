@@ -8,6 +8,7 @@
 
 #import "RecommendedViewController.h"
 #import "MCMainSideViewController.h"
+#import "DetailsViewController.h"
 
 @interface RecommendedViewController ()
 
@@ -17,41 +18,7 @@
 
 @implementation RecommendedViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    UIImage *menuButtonImage = [UIImage imageNamed:@"list3"];
-    
-    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
-                                                                 style:UIControlStateNormal
-                                                                target:self.revealViewController
-                                                                action:@selector(revealToggle:)];
-    
-    
-    [self.navigationItem setLeftBarButtonItem:menuItem];
-    
-    self.navigationController.navigationBar.titleTextAttributes = [[NSDictionary alloc]
-                                                                   initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
-    
-    [self setupRecommendations];
-}
-
+#pragma mark Custom Methods
 -(void)setupRecommendations
 {
     //query all the favorites
@@ -70,6 +37,32 @@
     }];
 }
 
+#pragma mark Lifecycle Methods
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIImage *menuButtonImage = [UIImage imageNamed:@"list3"];
+    
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:menuButtonImage
+                                                                 style:UIControlStateNormal
+                                                                target:self.revealViewController
+                                                                action:@selector(revealToggle:)];
+    
+    [self.navigationItem setLeftBarButtonItem:menuItem];
+    
+    self.navigationController.navigationBar.titleTextAttributes = [[NSDictionary alloc]
+                                                                   initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [self setupRecommendations];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -77,7 +70,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+
+#pragma mark - TableView Data Source Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -106,6 +100,19 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Recommended by %@", [testUser objectForKey:@"name"]];
     
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[DetailsViewController class]])
+    {
+        UITableViewCell *placeCell = (UITableViewCell *)sender;
+        NSInteger *row = [[self.tableView indexPathForCell:placeCell] row];
+        PFObject *place = [self.recommendations objectAtIndex:row];
+        
+        DetailsViewController *dvc = (DetailsViewController *)segue.destinationViewController;
+        dvc.restaurantID = [place objectForKey:@"restaurant_id"];
+    }
 }
 
 @end

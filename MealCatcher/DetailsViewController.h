@@ -23,7 +23,6 @@
 @interface DetailsViewController : UIViewController <UIActionSheetDelegate, FBFriendPickerDelegate>
 {
 }
-
 @property (nonatomic, strong) NSString *restaurantID;
 @property (nonatomic, strong) NSString *photoReference;
 @property (nonatomic, strong) PFObject *myFavorite;

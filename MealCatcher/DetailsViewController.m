@@ -74,7 +74,6 @@
                     self.friendPickerController = [[FBFriendPickerViewController alloc] init];
                     self.friendPickerController.title = @"Pick Friends";
                     
-                    
                     [self.friendPickerController loadData];
                     [self.friendPickerController clearSelection];
                     self.friendPickerController.delegate = self;
@@ -142,7 +141,6 @@
             [self.myRecommendation setObject:self.restaurantID forKey:@"restaurant_id"];
             
             //Method 2 for making the relationship
-            NSLog(@"User Object ID: %@", [[PFUser currentUser] objectId]);
             [self.myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
             [self.myRecommendation  setObject:[PFUser currentUser] forKey:@"parent"];
             
@@ -251,13 +249,8 @@
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"Should perform segue got called");
     return [self addToFavorites];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"Prepare for segue got called");
-}
 
 @end
