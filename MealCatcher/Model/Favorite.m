@@ -9,6 +9,7 @@
 #import "Favorite.h"
 
 @interface Favorite()
+
 @end
 
 @implementation Favorite

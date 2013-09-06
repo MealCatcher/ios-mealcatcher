@@ -104,8 +104,6 @@
         }
         else
         {
-            
-            NSLog(@"User logged in through Facebook!");
         }
     }];
 }

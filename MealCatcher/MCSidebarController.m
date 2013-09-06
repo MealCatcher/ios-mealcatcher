@@ -21,17 +21,18 @@
 @implementation MCSidebarController
 
 
+#pragma mark Custom Methods
+
+#pragma mark Lifecycle Methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    //self.view.backgroundColor = [UIColor colorWithRed:209/255.0 green:78/255.0 blue:51/255.0 alpha:1.0];
-    //self.view.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:209/255.0 alpha:1.0];
     
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    //self.tableView.backgroundColor = [UIColor colorWithRed:209/255.0 green:78/255.0 blue:51/255.0 alpha:1.0];
-    //self.tableView.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:209/255.0 alpha:1.0];
+
     self.tableView.separatorColor = [UIColor clearColor];
 
     NSString *boldFontName = @"Avenir-Black";
@@ -39,14 +40,17 @@
     
     self.profileNameLabel.textColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     self.profileNameLabel.font = [UIFont fontWithName:boldFontName size:14.0f];
+#warning This needs to be set depending if the user is logged in or not
     self.profileNameLabel.text = @"Jorge Astorga";
     
     self.profileLocationLabel.textColor = [UIColor colorWithRed:222.0/255 green:59.0/255 blue:47.0/255 alpha:1.0f];
     self.profileLocationLabel.font = [UIFont fontWithName:fontName size:12.0f];
+#warning This needs to be set depending if the user is logged in or not
     self.profileLocationLabel.text = @"Oakland, CA";
-    
-    //self.profileImageView.image = [UIImage imageNamed:@"profile.jpg"];
+
+#warning This needs to be set depending if the user is logged in or not
     self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
+    
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderWidth = 4.0f;
     self.profileImageView.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:0.5f].CGColor;
@@ -59,8 +63,6 @@
     NSDictionary* object5 = [NSDictionary dictionaryWithObjects:@[ @"Logout", @"0", @"arrow" ] forKeys:@[ @"title", @"count", @"icon" ]];*/
     
     //self.items = @[object1, object2, object3, object4, object5];
-    
-    
     
     BOOL loggedIn = NO;
     
@@ -75,6 +77,8 @@
     
 }
 
+#pragma mark TableView Delegate Methods
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.menuItems count];
@@ -84,6 +88,25 @@
 {
     NSString *CellIdentifier = [self.menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    SideBarCell *theCell = (SideBarCell *)cell;
+    
+    if([CellIdentifier isEqualToString:@"logout"])
+    {
+        theCell.countLabel.alpha = 0;
+    }
+    else if ([CellIdentifier isEqualToString:@"settings"])
+    {
+        theCell.countLabel.alpha = 0;
+    }
+    else if ([CellIdentifier isEqualToString:@"signup"])
+    {
+        theCell.countLabel.alpha = 0;
+    }
+    else if ([CellIdentifier isEqualToString:@"account"])
+    {
+        theCell.countLabel.alpha = 0;
+    }
     
     return cell;
 }
@@ -117,6 +140,7 @@
 }
 
 
+#pragma mark Segue Methods
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Set the title of navigation bar by using the menu items

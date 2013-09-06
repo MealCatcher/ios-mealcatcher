@@ -41,7 +41,6 @@
 		5B49246B16715C13005ADD60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8BE1664259400782803 /* UIKit.framework */; };
 		5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C01664259400782803 /* Foundation.framework */; };
 		5B49246D16715C13005ADD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEBB8C21664259400782803 /* CoreGraphics.framework */; };
-		5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B49245216714F34005ADD60 /* libz.dylib */; };
 		5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBB8C71664259400782803 /* InfoPlist.strings */; };
 		5B53A4A517C18D3300BEB7FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B53A4A417C18D3300BEB7FE /* Place.m */; };
 		5B575E5217CEEB6400F9692C /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5117CEEB6400F9692C /* SignupViewController.m */; };
@@ -51,9 +50,11 @@
 		5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */; };
 		5BA555F717D14E63006E3F11 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA555F617D14E63006E3F11 /* RecommendedViewController.m */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
-		5BA640631672644D007528BD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA640621672644D007528BD /* libTestFlight.a */; };
 		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
 		5BB9EAF3179CE0B100A0350B /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EAF2179CE0B100A0350B /* Favorite.m */; };
+		5BC6F2BC17D99FC300E4E85F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC6F2B617D99FC300E4E85F /* libTestFlight.a */; };
+		5BC6F2BD17D99FC300E4E85F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F2B717D99FC300E4E85F /* README.md */; };
+		5BC6F2BE17D99FC300E4E85F /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F2B817D99FC300E4E85F /* release_notes.md */; };
 		5BCA782116E078330041FA20 /* MCFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */; };
 		5BCA782416E08F940041FA20 /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA782316E08F940041FA20 /* bira.ttf */; };
 		5BDC33B217BDC3AE00C6D983 /* SideBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC33B117BDC3AE00C6D983 /* SideBarCell.m */; };
@@ -105,7 +106,6 @@
 		5B3B1DD617B8B22000C5E18B /* MCSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCSidebarController.m; path = MealCatcher/MCSidebarController.m; sourceTree = "<group>"; };
 		5B3B1DDC17B8B83200C5E18B /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		5B3B1DDE17B8BCDF00C5E18B /* profile_jorge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_jorge.jpg; sourceTree = "<group>"; };
-		5B49245216714F34005ADD60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B49247B16715C13005ADD60 /* MealCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B53A4A317C18D3300BEB7FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = Model/Place.h; sourceTree = "<group>"; };
 		5B53A4A417C18D3300BEB7FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = Model/Place.m; sourceTree = "<group>"; };
@@ -124,13 +124,17 @@
 		5BA555F617D14E63006E3F11 /* RecommendedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedViewController.m; sourceTree = "<group>"; };
 		5BA6405916726419007528BD /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5BA6405A16726419007528BD /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		5BA640611672644D007528BD /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = MealCatcher/TestFlight.h; sourceTree = "<group>"; };
-		5BA640621672644D007528BD /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = MealCatcher/libTestFlight.a; sourceTree = "<group>"; };
 		5BA640641672646F007528BD /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
 		5BA640651672646F007528BD /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
 		5BA640661672646F007528BD /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		5BB9EAF1179CE0B100A0350B /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = Model/Favorite.h; sourceTree = "<group>"; };
 		5BB9EAF2179CE0B100A0350B /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = Model/Favorite.m; sourceTree = "<group>"; };
+		5BC6F2B617D99FC300E4E85F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5BC6F2B717D99FC300E4E85F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		5BC6F2B817D99FC300E4E85F /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		5BC6F2B917D99FC300E4E85F /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		5BC6F2BA17D99FC300E4E85F /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		5BC6F2BB17D99FC300E4E85F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFavoritesViewController.h; sourceTree = "<group>"; };
 		5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFavoritesViewController.m; sourceTree = "<group>"; };
 		5BCA782316E08F940041FA20 /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				E72ED23617D93D6F00D231EB /* Parse.framework in Frameworks */,
 				E72ED23317D93C5500D231EB /* FacebookSDK.framework in Frameworks */,
 				5B2050D817CAE7BD008A94D7 /* SystemConfiguration.framework in Frameworks */,
+				5BC6F2BC17D99FC300E4E85F /* libTestFlight.a in Frameworks */,
 				5B2050D617CAE7B4008A94D7 /* StoreKit.framework in Frameworks */,
 				5B2050D417CAE7AB008A94D7 /* Security.framework in Frameworks */,
 				5B2050D217CAE7A4008A94D7 /* QuartzCore.framework in Frameworks */,
@@ -198,8 +203,6 @@
 				5B49246A16715C13005ADD60 /* CoreLocation.framework in Frameworks */,
 				5B49246B16715C13005ADD60 /* UIKit.framework in Frameworks */,
 				5B49246C16715C13005ADD60 /* Foundation.framework in Frameworks */,
-				5B49246E16715C13005ADD60 /* libz.dylib in Frameworks */,
-				5BA640631672644D007528BD /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +238,7 @@
 		5B3B1DA817B558F900C5E18B /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				5B49245116714EDB005ADD60 /* TestFlight */,
+				5BC6F2B517D99FC300E4E85F /* TestFlightSDK */,
 				E7756F6B173093A60068615A /* AFNetworking */,
 				5BFF20E8179E4E8B0052306C /* Google Places API */,
 				5B3B1DBC17B55A2A00C5E18B /* GHSidebarNav */,
@@ -287,16 +290,6 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		5B49245116714EDB005ADD60 /* TestFlight */ = {
-			isa = PBXGroup;
-			children = (
-				5BA640611672644D007528BD /* TestFlight.h */,
-				5BA640621672644D007528BD /* libTestFlight.a */,
-				5B49245216714F34005ADD60 /* libz.dylib */,
-			);
-			name = TestFlight;
-			sourceTree = "<group>";
-		};
 		5B575E4F17CEE71500F9692C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +313,20 @@
 				5B84A3F516649736001A5DBF /* NSData+Base64.m */,
 			);
 			name = Base64;
+			sourceTree = "<group>";
+		};
+		5BC6F2B517D99FC300E4E85F /* TestFlightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				5BC6F2B617D99FC300E4E85F /* libTestFlight.a */,
+				5BC6F2B717D99FC300E4E85F /* README.md */,
+				5BC6F2B817D99FC300E4E85F /* release_notes.md */,
+				5BC6F2B917D99FC300E4E85F /* TestFlight+AsyncLogging.h */,
+				5BC6F2BA17D99FC300E4E85F /* TestFlight+ManualSessions.h */,
+				5BC6F2BB17D99FC300E4E85F /* TestFlight.h */,
+			);
+			name = TestFlightSDK;
+			path = MealCatcher/Library/TestFlightSDK;
 			sourceTree = "<group>";
 		};
 		5BDC33B317BDC40300C6D983 /* Cell */ = {
@@ -523,7 +530,9 @@
 				5B3B1DCB17B55A2A00C5E18B /* searchBarIcon.png in Resources */,
 				5B3B1DCD17B55A2A00C5E18B /* searchTextBG.png in Resources */,
 				5B20786216A269C400E3AB0A /* SPViewController.xib in Resources */,
+				5BC6F2BE17D99FC300E4E85F /* release_notes.md in Resources */,
 				5B3B1DCC17B55A2A00C5E18B /* searchBarIcon@2x.png in Resources */,
+				5BC6F2BD17D99FC300E4E85F /* README.md in Resources */,
 				5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */,
 				5BCA782416E08F940041FA20 /* bira.ttf in Resources */,
 				5B3B1DDD17B8B83200C5E18B /* profile.jpg in Resources */,
@@ -623,8 +632,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/MealCatcher\"",
+					"$(SRCROOT)",
+					"\\\"$(SRCROOT)/MealCatcher\\\"",
+					"/Users/esteban/iosapps/ios-mealcatcher/MealCatcher/Library/TestFlightSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -654,8 +664,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/MealCatcher\"",
+					"$(SRCROOT)",
+					"\\\"$(SRCROOT)/MealCatcher\\\"",
+					"/Users/esteban/iosapps/ios-mealcatcher/MealCatcher/Library/TestFlightSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

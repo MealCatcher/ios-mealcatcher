@@ -25,7 +25,7 @@
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     //Initialize Test Flight with Meal Catcher Team Token
-    [TestFlight takeOff:@"c096138643dd233a896e69c2b19b3a55_MTYzNzQxMjAxMi0xMi0wNiAxNzoxNToyMy4wOTMwMjc"];
+   [TestFlight takeOff:@"21b72aa8-c298-422e-98e6-b239884794eb"];
     
     #ifdef DEBUG
     
