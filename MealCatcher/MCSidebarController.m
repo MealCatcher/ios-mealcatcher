@@ -75,6 +75,12 @@
         self.menuItems = @[@"favorites", @"recommended", @"signup", @"settings", @"logout"];
     }
     
+    //Get the amount of favorites (in background)
+    PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
+    
+    
+    //Get the amount of recommended (in background)
+    
 }
 
 #pragma mark TableView Delegate Methods
@@ -107,6 +113,14 @@
     {
         theCell.countLabel.alpha = 0;
     }
+    else if ([CellIdentifier isEqualToString:@"favorites"])
+    {
+        theCell.countLabel.hidden = NO;
+    }
+    else if ([CellIdentifier isEqualToString:@"recommended"])
+    {
+        theCell.countLabel.hidden = NO;
+    }
     
     return cell;
 }
@@ -134,8 +148,8 @@
     return cell;
 }*/
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 46;
 }
 
