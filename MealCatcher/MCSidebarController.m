@@ -152,6 +152,22 @@
         if([PFUser currentUser])
         {
              theCell.countLabel.hidden = NO;
+            
+            //query all the favorites
+            PFQuery *recommendedQuery = [PFQuery queryWithClassName:@"Recommendation"];
+            
+            //put the favorites in the array
+            [recommendedQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
+            
+            //reload the table view
+            [recommendedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error)
+                {
+                    theCell.countLabel.text = [NSString stringWithFormat:@"%d", [objects count]];
+                }
+            }];
+
+            
         }
         else
         {
@@ -163,6 +179,19 @@
         if([PFUser currentUser])
         {
             theCell.countLabel.hidden = NO;
+            
+            //query all the favorites
+            PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
+            //put the favorites in the array
+            [favoritesQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
+            //reload the table view
+            [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error)
+                {
+                    theCell.countLabel.text = [NSString stringWithFormat:@"%d", [objects count]];
+                }
+            }];
+
         }
         else
         {

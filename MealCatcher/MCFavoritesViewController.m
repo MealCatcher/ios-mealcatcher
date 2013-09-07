@@ -41,7 +41,7 @@
     return _favorites;
 }
 
-/* Ideally this data would be loaded from core data or some remote store
+/*
  *
  */
 -(void)setupFavorites
