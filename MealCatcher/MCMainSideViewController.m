@@ -33,33 +33,38 @@
     {
         MCSidebarController *sideBarVC = (MCSidebarController *)self.sidebarViewController;
         
-        //Remove the Signup Row
-        sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
-        [sideBarVC.tableView reloadData];
-        
-        //Change the name of the user to actual name
+        //If the user logged in, then change the menu for logged in users
         PFUser *currentUser = [PFUser currentUser];
-        NSString *name = [currentUser objectForKey:@"name"];
-        sideBarVC.profileNameLabel.text = name;
-        
-        //Get the profile picture
-        FBRequest *request = [FBRequest requestForMe];
-        
-        //Send the request to Facebook
-        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            if(!error)
-            {
-                //result is a dictionary with the user's Facebook data
-                
-                NSDictionary *userData = (NSDictionary *)result;
-                NSString *facebookID = userData[@"id"];
-                
-                NSURL *pictureURL = [NSURL URLWithString:[NSString
-                                                          stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1",
-                                                          facebookID]];
-                [sideBarVC.profileImageView setImageWithURL:pictureURL placeholderImage:nil];
-            }
-        }];
+        if (currentUser) {
+            sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
+            [sideBarVC.tableView reloadData];
+            
+            NSString *name = [currentUser objectForKey:@"name"];
+            sideBarVC.profileNameLabel.text = name;
+            
+            //Get the profile picture
+            FBRequest *request = [FBRequest requestForMe];
+            
+            //Send the request to Facebook
+            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if(!error)
+                {
+                    //result is a dictionary with the user's Facebook data
+                    NSDictionary *userData = (NSDictionary *)result;
+                    NSString *facebookID = userData[@"id"];
+                    
+                    NSURL *pictureURL = [NSURL URLWithString:[NSString
+                                                              stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1",
+                                                              facebookID]];
+                    
+                    [sideBarVC.profileImageView setImageWithURL:pictureURL placeholderImage:nil];
+                }
+            }];
+            
+            //Get the total of Favorites items
+            
+            //Get the total for Recomemnded items
+        }
     }
 }
 

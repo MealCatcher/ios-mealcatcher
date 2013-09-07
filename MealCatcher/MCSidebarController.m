@@ -11,6 +11,7 @@
 #import "AccountViewController.h"
 #import "SWRevealViewControllerSegue.h"
 #import "MCMainSideViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MCSidebarController ()
 
@@ -32,55 +33,88 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-
+    
     self.tableView.separatorColor = [UIColor clearColor];
-
+    
     NSString *boldFontName = @"Avenir-Black";
     NSString *fontName = @"Avenir-BlackOblique";
     
     self.profileNameLabel.textColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     self.profileNameLabel.font = [UIFont fontWithName:boldFontName size:14.0f];
-#warning This needs to be set depending if the user is logged in or not
-    self.profileNameLabel.text = @"Jorge Astorga";
     
     self.profileLocationLabel.textColor = [UIColor colorWithRed:222.0/255 green:59.0/255 blue:47.0/255 alpha:1.0f];
     self.profileLocationLabel.font = [UIFont fontWithName:fontName size:12.0f];
-#warning This needs to be set depending if the user is logged in or not
-    self.profileLocationLabel.text = @"Oakland, CA";
 
-#warning This needs to be set depending if the user is logged in or not
-    self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
-    
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderWidth = 4.0f;
     self.profileImageView.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:0.5f].CGColor;
     self.profileImageView.layer.cornerRadius = 35.0f;
     
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if(currentUser) //Setup if user is logged in
+    {
+        //do stuff with the user
+        NSLog(@"The user is logged in");
+        NSLog(@"User email: %@", currentUser.email);
+        
+        self.profileNameLabel.text = @"Jorge Astorga";
+        self.profileLocationLabel.text = @"Oakland, CA";
+        
+        
+        
+        FBSession *fbSession = [PFFacebookUtils session];
+        if(fbSession)
+        {
+            //Get the profile picture
+            FBRequest *request = [FBRequest requestForMe];
+            
+            //Send the request to Facebook
+            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if(!error)
+                {
+                    //result is a dictionary with the user's Facebook data
+                    NSDictionary *userData = (NSDictionary *)result;
+                    NSString *facebookID = userData[@"id"];
+                    
+                    NSURL *pictureURL = [NSURL URLWithString:[NSString
+                                                              stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1",
+                                                              facebookID]];
+                    
+                    [self.profileImageView setImageWithURL:pictureURL placeholderImage:nil];
+                }
+            }];
+        }
+        else
+        {
+            //get the proper image from Facebook
+            self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
+        }
+        
+        //configure menu items
+        self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
+        
+        //Get the amount of favorites (in background)
+        PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
+        
+        //Get the amount of recommended items
+    }
+    else //If user is logged out
+    {
+        NSLog(@"The user is not logged in");
+        self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
+        
+        //configure menu items
+        self.menuItems = @[@"favorites", @"recommended", @"signup"];
+    }
+    
     /*NSDictionary* object1 = [NSDictionary dictionaryWithObjects:@[ @"Favorites", @"0", @"envelope" ] forKeys:@[ @"title", @"count", @"icon" ]];
-    NSDictionary* object2 = [NSDictionary dictionaryWithObjects:@[ @"Recommended", @"7", @"check" ] forKeys:@[ @"title", @"count", @"icon" ]];
-    NSDictionary* object3 = [NSDictionary dictionaryWithObjects:@[ @"SignUp", @"0", @"account" ] forKeys:@[ @"title", @"count", @"icon" ]];
-    NSDictionary* object4 = [NSDictionary dictionaryWithObjects:@[ @"Settings", @"0", @"settings" ] forKeys:@[ @"title", @"count", @"icon" ]];
-    NSDictionary* object5 = [NSDictionary dictionaryWithObjects:@[ @"Logout", @"0", @"arrow" ] forKeys:@[ @"title", @"count", @"icon" ]];*/
+     NSDictionary* object2 = [NSDictionary dictionaryWithObjects:@[ @"Recommended", @"7", @"check" ] forKeys:@[ @"title", @"count", @"icon" ]];
+     NSDictionary* object3 = [NSDictionary dictionaryWithObjects:@[ @"SignUp", @"0", @"account" ] forKeys:@[ @"title", @"count", @"icon" ]];
+     NSDictionary* object4 = [NSDictionary dictionaryWithObjects:@[ @"Settings", @"0", @"settings" ] forKeys:@[ @"title", @"count", @"icon" ]];
+     NSDictionary* object5 = [NSDictionary dictionaryWithObjects:@[ @"Logout", @"0", @"arrow" ] forKeys:@[ @"title", @"count", @"icon" ]];*/
     
     //self.items = @[object1, object2, object3, object4, object5];
-    
-    BOOL loggedIn = NO;
-    
-    if(loggedIn == YES)
-    {
-        self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
-    }
-    else
-    {
-        self.menuItems = @[@"favorites", @"recommended", @"signup", @"settings", @"logout"];
-    }
-    
-    //Get the amount of favorites (in background)
-    PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
-    
-    
-    //Get the amount of recommended (in background)
-    
 }
 
 #pragma mark TableView Delegate Methods
@@ -113,40 +147,57 @@
     {
         theCell.countLabel.alpha = 0;
     }
-    else if ([CellIdentifier isEqualToString:@"favorites"])
-    {
-        theCell.countLabel.hidden = NO;
-    }
     else if ([CellIdentifier isEqualToString:@"recommended"])
     {
-        theCell.countLabel.hidden = NO;
+        if([PFUser currentUser])
+        {
+             theCell.countLabel.hidden = NO;
+        }
+        else
+        {
+            theCell.countLabel.hidden = YES;
+        }
     }
+    else if ([CellIdentifier isEqualToString:@"favorites"])
+    {
+        if([PFUser currentUser])
+        {
+            theCell.countLabel.hidden = NO;
+        }
+        else
+        {
+            theCell.countLabel.hidden = YES;
+        }
+    }
+    
+    
+    
     
     return cell;
 }
 
 /*-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    SideBarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
-    
-    NSDictionary* item = self.items[indexPath.row];
-    
-    cell.titleLabel.text = item[@"title"];
-    cell.iconImageView.image = [UIImage imageNamed:item[@"icon"]];
-    
-    NSString *count = item[@"count"];
-    if(![count isEqualToString:@"0"])
-    {
-        cell.countLabel.text = count;
-    }
-    else
-    {
-        cell.countLabel.alpha = 0;
-    }
-    
-    return cell;
-}*/
+ {
+ 
+ SideBarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+ 
+ NSDictionary* item = self.items[indexPath.row];
+ 
+ cell.titleLabel.text = item[@"title"];
+ cell.iconImageView.image = [UIImage imageNamed:item[@"icon"]];
+ 
+ NSString *count = item[@"count"];
+ if(![count isEqualToString:@"0"])
+ {
+ cell.countLabel.text = count;
+ }
+ else
+ {
+ cell.countLabel.alpha = 0;
+ }
+ 
+ return cell;
+ }*/
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -185,7 +236,6 @@
     {
         if([segue.identifier isEqualToString:@"showFavorites"])
         {
-            NSLog(@"I am going to show favorites now");
             SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
             
             swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {

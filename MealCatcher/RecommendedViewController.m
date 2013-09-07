@@ -21,20 +21,24 @@
 #pragma mark Custom Methods
 -(void)setupRecommendations
 {
-    //query all the favorites
-    PFQuery *recommendedQuery = [PFQuery queryWithClassName:@"Recommendation"];
-    
-    //put the favorites in the array
-    [recommendedQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
-    
-    //reload the table view
-    [recommendedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error)
-        {
-            self.recommendations = [objects mutableCopy];
-            [self.tableView reloadData];
-        }
-    }];
+    PFUser *currentUser = [PFUser currentUser];
+    if(currentUser)
+    {
+        //query all the favorites
+        PFQuery *recommendedQuery = [PFQuery queryWithClassName:@"Recommendation"];
+        
+        //put the favorites in the array
+        [recommendedQuery whereKey:@"parent" equalTo:[PFUser currentUser]];
+        
+        //reload the table view
+        [recommendedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(!error)
+            {
+                self.recommendations = [objects mutableCopy];
+                [self.tableView reloadData];
+            }
+        }];
+    }
 }
 
 #pragma mark Lifecycle Methods
@@ -42,10 +46,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     

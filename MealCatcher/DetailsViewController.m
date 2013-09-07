@@ -141,8 +141,12 @@
             [self.myRecommendation setObject:self.restaurantID forKey:@"restaurant_id"];
             
             //Method 2 for making the relationship
-            [self.myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
-            [self.myRecommendation  setObject:[PFUser currentUser] forKey:@"parent"];
+            if([PFUser currentUser]) //if user is logged in, make the relationship
+            {
+                [self.myFavorite setObject:[PFUser currentUser] forKey:@"parent"];
+                [self.myRecommendation  setObject:[PFUser currentUser] forKey:@"parent"];
+            }
+            
             
 #warning This might need to change. It's grabing the first photo. What if there is no photo?
             NSArray *photoArray = [result objectForKey:@"photos"];
@@ -190,29 +194,32 @@
 /** Method used to add favorites **/
 - (BOOL)addToFavorites
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
-    [query whereKey:@"parent" equalTo:[PFUser currentUser]];
     
-    BOOL saveFavorite = NO;
-    NSArray *favorites = [query findObjects];
-    if([favorites count] == 0)
+    if([PFUser currentUser])// if user is logged in
     {
-        //Save the favorite
-        [self.myFavorite save];
-        saveFavorite = YES;
-    }
-    else //The place is already in the user's favorites list
-    {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Ooops"
-                                                     message:@"You already have this in your favorites"
-                                                    delegate:self
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [av show];
+        PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
+        [query whereKey:@"parent" equalTo:[PFUser currentUser]];
+        
+        BOOL saveFavorite = NO;
+        NSArray *favorites = [query findObjects];
+        if([favorites count] == 0)
+        {
+            //Save the favorite
+            [self.myFavorite save];
+            saveFavorite = YES;
+        }
+        else //The place is already in the user's favorites list
+        {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Ooops"
+                                                         message:@"You already have this in your favorites"
+                                                        delegate:self
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+            [av show];
+        }
+        return saveFavorite;
     }
     
-    return saveFavorite;
-
     /*//Creat the Favorite
      PFObject *myFavorite = [PFObject objectWithClassName:@"Favorite"];
      [myFavorite setObject:@"Chipotle" forKey:@"restaurant"];

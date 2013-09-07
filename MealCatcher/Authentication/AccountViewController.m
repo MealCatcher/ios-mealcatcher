@@ -121,15 +121,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    PFUser *currentUser = [PFUser currentUser];
-    if(currentUser)
-    {
-    }
-    else
-    {
-        NSLog(@"The user is not alive!");
-    }
 }
 
 
