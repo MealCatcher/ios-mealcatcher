@@ -276,7 +276,6 @@
 		5B3B1DCF17B55A4F00C5E18B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				5B234E3C179CB6E1001F1329 /* MainStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -392,9 +391,10 @@
 		8BEBB8C41664259400782803 /* MealCatcher */ = {
 			isa = PBXGroup;
 			children = (
+				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
+				5B234E3C179CB6E1001F1329 /* MainStoryboard.storyboard */,
 				5B575E4F17CEE71500F9692C /* Authentication */,
 				5B395A3E17D00C7500B8EA58 /* SidebarMenu */,
-				5B3B1DCF17B55A4F00C5E18B /* Storyboards */,
 				5BA555F517D14E63006E3F11 /* RecommendedViewController.h */,
 				5BA555F617D14E63006E3F11 /* RecommendedViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,

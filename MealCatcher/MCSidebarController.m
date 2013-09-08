@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"View Did Load got called!");
+    
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
@@ -60,8 +62,6 @@
         
         self.profileNameLabel.text = @"Jorge Astorga";
         self.profileLocationLabel.text = @"Oakland, CA";
-        
-        
         
         FBSession *fbSession = [PFFacebookUtils session];
         if(fbSession)
@@ -97,7 +97,7 @@
         //Get the amount of favorites (in background)
         PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
         
-        //Get the amount of recommended items
+
     }
     else //If user is logged out
     {
@@ -118,6 +118,31 @@
 }
 
 #pragma mark TableView Delegate Methods
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *identifier = [cell reuseIdentifier];
+   
+    if([identifier isEqualToString:@"logout"])
+    {
+        [PFUser logOut];
+        
+        //configure menu items for a logged out user
+        self.menuItems = @[@"favorites", @"recommended", @"signup"];
+        
+        //change the profile image to a generic profile image
+        self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
+        [self.tableView reloadData];
+        
+        self.profileNameLabel.text = @"";
+        self.profileLocationLabel.text = @"";
+        
+        [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
+    }
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

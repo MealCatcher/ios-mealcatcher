@@ -13,6 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *loginFBButton;
+
+@property (nonatomic) BOOL loginSuccessful;
 
 @end
 
@@ -64,8 +67,9 @@
     
 }
 
+
 /* Method used to authenticate (signup/sign in) with Facebook in MealCatcher */
-- (IBAction)facebookAuthenticate:(id)sender {
+- (void)facebookAuthenticate {
     
     [PFFacebookUtils logInWithPermissions:@[@"email"] block:^(PFUser *user, NSError *error) {
         
@@ -82,6 +86,7 @@
                                                      cancelButtonTitle:@"OK"
                                                      otherButtonTitles:nil, nil];
             [theAlert show];
+            
         }
         else if(user.isNew) //If user with FacebookID is not in the MealCatcher system
         {
@@ -97,15 +102,26 @@
                         if(succeeded)
                         {
                             NSLog(@"The user data was saved succesfully");
+                            self.loginSuccessful = YES;
+                            [self performSegueWithIdentifier:@"testUnwind" sender:self];
+                            
                         }
                     }];
                 }
             }];
+            self.loginSuccessful = YES;
+            [self performSegueWithIdentifier:@"testUnwind" sender:self];
         }
         else
         {
+            NSLog(@"IS this the real problem!");
+            self.loginSuccessful = YES;
+            [self performSegueWithIdentifier:@"testUnwind" sender:self];
+            
         }
     }];
+    
+    NSLog(@"Value of Authenticate Successful: %d", self.loginSuccessful);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -121,6 +137,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    [self facebookAuthenticate];
+    return self.loginSuccessful;
 }
 
 

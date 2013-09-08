@@ -100,8 +100,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="facebookAuthenticate:" destination="oFs-uz-rH8" eventType="touchUpInside" id="was-Ur-5Vg"/>
-                                    <segue destination="fqC-Rq-Bcu" kind="unwind" unwindAction="done:" id="48U-c8-0am"/>
+                                    <segue destination="fqC-Rq-Bcu" kind="unwind" identifier="testUnwind" unwindAction="done:" id="mXl-as-plX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0x7-5t-uA8">
@@ -127,6 +126,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Yb-Nv-pfl"/>
                     <connections>
+                        <outlet property="loginFBButton" destination="kvk-Pd-NJI" id="cRm-ge-vv1"/>
                         <outlet property="view" destination="Mfy-gY-out" id="Rhn-Tb-Ybw"/>
                     </connections>
                 </viewController>
@@ -714,6 +714,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="CSX-z2-kOB" id="gcX-qy-2a8"/>
+                                    <outlet property="delegate" destination="CSX-z2-kOB" id="Lje-SE-67U"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8J-l3-CFV">
