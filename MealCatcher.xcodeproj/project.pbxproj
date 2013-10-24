@@ -52,7 +52,6 @@
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
 		5BB9EAF3179CE0B100A0350B /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EAF2179CE0B100A0350B /* Favorite.m */; };
-		5BC6F2BC17D99FC300E4E85F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC6F2B617D99FC300E4E85F /* libTestFlight.a */; };
 		5BC6F2BD17D99FC300E4E85F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F2B717D99FC300E4E85F /* README.md */; };
 		5BC6F2BE17D99FC300E4E85F /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F2B817D99FC300E4E85F /* release_notes.md */; };
 		5BCA782116E078330041FA20 /* MCFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */; };
@@ -62,6 +61,7 @@
 		E72ED23117D939EA00D231EB /* MCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ED23017D939EA00D231EB /* MCNavigationController.m */; };
 		E72ED23317D93C5500D231EB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72ED23217D93C5500D231EB /* FacebookSDK.framework */; };
 		E72ED23617D93D6F00D231EB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72ED23417D93D1700D231EB /* Parse.framework */; };
+		E76A081C17EA771100134C19 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC6F2B617D99FC300E4E85F /* libTestFlight.a */; };
 		E7756F7F173093A60068615A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F6D173093A60068615A /* AFHTTPClient.m */; };
 		E7756F80173093A60068615A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F6F173093A60068615A /* AFHTTPRequestOperation.m */; };
 		E7756F81173093A60068615A /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7756F71173093A60068615A /* AFImageRequestOperation.m */; };
@@ -187,10 +187,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E76A081C17EA771100134C19 /* libTestFlight.a in Frameworks */,
 				E72ED23617D93D6F00D231EB /* Parse.framework in Frameworks */,
 				E72ED23317D93C5500D231EB /* FacebookSDK.framework in Frameworks */,
 				5B2050D817CAE7BD008A94D7 /* SystemConfiguration.framework in Frameworks */,
-				5BC6F2BC17D99FC300E4E85F /* libTestFlight.a in Frameworks */,
 				5B2050D617CAE7B4008A94D7 /* StoreKit.framework in Frameworks */,
 				5B2050D417CAE7AB008A94D7 /* Security.framework in Frameworks */,
 				5B2050D217CAE7A4008A94D7 /* QuartzCore.framework in Frameworks */,
@@ -633,8 +633,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"\\\"$(SRCROOT)/MealCatcher\\\"",
+					"\\\\\\\"$(SRCROOT)/MealCatcher\\\\\\\"",
 					"/Users/esteban/iosapps/ios-mealcatcher/MealCatcher/Library/TestFlightSDK",
+					"/Users/jorgeastorga/iosapps/ios-mealcatcher/MealCatcher/Library/TestFlightSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -665,8 +666,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"\\\"$(SRCROOT)/MealCatcher\\\"",
+					"\\\\\\\"$(SRCROOT)/MealCatcher\\\\\\\"",
 					"/Users/esteban/iosapps/ios-mealcatcher/MealCatcher/Library/TestFlightSDK",
+					"/Users/jorgeastorga/iosapps/ios-mealcatcher/MealCatcher/Library/TestFlightSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
