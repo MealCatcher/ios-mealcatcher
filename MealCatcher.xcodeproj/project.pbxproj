@@ -46,6 +46,7 @@
 		5B575E5217CEEB6400F9692C /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5117CEEB6400F9692C /* SignupViewController.m */; };
 		5B575E5717CEF83A00F9692C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5617CEF79600F9692C /* LoginViewController.m */; };
 		5B575E5817CEF84400F9692C /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B575E5317CEF79600F9692C /* AccountViewController.m */; };
+		5B63F0EA1818F2A7000BEFFB /* Raleway-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F0E91818E719000BEFFB /* Raleway-Thin.otf */; };
 		5B9E083716AA7E2C0096E065 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E083516AA7E2C0096E065 /* SettingsViewController.m */; };
 		5B9E083816AA7E2C0096E065 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E083616AA7E2C0096E065 /* SettingsViewController.xib */; };
 		5BA555F717D14E63006E3F11 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA555F617D14E63006E3F11 /* RecommendedViewController.m */; };
@@ -115,6 +116,7 @@
 		5B575E5417CEF79600F9692C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Authentication/LoginViewController.h; sourceTree = "<group>"; };
 		5B575E5517CEF79600F9692C /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = Authentication/AccountViewController.h; sourceTree = "<group>"; };
 		5B575E5617CEF79600F9692C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Authentication/LoginViewController.m; sourceTree = "<group>"; };
+		5B63F0E91818E719000BEFFB /* Raleway-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.otf"; sourceTree = "<group>"; };
 		5B84A3F416649731001A5DBF /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5B84A3F516649736001A5DBF /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5B9E083416AA7E2C0096E065 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		8BEBB8C51664259400782803 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B63F0E91818E719000BEFFB /* Raleway-Thin.otf */,
 				8BEBB8CD1664259400782803 /* SPAppDelegate.h */,
 				8BEBB8CE1664259400782803 /* SPAppDelegate.m */,
 				5B3B1DDB17B8B83200C5E18B /* Images */,
@@ -521,6 +524,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B63F0EA1818F2A7000BEFFB /* Raleway-Thin.otf in Resources */,
 				5B49247116715C13005ADD60 /* InfoPlist.strings in Resources */,
 				5B3B1DCE17B55A2A00C5E18B /* user.png in Resources */,
 				5B3B1DCA17B55A2A00C5E18B /* searchBarBG.png in Resources */,
@@ -618,7 +622,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jorge Astorga (YKY79D8VY2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/esteban/iosapps/ios-mealcatcher",
@@ -638,7 +642,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "70C76696-101A-4FBE-8BDF-7F86BADFDC5F";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -650,7 +654,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jorge Astorga (7YLT2FBT4C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/esteban/iosapps/ios-mealcatcher",
@@ -670,7 +674,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9BE34CE-286D-457D-8010-0A73EBF133B8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -93,6 +93,12 @@
     return self.favorites.count;
 }
 
+/** Used to modify the cell properties such as font and color */
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Thin" size:20.0];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"restaurantCell";

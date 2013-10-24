@@ -25,9 +25,13 @@
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     //Initialize Test Flight with Meal Catcher Team Token
-   [TestFlight takeOff:@"21b72aa8-c298-422e-98e6-b239884794eb"];
+   [TestFlight takeOff:@"90572434-3d7f-4a17-8a4b-39256eb68bc9"];
     
     #ifdef DEBUG
+    
+    NSLog(@"Testing the new font");
+    [UIFont fontWithName:@"Raleway-Thin" size:29.0];
+    
     
     #endif
     
