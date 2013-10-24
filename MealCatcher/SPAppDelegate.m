@@ -29,6 +29,10 @@
     
     #ifdef DEBUG
     
+    NSLog(@"Testing the new font");
+    [UIFont fontWithName:@"Raleway-Thin" size:29.0];
+    
+    
     #endif
     
     [Parse setApplicationId:@"2Yjd5bZO0eeYwpSoB6eor8vfEaN4H61NSlU1Ho8b"
