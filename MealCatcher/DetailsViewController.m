@@ -199,9 +199,11 @@
     {
         PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
         [query whereKey:@"parent" equalTo:[PFUser currentUser]];
+        [query whereKey:@"restaurant_id" equalTo:self.restaurantID];
         
         BOOL saveFavorite = NO;
         NSArray *favorites = [query findObjects];
+        
         if([favorites count] == 0)
         {
             //Save the favorite
