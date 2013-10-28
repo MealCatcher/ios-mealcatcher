@@ -42,7 +42,7 @@
         //determine if the Facebook friend is a MealCatcher user
         PFQuery *query = [PFUser query];
         //[query whereKey:@"fbId" equalTo:user[@"id"]];
-        [query whereKey:@"fbId" equalTo:@"839998216"];
+        [query whereKey:@"fbId" equalTo:user[@"id"]];
         
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {

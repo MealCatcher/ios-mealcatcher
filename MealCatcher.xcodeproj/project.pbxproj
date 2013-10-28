@@ -621,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jorge Astorga (YKY79D8VY2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jorge Astorga (YKY79D8VY2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -643,7 +643,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A788E8E6-F744-4C30-BC91-58747FF90D47";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CE269326-3728-49E1-853F-E61977E40B0A";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -654,7 +654,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jorge Astorga (YKY79D8VY2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jorge Astorga (7YLT2FBT4C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,7 +676,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94957ADA-05D5-46D0-9E41-A77FE2B64ECE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1025ED71-DD29-469F-A95D-FD8A7EFAAB08";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
