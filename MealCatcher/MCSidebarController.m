@@ -30,12 +30,9 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"View Did Load got called!");
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    
     self.tableView.separatorColor = [UIColor clearColor];
     
     NSString *boldFontName = @"Avenir-Black";
@@ -58,6 +55,12 @@
     {
         //self.profileNameLabel.text = @"Jorge Astorga";
         //self.profileLocationLabel.text = @"Oakland, CA";
+        
+        PFQuery *userQuery = [PFUser query];
+        PFObject *theUser = [userQuery getObjectWithId:currentUser.objectId];
+        
+        self.profileNameLabel.text = [theUser objectForKey:@"name"];
+        self.profileLocationLabel.text = @""; //may set this to current location in the future
         
         FBSession *fbSession = [PFFacebookUtils session];
         if(fbSession)
@@ -83,20 +86,17 @@
         }
         else
         {
-            //get the proper image from Facebook
             self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
         }
         
         //configure menu items
-        self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
-        
-        //Get the amount of favorites (in background)
-        PFQuery *favoritesQuery = [PFQuery queryWithClassName:@"Favorite"];
-        
+        self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];        
 
     }
     else //If user is logged out
     {
+        self.profileNameLabel.text = @"";
+        self.profileLocationLabel.text = @"";
         self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
         
         //configure menu items
@@ -275,8 +275,6 @@
             if([cell isKindOfClass: [SideBarCell class]])
             {
                 SideBarCell *myCell = sender;
-                NSLog(@"The cell is a SideBarCell");
-                NSLog(@"Cell Tapped: %@", myCell.titleLabel);
             }
         }
     }

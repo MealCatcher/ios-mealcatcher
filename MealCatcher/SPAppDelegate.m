@@ -50,10 +50,6 @@
          UIRemoteNotificationTypeAlert |
          UIRemoteNotificationTypeSound];
     
-    //Temporary Code
-    //[application unregisterForRemoteNotifications ];
-    NSLog(@"this worked");
-    
     return YES;
 }
 
