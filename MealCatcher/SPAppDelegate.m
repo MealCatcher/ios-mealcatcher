@@ -50,12 +50,14 @@
          UIRemoteNotificationTypeAlert |
          UIRemoteNotificationTypeSound];
     
+    //Temporary Code
+    //[application unregisterForRemoteNotifications ];
     NSLog(@"this worked");
     
     return YES;
 }
 
-//Push notifications method
+//Method called when the push notification registration is successful
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
@@ -63,7 +65,7 @@
     [currentInstallation saveInBackground];
 }
 
-//Push notifications method
+//Method used to handle a push remote notification
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"this got called");
     [PFPush handlePush:userInfo];
@@ -71,7 +73,6 @@
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    NSLog(@"this got called too");
     return [PFFacebookUtils handleOpenURL:url];
 }
 

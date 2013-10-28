@@ -10,6 +10,7 @@
 #import "GooglePlacesAPIClient.h"
 #import "UIImageView+AFNetworking.h"
 #import "Favorite.h"
+#import <FacebookSDK/FBGraphUser.h>
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
@@ -33,18 +34,59 @@
 - (void)facebookViewControllerDoneWasPressed:(id)sender {
 
     NSLog(@"Done button was pressed");
-    NSMutableString *text = [[NSMutableString alloc] init];
     
-    // we pick up the users from the selection, and create a string that we use to update the text view
-    // at the bottom of the display; note that self.selection is a property inherited from our base class
-    for (id<FBGraphUser> user in self.friendPickerController.selection) {
-        if ([text length]) {
-            [text appendString:@", "];
-        }
-        [text appendString:user.name];
+    for (id<FBGraphUser> user in self.friendPickerController.selection) //get the selected user(s)
+    {
+        NSLog(@"User's Facebook ID: %@", user[@"id"]);
+        
+        //determine if the Facebook friend is a MealCatcher user
+        PFQuery *query = [PFUser query];
+        //[query whereKey:@"fbId" equalTo:user[@"id"]];
+        [query whereKey:@"fbId" equalTo:@"839998216"];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %d the user", objects.count);
+                
+                // Do something with the found objects
+                for (PFObject *object in objects) {
+                    NSLog(@"Object %@", object.objectId);
+                    PFUser *recommendee = (PFUser *)object;
+                    
+                    PFObject *newRecommendation = [PFObject objectWithClassName:@"Recommendation"];
+                    //newRecommendation[@"address"] = @"1234 Ocean Avenue";
+                    newRecommendation[@"address"] = [self.myFavorite objectForKey:@"address"];
+                    newRecommendation[@"rating"] = [self.myFavorite objectForKey:@"rating"];
+                    newRecommendation[@"restaurant"] = [self.myFavorite objectForKey:@"restaurant"];
+                    newRecommendation[@"restaurant_id"] = [self.myFavorite objectForKey:@"restaurant_id"];
+                    
+                    [newRecommendation setObject:recommendee forKey:@"parent"];
+                    [newRecommendation setObject:[PFUser currentUser] forKey:@"recommender"];
+                    
+                    [newRecommendation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if(!error)
+                        {
+                            NSLog(@"The new recommendation was saved successfully");
+                        }
+                        else
+                        {
+                            NSLog(@"There was a problem saving this succesfully");
+                        }
+                    }];
+                    
+                }
+                
+                
+                
+                //add the restaurant to the recommended list of your friend
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
     }
     
-    NSLog(@"Names Picked: %@",text);
     [self dismissViewControllerAnimated:self.friendPickerController completion:^{
         NSLog(@"Dismissed the View Controller");
     }];
@@ -52,47 +94,9 @@
 
 - (void)facebookViewControllerCancelWasPressed:(id)sender {
     [self dismissViewControllerAnimated:self.friendPickerController completion:^{
-        NSLog(@"Dismissed the View Controller");
     }];
 }
 
-#pragma mark Action Sheet Delegate Methods
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-    if(buttonIndex == FACEBOOK_SHARE_INDEX)
-    {
-        FBSession *fbSession = [PFFacebookUtils session];
-        if(fbSession)
-        {
-            NSLog(@"Facebook Session is not nil");
-            
-            [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                if(!error)
-                {
-                    self.friendPickerController = [[FBFriendPickerViewController alloc] init];
-                    self.friendPickerController.title = @"Pick Friends";
-                    
-                    [self.friendPickerController loadData];
-                    [self.friendPickerController clearSelection];
-                    self.friendPickerController.delegate = self;
-                    
-                    [self presentViewController:self.friendPickerController animated:YES completion:nil];
-                }
-            }];
-        }
-        else
-        {
-            NSLog(@"Facebook session is nil");
-        }
-
-    }
-    else if (buttonIndex == PROXIMITY_SHARE_INDEX)
-    {
-        ///Bring up logic to share via proximity
-    }
-}
 
 
 #pragma mark Lifecycle Methods
@@ -133,7 +137,7 @@
             [self.myFavorite  setObject:[NSNumber numberWithInt:5] forKey:@"rating"];
             [self.myFavorite setObject:self.restaurantID forKey:@"restaurant_id"];
             
-            //Creat the recommendation (this might need to be moved somewhere else)
+            //Create the recommendation (this might need to be moved somewhere else)
             self.myRecommendation = [PFObject objectWithClassName:@"Recommendation"];
             [self.myRecommendation  setObject:[result objectForKey:@"name"] forKey:@"restaurant"];
             [self.myRecommendation  setObject:[result objectForKey:@"formatted_address"] forKey:@"address"];
@@ -164,6 +168,8 @@
 }
 
 #pragma mark Custom Methods
+
+// Method to recommend a plac
 - (IBAction)recommend:(id)sender {
     
 #warning Save this snippet of code for sharing purposes
@@ -182,16 +188,55 @@
      }
      }];*/
     
-    //Display action sheet with recommending options
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Proximity",nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Facebook",@"Proximity",nil];
     
     [actionSheet showInView:self.view];
 
 }
 
+//Action sheet delegate method. This selects one of the options to share.
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex == FACEBOOK_SHARE_INDEX)
+    {
+        FBSession *fbSession = [PFFacebookUtils session];
+        if(fbSession)
+        {
+            [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if(!error)
+                {
+                    self.friendPickerController = [[FBFriendPickerViewController alloc] init];
+                    self.friendPickerController.title = @"Pick Friends";
+                    self.friendPickerController.allowsMultipleSelection = NO;
+                    
+                    [self.friendPickerController loadData];
+                    [self.friendPickerController clearSelection];
+                    self.friendPickerController.delegate = self;
+                    
+                    [self presentViewController:self.friendPickerController animated:YES completion:nil];
+                }
+            }];
+        }
+        else
+        {
+            NSLog(@"Facebook session is nil");
+        }
+        
+    }
+    else if (buttonIndex == PROXIMITY_SHARE_INDEX)
+    {
+        ///Bring up logic to share via proximity
+    }
+}
 
-/** Method used to add favorites **/
+
+// Method used to add a place to your favorites
 - (BOOL)addToFavorites
 {
     

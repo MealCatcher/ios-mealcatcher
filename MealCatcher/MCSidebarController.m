@@ -56,12 +56,8 @@
     
     if(currentUser) //Setup if user is logged in
     {
-        //do stuff with the user
-        NSLog(@"The user is logged in");
-        NSLog(@"User email: %@", currentUser.email);
-        
-        self.profileNameLabel.text = @"Jorge Astorga";
-        self.profileLocationLabel.text = @"Oakland, CA";
+        //self.profileNameLabel.text = @"Jorge Astorga";
+        //self.profileLocationLabel.text = @"Oakland, CA";
         
         FBSession *fbSession = [PFFacebookUtils session];
         if(fbSession)
@@ -101,7 +97,6 @@
     }
     else //If user is logged out
     {
-        NSLog(@"The user is not logged in");
         self.profileImageView.image = [UIImage imageNamed:@"face.jpg"];
         
         //configure menu items
@@ -273,7 +268,6 @@
     }
     else if([segue.identifier isEqualToString:@"TestSegue"])
     {
-        NSLog(@"TestSegue got called");
         if([segue.destinationViewController isKindOfClass:[AccountViewController class]])
         {
             

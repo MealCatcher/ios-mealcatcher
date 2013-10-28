@@ -33,7 +33,6 @@
             [errorAlert show];
         }
     }];
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

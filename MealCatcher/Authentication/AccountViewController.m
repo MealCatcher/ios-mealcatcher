@@ -88,7 +88,7 @@
             [theAlert show];
             
         }
-        else if(user.isNew) //If user with FacebookID is not in the MealCatcher system
+        else if(user.isNew) //If user with FacebookID is not in the MealCatcher system, create the user
         {
             [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if(!error)
@@ -97,6 +97,7 @@
                     user.email = result[@"email"];
                     NSString *name = result[@"name"];
                     [user setObject:name forKey:@"name"];
+                    [user setObject:result[@"id"] forKey:@"fbId"]; //save the FBId to query later
 
                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         if(succeeded)
@@ -109,19 +110,17 @@
                     }];
                 }
             }];
+            
             self.loginSuccessful = YES;
             [self performSegueWithIdentifier:@"testUnwind" sender:self];
         }
         else
         {
-            NSLog(@"IS this the real problem!");
             self.loginSuccessful = YES;
             [self performSegueWithIdentifier:@"testUnwind" sender:self];
             
         }
     }];
-    
-    NSLog(@"Value of Authenticate Successful: %d", self.loginSuccessful);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
