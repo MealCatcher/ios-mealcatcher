@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *loginFBButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (nonatomic) BOOL loginSuccessful;
 
 @end
@@ -102,10 +102,8 @@
                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         if(succeeded)
                         {
-                            NSLog(@"The user data was saved succesfully");
                             self.loginSuccessful = YES;
                             [self performSegueWithIdentifier:@"testUnwind" sender:self];
-                            
                         }
                     }];
                 }
@@ -140,8 +138,16 @@
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    [self facebookAuthenticate];
-    return self.loginSuccessful;
+    if([sender isEqual:self.cancelButton]) //use canceled login
+    {
+        return YES;
+    }
+    else
+    {
+        [self facebookAuthenticate];
+        return self.loginSuccessful;
+    }
+    
 }
 
 

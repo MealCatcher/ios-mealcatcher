@@ -72,30 +72,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-2E-jiR">
-                                <rect key="frame" x="20" y="485" width="136" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ZSE-2C-FTK" kind="modal" id="0fO-VZ-rBP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9y-4v-58I">
-                                <rect key="frame" x="171" y="485" width="136" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90196078431372551" green="0.49411764705882355" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="yID-1f-Srk" kind="modal" id="mWn-O2-FPw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvk-Pd-NJI">
-                                <rect key="frame" x="20" y="432" width="287" height="45"/>
+                                <rect key="frame" x="17" y="465" width="287" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.50196078431372548" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign In with Facebook">
@@ -106,7 +84,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0x7-5t-uA8">
-                                <rect key="frame" x="136" y="538" width="48" height="30"/>
+                                <rect key="frame" x="136" y="518" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,6 +98,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Yb-Nv-pfl"/>
                     <connections>
+                        <outlet property="cancelButton" destination="0x7-5t-uA8" id="qe6-j5-6b3"/>
                         <outlet property="loginFBButton" destination="kvk-Pd-NJI" id="cRm-ge-vv1"/>
                         <outlet property="view" destination="Mfy-gY-out" id="Rhn-Tb-Ybw"/>
                     </connections>
@@ -842,6 +821,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, </st
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="2Hv-Uf-MsG"/>
-        <segue reference="Yqo-zs-rHi"/>
+        <segue reference="cam-GX-TS3"/>
     </inferredMetricsTieBreakers>
 </document>

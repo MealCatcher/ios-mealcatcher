@@ -31,15 +31,13 @@
 {
     if([segue.sourceViewController isKindOfClass:[AccountViewController class]])
     {
-        
-        NSLog(@"IS this EVEN GETTNG CALLED!");
         MCSidebarController *sideBarVC = (MCSidebarController *)self.sidebarViewController;
         
         //If the user logged in, then change the menu for logged in users
         PFUser *currentUser = [PFUser currentUser];
         if (currentUser) {
             
-            //This seems like duplicate code when 
+            //This seems like duplicate code
             sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
             
             
@@ -70,8 +68,6 @@
             //Get the total of Favorites items
             
             //Get the total for Recomemnded items
-            
-            NSLog(@"reloaded the table view");
         }
         else
         {
