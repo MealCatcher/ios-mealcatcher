@@ -66,6 +66,16 @@
                                                                    initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     [self setupRecommendations];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(preferredContentSizeChange:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
+}
+
+-(void)preferredContentSizeChange:(NSNotification *)notification
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +86,11 @@
 
 
 #pragma mark - TableView Data Source Methods
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
