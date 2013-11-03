@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
+@property (weak, nonatomic) IBOutlet UILabel *placePhoneLabel;
 @property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddFavorites;
 @property (weak, nonatomic) IBOutlet UIButton *btnRecommend;
@@ -44,7 +45,6 @@
         
         //determine if the Facebook friend is a MealCatcher user
         PFQuery *query = [PFUser query];
-        //[query whereKey:@"fbId" equalTo:user[@"id"]];
         [query whereKey:@"fbId" equalTo:user[@"id"]];
         
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -136,6 +136,11 @@
             NSDictionary *result = [responseObject objectForKey:@"result"];
             
             self.placeNameLabel.text = [result objectForKey:@"name"];
+            NSLog(@"Place Name: %@", [result objectForKey:@"name"]);
+            //self.placePhoneTextView.text = [result objectForKey:@"international_phone_number"];
+            self.placePhoneLabel.text = @"+ 1 (619) 962-2168";
+            NSLog(@"Phone: %@", [result objectForKey:@"formatted_phone_number"]);
+            NSLog(@"Phone: %@", [result objectForKey:@"international_phone_number"]);
             
             //Creat the Favorite object
             self.myFavorite = [PFObject objectWithClassName:@"Favorite"];

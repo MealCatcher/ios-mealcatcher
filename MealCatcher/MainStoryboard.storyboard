@@ -276,7 +276,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iCL-C2-NER">
-                                <rect key="frame" x="14" y="299" width="280" height="21"/>
+                                <rect key="frame" x="14" y="299" width="60" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -311,7 +311,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="9SK-n3-H2B">
-                                <rect key="frame" x="14" y="299" width="286" height="187"/>
+                                <rect key="frame" x="14" y="405" width="286" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -325,6 +325,31 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, </st
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uuj-56-jhh">
+                                <rect key="frame" x="20" y="273" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cd3-2Y-S5g">
+                                <rect key="frame" x="76" y="273" width="224" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jIq-XZ-QHG">
+                                <rect key="frame" x="20" y="302" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cmg-xT-W5F">
+                                <rect key="frame" x="76" y="302" width="224" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -334,7 +359,8 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, </st
                         <outlet property="btnRecommend" destination="F46-O2-z43" id="f2B-3f-9xV"/>
                         <outlet property="placeAddressLabel" destination="3V4-sw-QJy" id="NdH-Zv-fnH"/>
                         <outlet property="placeImageView" destination="8bq-9a-hKT" id="PyL-4Q-0fF"/>
-                        <outlet property="placeNameLabel" destination="iCL-C2-NER" id="sDn-z5-lpK"/>
+                        <outlet property="placeNameLabel" destination="cd3-2Y-S5g" id="il6-Qo-jf2"/>
+                        <outlet property="placePhoneLabel" destination="Cmg-xT-W5F" id="nDp-6q-OYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDY-VU-jf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -781,8 +807,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, </st
         </scene>
     </scenes>
     <resources>
-        <image name="arrow" width="16" height="16"/>
-        <image name="arrow" width="16" height="16"/>
         <image name="arrow" width="16" height="16"/>
         <image name="background" width="640" height="1136"/>
         <image name="check" width="64" height="64"/>
