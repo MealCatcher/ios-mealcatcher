@@ -83,6 +83,16 @@
     
     self.navigationController.navigationBar.titleTextAttributes = [[NSDictionary alloc]
                                              initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [[NSNotificationCenter defaultCenter ] addObserver:self
+                                              selector:@selector(preferredContentSizeChange:)
+                                                  name:UIContentSizeCategoryDidChangeNotification
+                                                object:nil];
+}
+
+-(void)preferredContentSizeChange:(NSNotification *)notification
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source methods
@@ -96,7 +106,7 @@
 /** Used to modify the cell properties such as font and color */
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Thin" size:20.0];
+    cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
