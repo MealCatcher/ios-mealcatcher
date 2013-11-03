@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
 @property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
+@property (weak, nonatomic) IBOutlet UIButton *btnAddFavorites;
+@property (weak, nonatomic) IBOutlet UIButton *btnRecommend;
+
 @end
 
 @implementation DetailsViewController
@@ -88,7 +91,6 @@
     }
     
     [self dismissViewControllerAnimated:self.friendPickerController completion:^{
-        NSLog(@"Dismissed the View Controller");
     }];
 }
 
@@ -97,14 +99,19 @@
     }];
 }
 
-
-
 #pragma mark Lifecycle Methods
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"Details";
+
+    //if source vc is favorites, remove add to favorites button
+    if([self.vcSource isEqualToString:FAVROITES_CONTROLLER])
+    {
+        self.btnAddFavorites.hidden = YES;
+        self.btnRecommend.frame = CGRectMake(14, 494, 286, 54);
+    }
     
     GooglePlacesAPIClient *gpClient = [GooglePlacesAPIClient sharedClient];
     

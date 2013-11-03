@@ -130,6 +130,7 @@
         PFObject *place = [self.recommendations objectAtIndex:row];
         
         DetailsViewController *dvc = (DetailsViewController *)segue.destinationViewController;
+        [dvc setVcSource:RECOMMENDED_CONTROLLER];
         dvc.restaurantID = [place objectForKey:@"restaurant_id"];
     }
 }

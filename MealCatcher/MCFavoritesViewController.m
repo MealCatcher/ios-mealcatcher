@@ -41,9 +41,7 @@
     return _favorites;
 }
 
-/*
- *
- */
+
 -(void)setupFavorites
 {
     if([PFUser currentUser])
@@ -139,6 +137,7 @@
         NSIndexPath *ip = [self.tableView indexPathForCell:cell];
         PFObject *favorite = [self.favorites objectAtIndex:ip.row];
         DetailsViewController *dvc = (DetailsViewController *)segue.destinationViewController;
+        [dvc setVcSource:FAVROITES_CONTROLLER];
         [dvc setRestaurantID:[favorite objectForKey:@"restaurant_id"]];
     }
 }

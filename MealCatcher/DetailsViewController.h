@@ -27,6 +27,7 @@
 @property (nonatomic, strong) NSString *photoReference;
 @property (nonatomic, strong) PFObject *myFavorite;
 @property (nonatomic, strong) PFObject *myRecommendation;
+@property (nonatomic, strong) NSString *vcSource;
 
 -(IBAction)popTheController:(id)sender;
 
