@@ -87,7 +87,7 @@
         
         //configure menu items
         //self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
-        self.menuItems = @[@"favorites", @"recommended", @"settings", @"logout"];
+        self.menuItems = @[@"favorites", @"recommended", @"asker", @"settings", @"logout"];
 
     }
     else //If user is logged out
@@ -163,6 +163,10 @@
         theCell.countLabel.alpha = 0;
     }
     else if ([CellIdentifier isEqualToString:@"account"])
+    {
+        theCell.countLabel.alpha = 0;
+    }
+    else if ([CellIdentifier isEqualToString:@"asker"])
     {
         theCell.countLabel.alpha = 0;
     }

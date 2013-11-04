@@ -39,7 +39,7 @@
             
             //This seems like duplicate code
             //sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
-            sideBarVC.menuItems = @[@"favorites", @"recommended", @"settings", @"logout"];
+            sideBarVC.menuItems = @[@"favorites", @"recommended", @"asker", @"settings", @"logout"];
             
             
             NSString *name = [currentUser objectForKey:@"name"];
