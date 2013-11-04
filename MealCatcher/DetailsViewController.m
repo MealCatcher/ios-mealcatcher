@@ -15,11 +15,12 @@
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *placePhoneLabel;
-@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
+@property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnAddFavorites;
 @property (weak, nonatomic) IBOutlet UIButton *btnRecommend;
+@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 
 @end
 
@@ -135,12 +136,10 @@
             
             NSDictionary *result = [responseObject objectForKey:@"result"];
             
+            //populate the details view labels
             self.placeNameLabel.text = [result objectForKey:@"name"];
-            NSLog(@"Place Name: %@", [result objectForKey:@"name"]);
-            //self.placePhoneTextView.text = [result objectForKey:@"international_phone_number"];
-            self.placePhoneLabel.text = @"+ 1 (619) 962-2168";
-            NSLog(@"Phone: %@", [result objectForKey:@"formatted_phone_number"]);
-            NSLog(@"Phone: %@", [result objectForKey:@"international_phone_number"]);
+            self.placePhoneLabel.text = [result objectForKey:@"international_phone_number"];
+            self.placeAddressLabel.text = [result objectForKey:@"formatted_address"];
             
             //Creat the Favorite object
             self.myFavorite = [PFObject objectWithClassName:@"Favorite"];
