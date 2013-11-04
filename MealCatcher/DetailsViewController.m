@@ -165,12 +165,16 @@
             
 #warning This might need to change. It's grabing the first photo. What if there is no photo?
             NSArray *photoArray = [result objectForKey:@"photos"];
-            NSDictionary *photoDictionary = photoArray[1];
-
-            NSString *photoReference = [photoDictionary objectForKey:@"photo_reference"];
-
-            NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
-            [self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];
+            NSLog(@"Photo Count: %d", [photoArray count]);
+            
+            
+            if([photoArray count] > 0)
+            {
+                NSDictionary *photoDictionary = photoArray[1];
+                NSString *photoReference = [photoDictionary objectForKey:@"photo_reference"];
+                NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
+                [self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];
+            }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"This didn't work. Let's try again.");

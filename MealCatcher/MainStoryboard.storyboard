@@ -271,7 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8bq-9a-hKT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_photo" id="8bq-9a-hKT">
                                 <rect key="frame" x="0.0" y="65" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -802,6 +802,7 @@
         <image name="background" width="640" height="1136"/>
         <image name="check" width="64" height="64"/>
         <image name="envelope" width="16" height="14"/>
+        <image name="no_photo" width="400" height="300"/>
         <image name="settings" width="16" height="16"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
