@@ -30,7 +30,6 @@
 {
     [super viewDidLoad];
     
-    
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor clearColor];
@@ -53,9 +52,6 @@
     
     if(currentUser) //Setup if user is logged in
     {
-        //self.profileNameLabel.text = @"Jorge Astorga";
-        //self.profileLocationLabel.text = @"Oakland, CA";
-        
         PFQuery *userQuery = [PFUser query];
         PFObject *theUser = [userQuery getObjectWithId:currentUser.objectId];
         
@@ -90,7 +86,8 @@
         }
         
         //configure menu items
-        self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];        
+        //self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
+        self.menuItems = @[@"favorites", @"recommended", @"settings", @"logout"];
 
     }
     else //If user is logged out
@@ -151,6 +148,8 @@
     
     SideBarCell *theCell = (SideBarCell *)cell;
     
+    /*sets the count label to transparent on the following menu items since 
+     they're not supposed to show a number */
     if([CellIdentifier isEqualToString:@"logout"])
     {
         theCell.countLabel.alpha = 0;
@@ -167,7 +166,7 @@
     {
         theCell.countLabel.alpha = 0;
     }
-    else if ([CellIdentifier isEqualToString:@"recommended"])
+    else if ([CellIdentifier isEqualToString:@"recommended"]) //gets the actual number of recommended items
     {
         if([PFUser currentUser])
         {
@@ -194,7 +193,7 @@
             theCell.countLabel.hidden = YES;
         }
     }
-    else if ([CellIdentifier isEqualToString:@"favorites"])
+    else if ([CellIdentifier isEqualToString:@"favorites"])//gets the actual number of favorite items
     {
         if([PFUser currentUser])
         {
@@ -219,34 +218,8 @@
         }
     }
     
-    
-    
-    
     return cell;
 }
-
-/*-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
- {
- 
- SideBarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
- 
- NSDictionary* item = self.items[indexPath.row];
- 
- cell.titleLabel.text = item[@"title"];
- cell.iconImageView.image = [UIImage imageNamed:item[@"icon"]];
- 
- NSString *count = item[@"count"];
- if(![count isEqualToString:@"0"])
- {
- cell.countLabel.text = count;
- }
- else
- {
- cell.countLabel.alpha = 0;
- }
- 
- return cell;
- }*/
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

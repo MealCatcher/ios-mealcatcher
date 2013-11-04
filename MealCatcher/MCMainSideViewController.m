@@ -38,7 +38,8 @@
         if (currentUser) {
             
             //This seems like duplicate code
-            sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
+            //sideBarVC.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
+            sideBarVC.menuItems = @[@"favorites", @"recommended", @"settings", @"logout"];
             
             
             NSString *name = [currentUser objectForKey:@"name"];
@@ -64,14 +65,6 @@
             }];
             
             [sideBarVC.tableView reloadData];
-            
-            //Get the total of Favorites items
-            
-            //Get the total for Recomemnded items
-        }
-        else
-        {
-            NSLog(@"The user is not logged in");
         }
     }
 }
@@ -104,8 +97,8 @@
 {
     [super viewDidLoad];
     
-    [self performSegueWithIdentifier:@"sw_rear" sender:nil];
-    [self performSegueWithIdentifier:@"sw_front" sender:nil];
+    [self performSegueWithIdentifier:@"sw_rear" sender:nil]; //loads the sidebar menu
+    [self performSegueWithIdentifier:@"sw_front" sender:nil]; //loads the favorites biew
 }
 
 
