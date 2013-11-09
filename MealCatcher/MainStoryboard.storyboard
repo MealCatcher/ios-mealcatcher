@@ -441,8 +441,57 @@
                                             <segue destination="94W-HR-Cms" kind="custom" identifier="showFavorites" customClass="SWRevealViewControllerSegue" id="2Hv-Uf-MsG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="asker" id="FQs-Ad-fas" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="asker" id="eTi-67-rYl" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eTi-67-rYl" id="kpz-Hu-Zkw">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="g22-Nw-RjA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="roQ-OK-lkk">
+                                                    <rect key="frame" x="49" y="12" width="132" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nuG-4a-UJS">
+                                                    <rect key="frame" x="201" y="12" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="i6U-pv-pJG">
+                                                    <rect key="frame" x="0.0" y="45" width="320" height="0.0"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" id="6nz-DI-E4f">
+                                                    <rect key="frame" x="0.0" y="45" width="320" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" id="TaJ-wa-XdI">
+                                                    <rect key="frame" x="22" y="15" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bgView" destination="g22-Nw-RjA" id="g6b-8n-AgW"/>
+                                            <outlet property="bottomSeparator" destination="6nz-DI-E4f" id="0js-gL-SIE"/>
+                                            <outlet property="countLabel" destination="nuG-4a-UJS" id="5TY-DM-Ea5"/>
+                                            <outlet property="iconImageView" destination="TaJ-wa-XdI" id="vKp-Ck-9cW"/>
+                                            <outlet property="titleLabel" destination="roQ-OK-lkk" id="2yK-UQ-G1F"/>
+                                            <outlet property="topSeparator" destination="i6U-pv-pJG" id="45P-ke-PXv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="recommended" id="FQs-Ad-fas" customClass="SideBarCell">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQs-Ad-fas" id="FQV-xb-okz">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -453,7 +502,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gBy-XM-yKD">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gBy-XM-yKD">
                                                     <rect key="frame" x="49" y="12" width="132" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -489,55 +538,6 @@
                                             <outlet property="titleLabel" destination="gBy-XM-yKD" id="zvB-Va-fax"/>
                                             <outlet property="topSeparator" destination="ZMk-NN-N1k" id="aLq-9J-ZoP"/>
                                             <segue destination="ags-d1-H2P" kind="custom" identifier="showRecommended" customClass="SWRevealViewControllerSegue" id="zyf-o7-Sxu"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="recommended" id="eTi-67-rYl" customClass="SideBarCell">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eTi-67-rYl" id="kpz-Hu-Zkw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" id="g22-Nw-RjA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="roQ-OK-lkk">
-                                                    <rect key="frame" x="49" y="12" width="132" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nuG-4a-UJS">
-                                                    <rect key="frame" x="201" y="12" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" id="i6U-pv-pJG">
-                                                    <rect key="frame" x="0.0" y="45" width="320" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" id="6nz-DI-E4f">
-                                                    <rect key="frame" x="0.0" y="45" width="320" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" id="TaJ-wa-XdI">
-                                                    <rect key="frame" x="22" y="15" width="16" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="bgView" destination="g22-Nw-RjA" id="g6b-8n-AgW"/>
-                                            <outlet property="bottomSeparator" destination="6nz-DI-E4f" id="0js-gL-SIE"/>
-                                            <outlet property="countLabel" destination="nuG-4a-UJS" id="5TY-DM-Ea5"/>
-                                            <outlet property="iconImageView" destination="TaJ-wa-XdI" id="vKp-Ck-9cW"/>
-                                            <outlet property="titleLabel" destination="roQ-OK-lkk" id="2yK-UQ-G1F"/>
-                                            <outlet property="topSeparator" destination="i6U-pv-pJG" id="45P-ke-PXv"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="signup" id="26c-Vs-GCb" customClass="SideBarCell">
@@ -848,7 +848,10 @@
     </scenes>
     <resources>
         <image name="arrow" width="16" height="16"/>
+        <image name="arrow" width="16" height="16"/>
+        <image name="arrow" width="16" height="16"/>
         <image name="background" width="640" height="1136"/>
+        <image name="check" width="64" height="64"/>
         <image name="check" width="64" height="64"/>
         <image name="envelope" width="16" height="14"/>
         <image name="no_photo" width="400" height="300"/>
