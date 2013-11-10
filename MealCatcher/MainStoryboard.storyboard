@@ -848,10 +848,7 @@
     </scenes>
     <resources>
         <image name="arrow" width="16" height="16"/>
-        <image name="arrow" width="16" height="16"/>
-        <image name="arrow" width="16" height="16"/>
         <image name="background" width="640" height="1136"/>
-        <image name="check" width="64" height="64"/>
         <image name="check" width="64" height="64"/>
         <image name="envelope" width="16" height="14"/>
         <image name="no_photo" width="400" height="300"/>

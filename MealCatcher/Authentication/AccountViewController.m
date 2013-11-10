@@ -102,6 +102,9 @@
                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         if(succeeded)
                         {
+                            //register for push notifications
+                            [self registerPushNotifications];
+                            
                             self.loginSuccessful = YES;
                             [self performSegueWithIdentifier:@"testUnwind" sender:self];
                         }
@@ -112,14 +115,28 @@
             self.loginSuccessful = YES;
             [self performSegueWithIdentifier:@"testUnwind" sender:self];
         }
-        else
+        else //the user exists, just login the user
         {
+            //register for push notifications
+            [self registerPushNotifications];
+            
             self.loginSuccessful = YES;
             [self performSegueWithIdentifier:@"testUnwind" sender:self];
             
         }
     }];
 }
+
+//This method registers the user for push notifications when the user logs in or signs up
+-(void)registerPushNotifications
+{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+}
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

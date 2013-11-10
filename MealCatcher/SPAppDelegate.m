@@ -43,27 +43,36 @@
     [PFFacebookUtils initializeFacebook];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    //Register and configure push notifications
-        [application registerForRemoteNotificationTypes:
-         UIRemoteNotificationTypeBadge |
-         UIRemoteNotificationTypeAlert |
-         UIRemoteNotificationTypeSound];
-    
+
     return YES;
 }
 
 //Method called when the push notification registration is successful
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    PFUser *user = [PFUser currentUser];
+    
+    if(user != nil)
+    {
+        [currentInstallation setObject:[PFUser currentUser] forKey:@"owner"];
+    }
+    
     [currentInstallation saveInBackground];
 }
 
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"failed to register for remote notifications");
+}
+
+
 //Method used to handle a push remote notification
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"this got called");
+    
     [PFPush handlePush:userInfo];
 }
 
