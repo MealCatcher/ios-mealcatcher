@@ -102,7 +102,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwo-19-WwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fqC-Rq-Bcu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="603" y="-1401"/>
+            <point key="canvasLocation" x="585" y="-2089"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="cA5-yI-E2I">
@@ -146,7 +146,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Wf-u6-YiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="-971"/>
+            <point key="canvasLocation" x="1307" y="-1441"/>
+        </scene>
+        <!--Poll House View Controller-->
+        <scene sceneID="vKm-0d-z3S">
+            <objects>
+                <tableViewController id="MCF-0d-QiN" customClass="PollHouseViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="p6t-un-Exf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pollHouseCelll" textLabel="wyV-CK-uA9" style="IBUITableViewCellStyleDefault" id="cMq-1n-zca">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cMq-1n-zca" id="mye-st-UEA">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wyV-CK-uA9">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MCF-0d-QiN" id="yGg-HF-0D5"/>
+                            <outlet property="delegate" destination="MCF-0d-QiN" id="q0Z-rL-yg6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5B-aW-10J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="-1307"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="j9H-UA-u7G">
@@ -193,7 +230,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg9-l0-s38" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hbd-gX-Tmn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="-1726"/>
+            <point key="canvasLocation" x="1307" y="-2196"/>
         </scene>
         <!--Search View Controller - Search-->
         <scene sceneID="bIz-8H-S00">
@@ -261,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09b-gz-i13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="539"/>
+            <point key="canvasLocation" x="1364" y="539"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="WQz-4S-pKx">
@@ -357,7 +394,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDY-VU-jf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VRn-Tk-IfO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1493" y="-260"/>
+            <point key="canvasLocation" x="1839" y="-260"/>
         </scene>
         <!--Main Side View Controller-->
         <scene sceneID="HGl-YL-ACo">
@@ -441,7 +478,7 @@
                                             <segue destination="94W-HR-Cms" kind="custom" identifier="showFavorites" customClass="SWRevealViewControllerSegue" id="2Hv-Uf-MsG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="asker" id="eTi-67-rYl" customClass="SideBarCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="poller" id="eTi-67-rYl" customClass="SideBarCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eTi-67-rYl" id="kpz-Hu-Zkw">
@@ -453,7 +490,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="roQ-OK-lkk">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poller" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="roQ-OK-lkk">
                                                     <rect key="frame" x="49" y="12" width="132" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -488,6 +525,7 @@
                                             <outlet property="iconImageView" destination="TaJ-wa-XdI" id="vKp-Ck-9cW"/>
                                             <outlet property="titleLabel" destination="roQ-OK-lkk" id="2yK-UQ-G1F"/>
                                             <outlet property="topSeparator" destination="i6U-pv-pJG" id="45P-ke-PXv"/>
+                                            <segue destination="MCF-0d-QiN" kind="custom" identifier="showPollHouse" customClass="SWRevealViewControllerSegue" id="iQv-Rb-VkZ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="recommended" id="FQs-Ad-fas" customClass="SideBarCell">
@@ -537,7 +575,7 @@
                                             <outlet property="iconImageView" destination="OdW-SO-Uc7" id="mVT-8V-s8L"/>
                                             <outlet property="titleLabel" destination="gBy-XM-yKD" id="zvB-Va-fax"/>
                                             <outlet property="topSeparator" destination="ZMk-NN-N1k" id="aLq-9J-ZoP"/>
-                                            <segue destination="ags-d1-H2P" kind="custom" identifier="showRecommended" customClass="SWRevealViewControllerSegue" id="zyf-o7-Sxu"/>
+                                            <segue destination="ags-d1-H2P" kind="custom" identifier="showRecommended" customClass="SWRevealViewControllerSegue" id="mks-fi-nDA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="signup" id="26c-Vs-GCb" customClass="SideBarCell">
@@ -775,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7Y-69-Poo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="-669"/>
+            <point key="canvasLocation" x="-34" y="-787"/>
         </scene>
         <!--Recommended View Controller-->
         <scene sceneID="0ko-Hy-pre">

@@ -42,7 +42,7 @@
     
     self.profileLocationLabel.textColor = [UIColor colorWithRed:222.0/255 green:59.0/255 blue:47.0/255 alpha:1.0f];
     self.profileLocationLabel.font = [UIFont fontWithName:fontName size:12.0f];
-
+    
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderWidth = 4.0f;
     self.profileImageView.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:0.5f].CGColor;
@@ -87,8 +87,8 @@
         
         //configure menu items
         //self.menuItems = @[@"favorites", @"recommended", @"account", @"settings", @"logout"];
-        self.menuItems = @[@"favorites", @"recommended", @"asker", @"settings", @"logout"];
-
+        self.menuItems = @[@"favorites", @"recommended", @"poller", @"settings", @"logout"];
+        
     }
     else //If user is logged out
     {
@@ -113,10 +113,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString *identifier = [cell reuseIdentifier];
-   
+    
     if([identifier isEqualToString:@"logout"])
     {
         [PFUser logOut];
@@ -148,7 +148,7 @@
     
     SideBarCell *theCell = (SideBarCell *)cell;
     
-    /*sets the count label to transparent on the following menu items since 
+    /*sets the count label to transparent on the following menu items since
      they're not supposed to show a number */
     if([CellIdentifier isEqualToString:@"logout"])
     {
@@ -174,7 +174,7 @@
     {
         if([PFUser currentUser])
         {
-             theCell.countLabel.hidden = NO;
+            theCell.countLabel.hidden = NO;
             
             //query all the favorites
             PFQuery *recommendedQuery = [PFQuery queryWithClassName:@"Recommendation"];
@@ -189,7 +189,7 @@
                     theCell.countLabel.text = [NSString stringWithFormat:@"%d", [objects count]];
                 }
             }];
-
+            
             
         }
         else
@@ -214,7 +214,7 @@
                     theCell.countLabel.text = [NSString stringWithFormat:@"%d", [objects count]];
                 }
             }];
-
+            
         }
         else
         {
@@ -277,6 +277,18 @@
                 UINavigationController *testController = (UINavigationController *)self.revealViewController.contentViewController;
                 
                 [testController setViewControllers:@[dvc] animated:NO];
+                [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
+            };
+        }
+        else if([segue.identifier isEqualToString:@"showPollHouse"])
+        {
+            NSLog(@"pollhouse menu item is getting tapped");
+            SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue *)segue;
+            
+            swSegue.performBlock = ^(SWRevealViewControllerSegue *rvc_segue, UIViewController *svc, UIViewController* dvc){
+                UINavigationController *navController = (UINavigationController *)self.revealViewController.contentViewController;
+                
+                [navController setViewControllers:@[dvc] animated:NO];
                 [self.revealViewController toggleSidebar:!self.revealViewController.sidebarShowing duration:kGHRevealSidebarDefaultAnimationDuration];
             };
         }

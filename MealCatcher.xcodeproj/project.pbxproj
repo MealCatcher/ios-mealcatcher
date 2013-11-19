@@ -52,6 +52,7 @@
 		5BA555F717D14E63006E3F11 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA555F617D14E63006E3F11 /* RecommendedViewController.m */; };
 		5BA6405C16726419007528BD /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6405916726419007528BD /* DetailsViewController.m */; };
 		5BA640671672646F007528BD /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA640641672646F007528BD /* GTMStringEncoding.m */; };
+		5BB90EDF183B179E00FAD998 /* PollHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB90EDE183B179E00FAD998 /* PollHouseViewController.m */; };
 		5BB9EAF3179CE0B100A0350B /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EAF2179CE0B100A0350B /* Favorite.m */; };
 		5BC6F2BD17D99FC300E4E85F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F2B717D99FC300E4E85F /* README.md */; };
 		5BC6F2BE17D99FC300E4E85F /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F2B817D99FC300E4E85F /* release_notes.md */; };
@@ -129,6 +130,8 @@
 		5BA640641672646F007528BD /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
 		5BA640651672646F007528BD /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
 		5BA640661672646F007528BD /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		5BB90EDD183B179E00FAD998 /* PollHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollHouseViewController.h; sourceTree = "<group>"; };
+		5BB90EDE183B179E00FAD998 /* PollHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollHouseViewController.m; sourceTree = "<group>"; };
 		5BB9EAF1179CE0B100A0350B /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = Model/Favorite.h; sourceTree = "<group>"; };
 		5BB9EAF2179CE0B100A0350B /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = Model/Favorite.m; sourceTree = "<group>"; };
 		5BC6F2B617D99FC300E4E85F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				5B395A3E17D00C7500B8EA58 /* SidebarMenu */,
 				5BA555F517D14E63006E3F11 /* RecommendedViewController.h */,
 				5BA555F617D14E63006E3F11 /* RecommendedViewController.m */,
+				5BB90EDD183B179E00FAD998 /* PollHouseViewController.h */,
+				5BB90EDE183B179E00FAD998 /* PollHouseViewController.m */,
 				5BCA781E16E078330041FA20 /* MCFavoritesViewController.h */,
 				5BCA781F16E078330041FA20 /* MCFavoritesViewController.m */,
 				5B20786316A269D100E3AB0A /* MCSearchViewController.h */,
@@ -566,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB90EDF183B179E00FAD998 /* PollHouseViewController.m in Sources */,
 				5B575E5817CEF84400F9692C /* AccountViewController.m in Sources */,
 				5B575E5717CEF83A00F9692C /* LoginViewController.m in Sources */,
 				5B3B1DC917B55A2A00C5E18B /* GHSidebarSearchViewController.m in Sources */,
