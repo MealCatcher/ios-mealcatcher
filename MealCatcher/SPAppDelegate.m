@@ -11,6 +11,22 @@
 
 @implementation SPAppDelegate
 
+/** EXPERIMENTAL METHOD FOR READING CHECKINS **/
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation
+{
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
+    
+}
+
+/** EXPERIMENTAL METHOD FOR READING CHECKINS **/
+-(void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+}
+
 -(void)setupUI
 {
     UIImage *navImage = [UIImage imageNamed:@"clear_nav_bar.png"];
@@ -22,7 +38,7 @@
 {
     
     //Enabling the network activity indicator in AFNetwork library
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    //[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     //Initialize Test Flight with Meal Catcher Team Token
    [TestFlight takeOff:@"90572434-3d7f-4a17-8a4b-39256eb68bc9"];
@@ -81,11 +97,11 @@
     return [PFFacebookUtils handleOpenURL:url];
 }
 
-
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+/** EXPERIMENTAL METHOD Commented out **/
+/*-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return [PFFacebookUtils handleOpenURL:url];
-}
+}*/
 
 
 @end

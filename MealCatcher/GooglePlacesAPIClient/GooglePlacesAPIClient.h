@@ -8,9 +8,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPClient.h"
+//#import "AFHTTPClient.h"
 
-@interface GooglePlacesAPIClient : AFHTTPClient
+//@interface GooglePlacesAPIClient : AFHTTPClient
+@interface GooglePlacesAPIClient : NSObject
 
 +(GooglePlacesAPIClient *)sharedClient;
 

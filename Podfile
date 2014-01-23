@@ -1,3 +1,5 @@
-platform :ios
+platform :ios, '6.0'
+pod 'AFNetworking', '~> 2.0'
 pod 'Facebook-iOS-SDK', '~> 3.11.1'
 pod 'Parse', '~> 1.2.18'
+pod 'TestFlightSDK', '~> 2.1.4'

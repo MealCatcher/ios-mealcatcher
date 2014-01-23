@@ -71,7 +71,7 @@
 /* Method used to authenticate (signup/sign in) with Facebook in MealCatcher */
 - (void)facebookAuthenticate {
     
-    [PFFacebookUtils logInWithPermissions:@[@"email"] block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils logInWithPermissions:@[@"email,user_checkins"] block:^(PFUser *user, NSError *error) {
         
         //user canceled the login/signup with Facebook
         if(!user)
@@ -114,6 +114,9 @@
             
             self.loginSuccessful = YES;
             [self performSegueWithIdentifier:@"testUnwind" sender:self];
+            
+            /*** GET USER CHECKINS ***/
+            [self getUserCheckins];
         }
         else //the user exists, just login the user
         {
@@ -123,9 +126,62 @@
             self.loginSuccessful = YES;
             [self performSegueWithIdentifier:@"testUnwind" sender:self];
             
+            /*** GET USER CHECKINS ***/
+            [self getUserCheckins];
         }
     }];
 }
+
+
+/****** THIS IS A METHOD TO GET FACEBOOK CHECKINS FOR THE USER ******/
+- (void)getUserCheckins
+{
+
+    NSLog(@"Getting user checkins!!!");
+    
+    [FBRequestConnection startWithGraphPath:@"/me/checkins"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if(!error)
+        {
+            //NSLog(@"Got the user checkins");
+            NSDictionary *checkinsResults = (NSDictionary *)result;
+           id data = [checkinsResults objectForKey:@"data"];
+            
+            for (id specificPlace  in checkinsResults) {
+                NSDictionary *placeDictionary = (NSDictionary *)specificPlace;
+                NSLog(@"The Place: %@", placeDictionary);
+                
+            }
+            
+            if([data isKindOfClass:[NSDictionary class]])
+            {
+                NSLog(@"The place is a dictionary");
+            }
+            else if ([data isKindOfClass:[NSArray class]])
+            {
+                NSLog(@"The place is an array");
+                NSLog(@"Data: %@", data);
+                //NSLog(@"Data Count: %d", [data count]);
+                for (id eachPlace in data) {
+                    //NSLog(@"Each Place: %@", eachPlace);
+                    if([eachPlace isKindOfClass:[NSDictionary class]])
+                    {
+                       // NSLog(@"The eachPlace is a dictionary");
+                        NSDictionary* placeData = (NSDictionary *)[eachPlace objectForKey:@"place"];
+                        if([placeData isKindOfClass:[NSDictionary class]])
+                        {
+                         //   NSLog(@"placeData is a Dictionary");
+                           // NSLog(@"placeData: %@", placeData);
+                            NSDictionary *finalPlace = (NSDictionary *)placeData;
+                            NSLog(@"Place Name: %@", [finalPlace objectForKey:@"name"]);
+                        }
+                    }
+                }
+            }
+        }
+    }];
+}
+
 
 //This method registers the user for push notifications when the user logs in or signs up
 -(void)registerPushNotifications
