@@ -26,13 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    //self.navigationBar.barTintColor
-    //self.navigationBar.barTintColor = [UIColor colorWithRed:(203/255.0) green:(59/255.0) blue:(29/255.0) alpha:1];
-    self.navigationBar.barTintColor = [UIColor colorWithRed:(92/255.0) green:(193/255.0) blue:(173/255.0) alpha:1];
-    
-    //self.navigationBar.barTintColor = [UIColor redColor];
-    self.navigationBar.translucent = NO;
 }
 
 - (void)didReceiveMemoryWarning

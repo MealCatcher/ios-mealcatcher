@@ -9,12 +9,12 @@
 #import "SPAppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
+
 @implementation SPAppDelegate
 
 -(void)setupUI
 {
-    UIImage *navImage = [UIImage imageNamed:@"clear_nav_bar.png"];
-    [[UINavigationBar appearance] setBackgroundImage:navImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:(37.0/255.0) green:(44.0/255.0) blue:(51.0/255.0) alpha:1]];
 }
 
 
@@ -43,6 +43,9 @@
     [PFFacebookUtils initializeFacebook];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //setup navigation bar changes
+    [self setupUI];
 
     return YES;
 }
