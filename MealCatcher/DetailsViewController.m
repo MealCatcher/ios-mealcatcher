@@ -30,6 +30,13 @@
 #define FACEBOOK_SHARE_INDEX 0
 #define PROXIMITY_SHARE_INDEX 1
 
+
+- (IBAction)searchContact:(id)sender {
+    NSLog(@"Search Contact is getting called");
+}
+
+
+
 #pragma mark FacebookFriendPicker Delegate Protocol
 -(void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker
 {
@@ -105,7 +112,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden = NO;
     self.title = @"Details";
+    
+    NSLog(@"Vide did load got called");
 
     //if source vc is favorites, remove add to favorites button
     if([self.vcSource isEqualToString:FAVROITES_CONTROLLER])
@@ -132,7 +143,7 @@
                                     nil];
         
         //Get the Google Place Details
-        [gpClient getPath:@"details/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        /*[gpClient getPath:@"details/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             NSDictionary *result = [responseObject objectForKey:@"result"];
             
@@ -172,13 +183,13 @@
             {
                 NSDictionary *photoDictionary = photoArray[1];
                 NSString *photoReference = [photoDictionary objectForKey:@"photo_reference"];
-                NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
-                [self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];
+                //NSString *urlString = [NSString stringWithFormat:@"%@photo?maxwidth=%d&maxheight=%d&photoreference=%@&sensor=false&key=%@", [gpClient baseURL], 400, 400, photoReference, GOOGLE_API_KEY];
+                //[self.placeImageView setImageWithURL:[NSURL URLWithString:urlString]];
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"This didn't work. Let's try again.");
-        }];
+        }];*/
     }
 }
 

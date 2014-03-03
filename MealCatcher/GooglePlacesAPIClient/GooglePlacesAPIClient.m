@@ -8,7 +8,6 @@
 // TODO: This class might need refactoring
 
 #import "GooglePlacesAPIClient.h"
-#import "AFJSONRequestOperation.h"
 
 static NSString *const kGooglePlacesAPIBaseURLString = @"https://maps.googleapis.com/maps/api/place/";
 
@@ -28,16 +27,16 @@ static NSString *const kGooglePlacesAPIBaseURLString = @"https://maps.googleapis
 
 -(id)initWithBaseURL:(NSURL *)url
 {
-    self = [super initWithBaseURL:url];
+    //self = [super initWithBaseURL:url];
     if(!self)
     {
         return nil;
     }
     
-    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    //[self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     
     //Accept HTTP header
-    [self setDefaultHeader:@"Accept" value:@"application/json"];
+    //[self setDefaultHeader:@"Accept" value:@"application/json"];
     
     return self;
 }

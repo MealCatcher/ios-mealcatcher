@@ -7,7 +7,7 @@
 //
 
 #import "MCSearchViewController.h"
-#import "AFJSONRequestOperation.h"
+//#import "AFJSONRequestOperation.h"
 #import "GooglePlacesAPIClient.h"
 #import "Place.h"
 
@@ -27,6 +27,9 @@
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     [self.searchBar setShowsCancelButton:YES animated:YES];
+    
+    //hide the navigation bar and move the search bar all the way to the top
+    self.navigationController.navigationBarHidden = YES;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -41,10 +44,9 @@
             UITableViewCell *cell = sender;
             NSIndexPath *pathOfCell = [self.tableView indexPathForCell:cell];
             NSInteger rowOfTheCell = [pathOfCell row];
-            NSLog(@"Index of cell: %d", rowOfTheCell);
             
             Place *place = self.results[rowOfTheCell];
-            detailsViewController.restaurantID = place.reference;            
+            detailsViewController.restaurantID = place.reference;
         }
     }
 }
@@ -112,7 +114,7 @@
                                      @"false",
                                      @"sensor",nil];
         
-        [gpClient getPath:@"textsearch/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        /*[gpClient getPath:@"textsearch/json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Here are the results: %@", responseObject);
             
             NSMutableDictionary *results = [[NSMutableDictionary alloc] initWithDictionary:responseObject];
@@ -143,7 +145,7 @@
             NSLog(@"Description: %@", [gpClient description]);
             NSLog(@"Error: %@", [error localizedDescription]);
             NSLog(@"Request: %@",[[operation request] description]);
-        }];
+        }];*/
     }
 }
 
